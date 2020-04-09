@@ -1,11 +1,11 @@
-<h1>ラーメンアプリ</h1>
+<h1>Noodles</h1>
 
 <p>こんにちは <%= @user.name %> さん</p>
 
 <p>
-  ラーメンアプリへようこそ！
+  Noodlesへようこそ！
   以下のリンクをクリックして、アカウントを有効にしてください。
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+<%= link_to "アカウント有効化", edit_account_activation_url(@user.activation_token,
                                                     email: @user.email) %>
