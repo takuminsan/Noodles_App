@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+
+
+    attributes:
+      user:
+        id: ID
+        name: 名前
+        password: パスワード
+        email: Eメール
+        password_confirmation: パスワード確認
+        created_at: 作成日
+        updated_at: 更新日
+        password_digest: 暗号化パスワード
+        remember_digest:
+        admin: 管理者
+        activation_digest:
+        activated: 有効化
+        activated_at: 有効化された時間
+        reset_digest:
+        reset_sent_at:
