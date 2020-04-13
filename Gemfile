@@ -17,6 +17,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails-i18n'
+#画像アップローダー
+gem 'carrierwave'
+#画像処理
+gem 'rmagick'
 
 group :development, :test do
   gem 'sqlite3'
@@ -32,6 +36,7 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+  gem 'fog'
 end
 
 group :test do

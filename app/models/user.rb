@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :image, ImageUploader
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -9,6 +10,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validate  :picture_size
 
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
@@ -80,5 +82,12 @@ class User < ApplicationRecord
     def create_activation_digest
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
+    end
+
+    # アップロードされた画像のサイズをバリデーションする
+    def picture_size
+      if image.size > 5.megabytes
+        errors.add(:image, "画像は5MBより小さくしてください。")
+      end
     end
 end

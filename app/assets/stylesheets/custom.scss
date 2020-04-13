@@ -70,6 +70,25 @@ label {
   }
 }
 
+/* sidebar */
+
+.user_info {
+  background-color: #ffffff;
+  img {
+    margin: 10px;
+  }
+  h3 {
+    display: inline;
+    text-align: left;
+  }
+}
+
+/* edit */
+
+.edit_image {
+  margin: 40px 0 10px 0;
+}
+
 /* footer */
 
 footer {
