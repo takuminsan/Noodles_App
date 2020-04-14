@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "reset.css";
 
 /* mixins */
 
@@ -89,13 +90,29 @@ label {
   margin: 40px 0 10px 0;
 }
 
+/* Users index */
+
+.users {
+  background-color: #ffffff;
+  list-style: none;
+  li {
+    overflow: auto;
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 20px;
+    img {
+      margin-right: 10px;
+    }
+  }
+}
+
 /* footer */
 
 footer {
-  padding: 10px 0 100px 0;
+  padding: 10px 0 70px 0;
   border-top: 1px solid #eaeaea;
-  color: #777;
-  background-color: #fdede4;
+  color: #4e454a;
+  background-color: #ffffff;
 }
 
 .footer_right {
@@ -153,16 +170,4 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
-}
-
-/* Users index */
-
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
-  }
 }
