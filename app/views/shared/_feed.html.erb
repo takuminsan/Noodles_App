@@ -1,0 +1,15 @@
+<% if @feed_items.any? %>
+  <h3>みんなの投稿</h3>
+  <ol class="posts">
+    <%= render @feed_items %>
+  </ol>
+  <%= will_paginate @feed_items %>
+<% else %>
+  <div class="no-posts">
+    <h3>投稿したり、友だちをフォローしてみましょう。</h3>
+    <%= link_to image_tag("/note.png", :size => '100x100', alt: "post_new"),
+                                                              new_post_path %>
+    <%= link_to image_tag("/users.png", :size => '100x100', alt: "user_list"),
+                                                                 users_path %>
+  </div>
+<% end %>

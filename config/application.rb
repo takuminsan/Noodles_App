@@ -14,5 +14,8 @@ module SampleApp
     # デフォルトのlocaleを日本語(:ja)にする
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+    # railsの時刻データを日本時刻にする
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end

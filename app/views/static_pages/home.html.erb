@@ -1,8 +1,19 @@
-<div class="home">
-  <h4>「Noodles」は、好きなラーメン屋さんの情報や写真をお友達と共有できるアプリケーションです。</h4>
-  <%= link_to "登録してみる", signup_path, class: "btn btn-default btn-lg" %>
-  <br>
-  <%= image_tag "/ramen_boy.png", :size => '150x150'%>
-  <%= image_tag "/ramen_boy.png", :size => '150x150'%>
-  <%= image_tag "/ramen_boy.png", :size => '150x150'%>
+<% if logged_in? %>
+<div class="container">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+  </aside>
+  <div class="col-md-9">
+    <%= render 'shared/feed' %>
+  </div>
 </div>
+<% else %>
+  <div class="top-wrapper">
+    <h4>「Noodles」は、好きなラーメン屋さんの情報や写真を友だちと共有できるアプリケーションです。</h4>
+    <%= link_to "登録してみる", signup_path, class: "btn btn-warning btn-lg" %>
+    <br>
+    <%= image_tag "/noodle.png", :size => '150x150'%>
+  </div>
+<% end %>

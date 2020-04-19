@@ -3,7 +3,6 @@ ja:
     errors:
       messages:
 
-
     attributes:
       user:
         id: ID
@@ -21,3 +20,13 @@ ja:
         activated_at: 有効化された時間
         reset_digest:
         reset_sent_at:
+      post:
+        shop_name: 店舗名
+        nearest: 最寄駅
+        content: 説明文
+
+
+  will_paginate:
+    previous_label: 前
+    next_label: 次
+    page_gap: …

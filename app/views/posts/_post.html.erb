@@ -1,0 +1,21 @@
+<li id="post-<%= post.id %>">
+  <% if post.user.image.to_s.empty? %>
+    <%= image_tag "/default_user.png", :size => '70x70'%>
+  <% else %>
+    <%= image_tag post.user.image.url, :size => '70x70'%>
+  <% end %>
+  <span class="user"><%= link_to post.user.name, post.user %></span>
+  <span class="shop_name">店名: <%= post.shop_name %></span>
+  <span class="nearest">最寄駅: <%= post.nearest %></span>
+  <span class="comment">説明文: <%= post.content %></span>
+  <span class="timestamp">
+    <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>に投稿
+  </span>
+  <% if current_user?(post.user) %>
+    <div class="post_menu">
+      <%= link_to "編集", edit_post_path(post) %>　
+      <%= link_to "削除", post, method: :delete,
+                                       data: { confirm: "本当に削除しますか？" } %>
+    </div>
+  <% end %>
+</li>
