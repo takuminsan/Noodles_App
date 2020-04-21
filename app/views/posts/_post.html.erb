@@ -1,10 +1,16 @@
 <li id="post-<%= post.id %>">
-  <% if post.user.image.to_s.empty? %>
-    <%= image_tag "/default_user.png", :size => '70x70'%>
-  <% else %>
-    <%= image_tag post.user.image.url, :size => '70x70'%>
-  <% end %>
-  <span class="user"><%= link_to post.user.name, post.user %></span>
+  <div class="post_header">
+    <% if post.user.image.to_s.empty? %>
+      <%= image_tag "/default_user.png" %>
+    <% else %>
+      <%= image_tag post.user.image.url %>
+    <% end %>
+    <%= link_to post.user.name, post.user %>
+  </div>
+
+  <div class="post_picture">
+    <%= image_tag post.picture.url if post.picture? %>
+  </div>
   <span class="shop_name">店名: <%= post.shop_name %></span>
   <span class="nearest">最寄駅: <%= post.nearest %></span>
   <span class="comment">説明文: <%= post.content %></span>

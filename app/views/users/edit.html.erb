@@ -1,7 +1,6 @@
-<h3>アカウント設定</h3>
-
-<div class="row">
-  <div class="col-md-4 col-md-offset-4">
+<div class="form_page">
+  <div class="form">
+    <h3>アカウント設定</h3>
     <%= form_for(@user,{multipart: true}) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
@@ -20,15 +19,15 @@
       <%=f.label :image,"ユーザー画像" %>
       <div class="edit_image">
         <% if @user.image.to_s.empty? %>
-          <%= image_tag "/default_user.png", :size => '70x70'%>
+          <%= image_tag "/default_user.png" %>
         <% else %>
-          <%= image_tag @user.image.url, :size => '70x70'%>
+          <%= image_tag @user.image.url %>
         <% end %>
       </div>
       <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>
 
 
-      <%= f.submit "変更を保存", class: "btn btn-primary" %>
+      <%= f.submit "変更を保存", class: "btn btn-warning" %>
     <% end %>
   </div>
 </div>

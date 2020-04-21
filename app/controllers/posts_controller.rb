@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:shop_name, :nearest, :content)
+      params.require(:post).permit(:picture, :shop_name, :nearest, :content)
     end
 
     def correct_user

@@ -1,19 +1,22 @@
 <% if logged_in? %>
 <div class="container">
-  <aside class="col-md-3">
+  <aside class="col-md-4">
     <section class="user_info">
       <%= render 'shared/user_info' %>
     </section>
   </aside>
-  <div class="col-md-9">
-    <%= render 'shared/feed' %>
+  <div class="col-md-8">
+    <section class="post_section">
+      <%= render 'shared/feed' %>
+    </section>
   </div>
 </div>
 <% else %>
-  <div class="top-wrapper">
-    <h4>「Noodles」は、好きなラーメン屋さんの情報や写真を友だちと共有できるアプリケーションです。</h4>
-    <%= link_to "登録してみる", signup_path, class: "btn btn-warning btn-lg" %>
-    <br>
-    <%= image_tag "/noodle.png", :size => '150x150'%>
+  <div class="row">
+    <div class="col-md-12 top_title">
+      <h3>「Noodles」は、好きなラーメン屋さんの情報や写真を</h3>
+      <h3>友だちと共有できるアプリケーションです。</h3>
+      <%= link_to "登録する", signup_path, class: "btn btn-warning btn-lg" %>
+    </div>
   </div>
 <% end %>

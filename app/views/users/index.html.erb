@@ -1,23 +1,23 @@
-<h3>利用者一覧</h3>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="users_page">
+  <h3>利用者一覧</h3>
     <%= will_paginate %>
     <ul class="users">
       <% @users.each do |user| %>
         <li>
-          <% if user.image.to_s.empty? %>
-            <%= image_tag "/default_user.png", :size => '50x50'%>
-          <% else %>
-            <%= image_tag user.image.url, :size => '50x50'%>
-          <% end %>
-          <%= link_to user.name, user %>
-          <% if current_user.admin? && !current_user?(user) %>
-          | <%= link_to "削除", user, method: :delete,
-                                      data: { confirm: "本当に削除しますか？" } %>
-          <% end %>
+          <div class="user">
+            <% if user.image.to_s.empty? %>
+              <%= image_tag "/default_user.png" %>
+            <% else %>
+              <%= image_tag user.image.url %>
+            <% end %>
+            <%= link_to user.name, user %>
+            <% if current_user.admin? && !current_user?(user) %>
+              | <%= link_to "削除", user, method: :delete,
+                                          data: { confirm: "本当に削除しますか？" } %>
+            <% end %>
+          </div>
         </li>
       <% end %>
     </ul>
     <%= will_paginate %>
-  </div>
 </div>
