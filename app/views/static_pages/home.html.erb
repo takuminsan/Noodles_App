@@ -3,10 +3,11 @@
   <aside class="col-md-4">
     <section class="user_info">
       <%= render 'shared/user_info' %>
+      <%= link_to "投稿する", new_post_path, class: "btn btn-warning btn-lg btn-block" %>
     </section>
   </aside>
   <div class="col-md-8">
-    <section class="post_section">
+    <section class="main_section">
       <%= render 'shared/feed' %>
     </section>
   </div>

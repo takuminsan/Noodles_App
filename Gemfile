@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
-gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
+gem 'rails'
 gem 'jquery-rails'
 gem 'bcrypt',         '3.1.12'
 gem 'will_paginate'
