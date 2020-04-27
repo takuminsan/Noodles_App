@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.5'
 
 gem 'rails'
+gem 'mysql2'
 gem 'jquery-rails'
 gem 'bcrypt',         '3.1.12'
 gem 'will_paginate'
@@ -17,13 +18,13 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails-i18n'
+gem 'dotenv-rails'
 #画像アップローダー
 gem 'carrierwave'
 #画像処理
 gem 'rmagick'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -35,7 +36,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
   gem 'fog'
 end
 
