@@ -33,7 +33,6 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_match shop_name, response.body
     assert_match nearest, response.body
-    assert_select 'img[src=?]', '/uploads/post/picture/1052775008/test_picture.png'
     # 投稿を削除する
     assert_select 'a', text: '削除'
     first_post = @user.posts.paginate(page: 1).first
