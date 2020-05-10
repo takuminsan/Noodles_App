@@ -37,6 +37,7 @@ end
 
 group :production do
   gem 'fog-aws'
+  gem 'aws-sdk-s3'
 end
 
 group :production, :staging do
