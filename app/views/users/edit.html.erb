@@ -1,7 +1,9 @@
 <div class="form_page">
   <div class="form">
     <h3>アカウント設定</h3>
-    <p class="caution">※「お試しログイン」の場合、アカウント情報の変更はできません。</p>
+    <% if @user == @test_user %>
+      <p class="caution">※「お試しログイン」の場合、アカウント情報の変更はできません。</p>
+    <% end %>
     <%= form_for(@user,{multipart: true}) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
