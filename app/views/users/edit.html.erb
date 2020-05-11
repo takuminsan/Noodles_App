@@ -1,20 +1,21 @@
 <div class="form_page">
   <div class="form">
     <h3>アカウント設定</h3>
+    <p class="caution">※「お試しログイン」の場合、アカウント情報の変更はできません。</p>
     <%= form_for(@user,{multipart: true}) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :名前 %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, readonly: @user == @test_user, class: 'form-control' %>
 
       <%= f.label :メールアドレス %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, readonly: @user == @test_user, class: 'form-control' %>
 
       <%= f.label :パスワード %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, readonly: @user == @test_user, class: 'form-control' %>
 
       <%= f.label :パスワード（確認） %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, readonly: @user == @test_user, class: 'form-control' %>
 
       <%=f.label :image,"ユーザー画像" %>
       <div class="edit_image">
@@ -24,9 +25,9 @@
           <%= image_tag @user.image.url %>
         <% end %>
       </div>
-      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>
-
-
+      <% if @user != @test_user %>
+        <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>
+      <% end %>
       <%= f.submit "変更を保存", class: "btn btn-warning" %>
     <% end %>
   </div>
