@@ -97,17 +97,24 @@ header {
 .top_title {
   position: absolute;
   width: 100%;
-  top: 35%;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
   h3 {
     color: #ffffff;
   }
-  .btn {
+  a {
     margin-top: 20px;
-    padding: 10px 100px;
     opacity: 0.9;
+    width: 274px;
+    font-size: 13px;
+  }
+  input {
+    margin-top: 20px;
+    opacity: 0.9;
+    width: 274px;
+    padding: 20px 0;
   }
 }
 
@@ -266,6 +273,11 @@ header {
     width: 70px;
     height: 70px;
   }
+}
+
+.caution {
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 /* Users index */

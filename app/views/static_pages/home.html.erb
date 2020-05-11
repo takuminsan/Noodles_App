@@ -17,7 +17,12 @@
     <div class="col-md-12 top_title">
       <h3>「Noodles」は、好きなラーメン屋さんの情報や写真を</h3>
       <h3>友だちと共有できるアプリケーションです。</h3>
-      <%= link_to "登録する", signup_path, class: "btn btn-warning btn-lg" %>
+      <%= form_for(:session, url: login_path) do |f| %>
+        <%= f.hidden_field :email, value: "test@test-user.com" %>
+        <%= f.hidden_field :password, value: "password" %>
+        <%= f.submit "お試しログイン", class: "btn btn-warning btn-lg" %>
+      <% end %>
+      <%= link_to "ユーザー登録する", signup_path, class: "btn btn-default btn-lg" %>
     </div>
   </div>
 <% end %>

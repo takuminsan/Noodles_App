@@ -51,4 +51,14 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     log_in_as(@user, remember_me: '0')
     assert_empty cookies['remember_token']
   end
+
+  test "login as test-user" do
+    get root_path
+    post login_path, params: { session: { email:    'test@test-user.com',
+                                          password: 'password' } }
+    assert is_logged_in?
+    assert_redirected_to root_path
+    follow_redirect!
+    assert_template '/'
+  end
 end
