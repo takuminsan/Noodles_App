@@ -63,4 +63,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get followers_user_path(@user)
     assert_redirected_to login_url
   end
+
+  test "should redirect likes when not logged in" do
+    get likes_user_path(@user)
+    assert_redirected_to login_url
+  end
 end

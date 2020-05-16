@@ -22,7 +22,8 @@
         <%= f.hidden_field :password, value: "password" %>
         <%= f.submit "お試しログイン", class: "btn btn-warning btn-lg" %>
       <% end %>
-      <%= link_to "ユーザー登録する", signup_path, class: "btn btn-default btn-lg" %>
+      <h3>or</h3>
+      <%= link_to "ユーザー登録してログイン", signup_path, class: "btn btn-default btn-lg" %>
     </div>
   </div>
 <% end %>
