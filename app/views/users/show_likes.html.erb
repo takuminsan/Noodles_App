@@ -1,0 +1,34 @@
+<div class="container">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+      <%= render 'follow_form' if logged_in? %>
+      <% if @user == current_user %>
+        <%= link_to "投稿する", new_post_path, class: "btn btn-warning btn-lg btn-block" %>
+      <% end %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <div class="main_section">
+      <div class="section_title">
+        <ul>
+          <li><%= link_to "投稿 (#{@user.posts.count})", @user %></li>
+          <li><%= link_to "食べたい！(#{@user.likes.count})", likes_user_path(@user), class: "current" %></li>
+        </ul>
+      </div>
+      <% if @posts.any? %>
+        <ul class="posts like">
+          <% @posts.each do |post| %>
+            <%= render 'posts/post', post: post %>
+          <% end %>
+        </ul>
+        <%= will_paginate @posts %>
+      <% else %>
+        <div class="no-contents">
+          <h3><%= @user.name %>の「食べたい！」はありません。</h3>
+          <%= image_tag "/noodle.png", :size => '100x100' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

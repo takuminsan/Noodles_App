@@ -8,7 +8,8 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
   test "profile display" do
     get user_path(@user)
     assert_template 'users/show'
-    assert_select 'h3', text: "#{@user.name}の投稿 (#{@user.posts.count})"
+    assert_select 'a', text: "投稿 (#{@user.posts.count})"
+    assert_select 'a', text: "食べたい！(#{@user.likes.count})"
     assert_match @user.posts.count.to_s, response.body
     assert_select 'div.pagination'
   end

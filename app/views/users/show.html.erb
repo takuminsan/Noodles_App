@@ -11,7 +11,10 @@
   <div class="col-md-8">
     <section class="main_section">
       <div class="section_title">
-        <h3><%= @user.name %>の投稿 (<%= @user.posts.count %>)</h3>
+        <ul>
+          <li><%= link_to "投稿 (#{@user.posts.count})", @user, class: "current" %></li>
+          <li><%= link_to "食べたい！(#{@user.likes.count})", likes_user_path(@user) %></li>
+        </ul>
       </div>
       <% if @user.posts.any? %>
         <ol class="posts">
