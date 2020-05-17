@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
-  scope :recent, -> { order(updated_at: :desc) }
+  scope :recent, -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :shop_name, presence: true, length: { maximum: 20 }
