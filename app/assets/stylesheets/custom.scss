@@ -105,13 +105,13 @@ header {
     color: #ffffff;
   }
   a {
-    margin-top: 45px;
+    margin-top: 27px;
     opacity: 0.9;
     width: 274px;
     font-size: 13px;
   }
   input {
-    margin: 35px 0;
+    margin: 35px 0 10px 0;
     opacity: 0.9;
     width: 274px;
     padding: 20px 0;
@@ -318,7 +318,6 @@ header {
   list-style: none;
   width: 700px;
   margin: 50px auto;
-  padding: 0 0 30px 0;
   background-color: #ffffff;
   border: 1px solid #eaeaea;
   border-radius: 5px;
@@ -327,12 +326,9 @@ header {
     padding: 30px 0;
     margin: 0;
   }
-  .pagination {
-    margin: 0;
-  }
 }
 .users {
-  margin: 30px 0;
+  margin: 0;
   li {
     overflow: auto;
     padding: 10px 10px 10px 30px;
@@ -457,6 +453,7 @@ input {
 /* pagination */
 
 .pagination {
+  margin: 20px 10px;
   li {
     a {
       color: #4e454a;
