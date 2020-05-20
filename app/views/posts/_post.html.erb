@@ -6,23 +6,31 @@
       <%= link_to image_tag(post.user.image.url), post.user %>
     <% end %>
     <span><%= link_to post.user.name, post.user %> が食べたラーメン</span>
+    <% if current_user?(post.user) %>
+      <div class="post_menu">
+        <%= link_to "編集", edit_post_path(post) %>　
+        <%= link_to "削除", post, method: :delete,
+                                           data: { confirm: "本当に削除しますか？" } %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="post_picture">
-    <%= image_tag post.picture.url if post.picture? %>
-  </div>
-  <span class="shop_name">店名: <%= post.shop_name %></span>
-  <span class="nearest">最寄駅: <%= post.nearest %></span>
-  <span class="comment">説明文: <%= simple_format(post.content) %></span>
-  <span class="like"><%= render "likes/like", post: post %></span>
-  <span class="timestamp">
-    <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>に投稿
-  </span>
-  <% if current_user?(post.user) %>
-    <div class="post_menu">
-      <%= link_to "編集", edit_post_path(post) %>　
-      <%= link_to "削除", post, method: :delete,
-                                       data: { confirm: "本当に削除しますか？" } %>
+  <div class="post_container">
+    <div class="col-md-6">
+      <div class="post_picture">
+        <%= image_tag post.picture.url if post.picture? %>
+      </div>
     </div>
-  <% end %>
+    <div class="col-md-6">
+      <div class="post_information">
+        <span class="shop_name">店名: <%= post.shop_name %></span>
+        <span class="nearest">最寄駅: <%= post.nearest %></span>
+        <span class="comment">説明文: <%= simple_format(post.content) %></span>
+        <div class="post_information_bottom">
+          <span class="post_show"><%= link_to "もっと見る", post_path(post.id) %></span>
+          <span class="like"><%= render "likes/like", post: post %></span>
+          <span class="timestamp"><%= post.created_at.strftime('%Y/%m/%d %H:%M') %>に投稿</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </li>

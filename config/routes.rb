@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :posts,               only: [:new, :create, :edit, :update, :destroy]
+  resources :posts,               only: [:new, :create, :edit, :show, :update, :destroy]
   resources :relationships,       only: [:create, :destroy]
   post '/posts/new', to: 'posts#create'
   patch '/posts/:id/edit', to: 'posts#update'

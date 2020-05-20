@@ -1,6 +1,6 @@
 <% if @feed_items.any? %>
   <div class="section_title">
-    <h3>最新投稿</h3>
+    <h3>みんなの投稿</h3>
   </div>
   <ol class="posts">
     <%= render @feed_items %>
@@ -8,7 +8,7 @@
   <%= will_paginate @feed_items %>
 <% else %>
   <div class="section_title">
-    <h3>最新投稿</h3>
+    <h3>みんなの投稿</h3>
   </div>
   <div class="no-contents">
     <h3>ここにあなたや友だちの投稿が表示されます。</h3>
