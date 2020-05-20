@@ -12,8 +12,8 @@
     <section class="main_section">
       <div class="section_title">
         <ul>
-          <li><%= link_to "投稿 (#{@user.posts.count})", @user, class: "current" %></li>
-          <li><%= link_to "食べたい！(#{@user.likes.count})", likes_user_path(@user) %></li>
+          <li><%= link_to "投稿 (#{@user.posts.count})", @user, class: "one current" %></li>
+          <li><%= link_to "食べたい！(#{@user.likes.count})", likes_user_path(@user), class: "two" %></li>
         </ul>
       </div>
       <% if @user.posts.any? %>

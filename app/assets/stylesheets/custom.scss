@@ -23,7 +23,6 @@
   padding: 0 30px 30px 30px;
   background-color: #ffffff;
   text-align: center;
-  border: 1px solid #eaeaea;
   border-radius: 5px;
   h3 {
     padding: 30px 0;
@@ -45,6 +44,7 @@ h1, h2, h3, h4, h5, h6, p, label {
 html, body {
   height: 100%;
   overscroll-behavior-y: none;
+  word-wrap: break-word;
 }
 
 #wrapper {
@@ -124,7 +124,6 @@ header {
   background-color: #ffffff;
   margin-top: 50px;
   padding: 20px;
-  border: 1px solid #eaeaea;
   border-radius: 5px;
   .user_image {
     text-align: center;
@@ -164,7 +163,6 @@ header {
 .main_section {
   margin: 50px 0;
   background-color: #ffffff;
-  border: 1px solid #eaeaea;
   border-radius: 5px;
   .section_title {
     height: 60px;
@@ -174,10 +172,10 @@ header {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      float: left;
+      text-align: right;
       margin: 0;
       font-size: 20px;
-      padding: 18px 25px;
+      padding: 18px 20px;
     }
     ul {
       position: absolute;
@@ -193,14 +191,19 @@ header {
         a {
           color: #4e454a;
           text-decoration: none;
-          padding: 18px 25px;
+          padding: 18px 25px 19px 25px;
+          border-bottom: 2px;
           font-size: 20px;
           &:hover {
             background-color: #eeeeee;
           }
         }
+        .one {
+          border-radius: 5px 0 0 0;
+        }
       }
       .current {
+        padding-bottom: 17px;
         border-bottom: 2px solid #4e454a;
       }
     }
@@ -208,81 +211,101 @@ header {
   .posts {
     list-style: none;
     padding: 0;
-    margin-bottom: 3px;
-    li {
-      padding-bottom: 25px;
-      margin: 0;
-      background-color: #ffffff;
+    .post_header {
       border-top: 1px solid #eaeaea;
-      .post_header {
-        padding: 5px 15px;
-        height: 60px;
-        position: relative;
-        img {
-          @include user_image;
-          width: 50px;
-          height: 50px;
-        }
-        span {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          display: inline;
-          font-size: 17px;
-          margin-left: 20px;
-          a {
-            color: #4e454a;
-          }
+      padding: 10px 20px;
+      height: 70px;
+      position: relative;
+      img {
+        @include user_image;
+        width: 50px;
+        height: 50px;
+      }
+      span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline;
+        font-size: 17px;
+        margin-left: 20px;
+        a {
+          color: #4e454a;
         }
       }
+      .post_menu {
+        float: right;
+        margin: 14px 0;
+        a {
+          color: #4e454a;
+        }
+      }
+    }
+    .post_container {
+      height: 230px;
+      padding: 0 5px 30px 5px;
       .post_picture {
         width: 100%;
-        height: 502px;
+        height: 200px;
         text-align: center;
         background-color: #f5f5f5;
-        border-top: 1px solid #eaeaea;
-        border-bottom: 1px solid #eaeaea;
+        border: 1px solid #eaeaea;
+        border-radius: 4px;
         img {
           object-fit: cover;
           max-width: 100%;
           max-height: 100%;
         }
       }
-      .shop_name {
-        display: block;
-        margin-left: 15px;
-        margin-top: 15px;
-        font-size: 20px;
-        font-weight: bold;
-      }
-      .nearest {
-        display: block;
-        margin-left: 15px;
-        margin-top: 15px;
-        font-size: 15px;
-      }
-      .comment {
-        display: block;
-        margin-left: 15px;
-        font-size: 15px;
-      }
-      .like {
-        display: inline-block;
-        margin-left: 15px;
-        margin-top: 15px;
-      }
-      .timestamp {
-        display: inline-block;
-        float: right;
-        margin-right: 15px;
-        margin-top: 15px;
-      }
-      .post_menu {
-        display: block;
-        text-align: right;
-        margin: 0 15px 0 0;
-        a {
-          color: #4e454a;
+      .post_information {
+        height: 200px;
+        position: relative;
+        .shop_name {
+          display: block;
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 20px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .nearest {
+          display: block;
+          font-size: 15px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .comment {
+          width: 100%;
+          display: block;
+          font-size: 15px;
+          p {
+            margin: 0;
+            width: 100%;
+            height: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+        .post_information_bottom {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          text-align: right;
+          .post_show {
+            display: block;
+            margin-bottom: 20px;
+            a {
+              color: #808080;
+            }
+          }
+          .like {
+            display: block;
+          }
+          .timestamp {
+            display: block;
+          }
         }
       }
     }
@@ -298,6 +321,54 @@ header {
   border-top: 1px solid #eaeaea;
   img {
     margin: 30px 15px 0 15px;
+  }
+}
+
+/* post_show */
+.post_show_page {
+  padding: 0 20px 20px 20px;
+  .post_picture {
+    width: 100%;
+    height: 498px;
+    text-align: center;
+    background-color: #f5f5f5;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    img {
+      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  .post_information {
+    margin-top: 20px;
+    .shop_name {
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .nearest {
+      display: block;
+      font-size: 15px;
+    }
+    .comment {
+      display: block;
+      font-size: 15px;
+      p {
+        margin: 0;
+      }
+    }
+    .post_information_bottom {
+      margin-top: 20px;
+      height: 22px;
+      .like {
+        float: left;
+      }
+      .timestamp {
+        float: right;
+      }
+    }
   }
 }
 
@@ -324,7 +395,6 @@ header {
   width: 700px;
   margin: 50px auto;
   background-color: #ffffff;
-  border: 1px solid #eaeaea;
   border-radius: 5px;
   h3 {
     text-align: center;

@@ -6,6 +6,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
   end
 
   test "profile display" do
+    log_in_as(@user)
     get user_path(@user)
     assert_template 'users/show'
     assert_select 'a', text: "投稿 (#{@user.posts.count})"
