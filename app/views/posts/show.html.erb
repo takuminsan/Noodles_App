@@ -27,7 +27,7 @@
               </div>
             <% end %>
           </div>
-          <div class="post_show_page">
+          <div class="post_show">
             <div class="post_picture">
               <%= image_tag @post.picture.url if @post.picture? %>
             </div>
@@ -40,9 +40,24 @@
                 <span class="timestamp"><%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>に投稿</span>
               </div>
             </div>
+            <div class="post_map">
+              <div id="map">
+              </div>
+            </div>
           </div>
         </li>
       </ol>
     </section>
   </div>
 </div>
+
+<script>
+  let mapInstance
+  function initMap(){
+    mapInstance = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644}, // 地図の中心を指定
+    zoom: 8 // 地図のズームを指定
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GCP[:API_KEY] %>&callback=initMap" defer></script>

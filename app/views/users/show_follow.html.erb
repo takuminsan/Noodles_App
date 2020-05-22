@@ -14,7 +14,7 @@
         <h3><%= @title %></h3>
       </div>
       <% if @users.any? %>
-        <ul class="users follow">
+        <ul class="users_index">
           <% @users.each do |user| %>
             <%= render 'users/user', user: user %>
           <% end %>
