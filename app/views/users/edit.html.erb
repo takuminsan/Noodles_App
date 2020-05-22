@@ -30,7 +30,7 @@
       <% if @user != @test_user %>
         <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>
       <% end %>
-      <%= f.submit "変更を保存", class: "btn btn-warning" %>
+      <%= f.submit "変更を保存", class: "btn btn-warning btn-block" %>
     <% end %>
   </div>
 </div>

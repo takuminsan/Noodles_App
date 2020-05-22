@@ -1,6 +1,6 @@
-<div class="users_page">
+<div class="users">
   <h3>利用者一覧</h3>
-  <ul class="users">
+  <ul class="users_index">
     <% @users.each do |user| %>
       <%= render 'users/user', user: user %>
     <% end %>

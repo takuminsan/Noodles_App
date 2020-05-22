@@ -19,10 +19,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails-i18n'
 gem 'dotenv-rails'
-#画像アップローダー
-gem 'carrierwave'
-#画像処理
-gem 'rmagick'
+gem 'carrierwave' #画像アップローダー
+gem 'rmagick' #画像処理
+gem 'geocoder' #mapの経度緯度を取得
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
