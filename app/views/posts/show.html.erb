@@ -50,14 +50,4 @@
     </section>
   </div>
 </div>
-
-<script>
-  let mapInstance
-  function initMap(){
-    mapInstance = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644}, // 地図の中心を指定
-    zoom: 8 // 地図のズームを指定
-    });
-  }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GCP[:API_KEY] %>&callback=initMap" defer></script>
+<%= render 'posts/show_map' %>
