@@ -425,9 +425,9 @@ header {
   }
 }
 
-/* map */
+/* post_search_map */
 
-.map {
+.post_search_map {
   padding: 20px;
   margin: 50px 0;
   background-color: #ffffff;
@@ -446,6 +446,9 @@ header {
   }
   .btn {
     margin: 10px 0;
+  }
+  .current_position {
+    float: right;
   }
   #map_index {
     height: 600px;

@@ -1,19 +1,40 @@
-/*
-index.html.erbのscript内に
-google mapのインスタンス変数である、
-mapという変数があることに留意
-*/
+var posts = <%= @posts %>;
+console.log(posts);
+var geocoder;
+var marker = [];
+var infoWindow = [];
+function initMap(){
+  geocoder = new google.maps.Geocoder();
+  for (let i = 0; i < posts.length; i++) {
+    (function(pram) {
+      setTimeout(function() {
+        geocoder.geocode({
+          'address': posts[pram].shop_name + " " + posts[pram].nearest
+        }, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            marker[pram] = new google.maps.Marker({
+              position: results[0].geometry.location,
+              map: map,
+              animation: google.maps.Animation.DROP
+            });
+            infoWindow[pram] = new google.maps.InfoWindow({
+              content: posts[pram].shop_name + "<br>"
+                + "<a href='https://noodles-app.com/posts/" + posts[pram].id + "' target='_blank'>このお店に関する投稿を見る</a>",
+              map: map
+            });
+            markerEvent(pram);
+          } else {
+            console.log(status);
+          }
+        });
+      }, pram * 1000);
+    })(i);
+  }
+};
+initMap();
 
-(function(){
-  // 位置情報をもつ変数を用意
-  let pos = new google.maps.LatLng(
-   <%= @latlng[0] %>, //latitude
-   <%= @latlng[1] %>  //longitude
-  );
-
-  mapInstance.setCenter(pos)
-  let marker = new google.maps.Marker({
-    map: mapInstance,
-    position: pos
+function markerEvent(i) {
+  marker[i].addListener('click', function() { // マーカーをクリックしたとき
+    infoWindow[i].open(map, marker[i]); // 吹き出しの表示
   });
-})()
+}

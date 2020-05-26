@@ -1,26 +1,35 @@
 <div class="container">
-  <div class="map">
+  <div class="post_search_map">
     <h3>地図から投稿を検索</h3>
     <%= form_with url: map_request_path, method: :get do |f|%>
-      <span><%= f.radio_button :posts, "post_all", checked: true %>全ての投稿</span>
-      <span><%= f.radio_button :posts, "post_following" %>フォローしているユーザーの投稿</span>
-      <span><%= f.radio_button :posts, "my_post" %>自分の投稿</span>
+      <span><%= f.radio_button :posts, "current_user", checked: true %>自分の投稿</span>
+      <span><%= f.radio_button :posts, "following" %>自分とフォロー中のユーザーの投稿</span>
       <%= f.submit '投稿されたお店を表示', class: "btn btn-primary" %>
+      <button type="button" class="btn current_position" onclick="getLocation()">
+        地図を現在地周辺に切り替え</button>
     <% end %>
     <div id="map_index">
     </div>
   </div>
 </div>
-
-
-
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GCP[:API_KEY] %>&callback=initMap" async defer></script>
 <script>
-  let mapInstance
+  var map
   function initMap(){
-    mapInstance = new google.maps.Map(document.getElementById('map_index'), {
-    center: {lat: -34.397, lng: 150.644}, // 地図の中心を指定
-    zoom: 8 // 地図のズームを指定
+    map = new google.maps.Map(document.getElementById('map_index'), {
+    center: {lat: 37.67229496806523, lng: 137.88838989062504}, // 地図の中心を指定
+    zoom: 6 // 地図のズームを指定
     });
   }
+  function getLocation(){
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var latlng = new google.maps.LatLng(latitude, longitude);
+        map.setCenter(latlng);
+        map.setZoom(10);
+      }
+    );
+  }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GCP[:API_KEY] %>&callback=initMap" defer></script>
