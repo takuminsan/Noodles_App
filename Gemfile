@@ -21,7 +21,6 @@ gem 'rails-i18n'
 gem 'dotenv-rails'
 gem 'carrierwave' #画像アップローダー
 gem 'rmagick' #画像処理
-gem 'geocoder' #mapの経度緯度を取得
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

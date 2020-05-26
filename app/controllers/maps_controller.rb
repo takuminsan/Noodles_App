@@ -5,12 +5,13 @@ class MapsController < ApplicationController
   end
 
   def map
-    results = Geocoder.search(params[:address])
-    @latlng = results.first.coordinates
-    # これでmap.js.erbで、経度緯度情報が入った@latlngを使える。
-
+    if params[:posts] == "current_user"
+      @posts = current_user.posts.to_json.html_safe
+    elsif params[:posts] == "following"
+      @posts = current_user.feed.to_json.html_safe
+    end
     respond_to do |format|
-      format.js
+      format.js { @posts }
     end
   end
 end
