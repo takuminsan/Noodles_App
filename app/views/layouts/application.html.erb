@@ -7,7 +7,7 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="content">
+    <div class="contents">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %> col-md-12"><%= message %></div>
       <% end %>

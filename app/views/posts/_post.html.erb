@@ -24,7 +24,7 @@
       <div class="post_information">
         <span class="shop_name">店名: <%= post.shop_name %></span>
         <span class="nearest">最寄駅: <%= post.nearest %></span>
-        <span class="comment">説明文: <%= simple_format(post.content) %></span>
+        <span class="content">説明文: <%= simple_format(post.content) %></span>
         <div class="post_information_bottom">
           <span class="more"><%= link_to "もっと見る", post_path(post.id) %></span>
           <span class="like"><%= render "likes/like", post: post %></span>

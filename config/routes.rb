@@ -19,9 +19,13 @@ Rails.application.routes.draw do
 #パスワードのリセット
   resources :password_resets,     only: [:new, :create, :edit, :update]
 #投稿
-  resources :posts,               only: [:new, :create, :edit, :show, :update, :destroy]
+  resources :posts,               only: [:new, :create, :edit, :show, :update, :destroy] do
+    resources :comments, only: [:create, :destroy]
+  end
   post '/posts/new', to: 'posts#create'
   patch '/posts/:id/edit', to: 'posts#update'
+  get '/posts/:id/comments', to: 'posts#show'
+  post '/posts/:id/comments', to: 'comments#create'
 #フォロー
   resources :relationships,       only: [:create, :destroy]
 #食べたい！（いいね機能）
