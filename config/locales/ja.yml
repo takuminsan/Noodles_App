@@ -24,6 +24,8 @@ ja:
         shop_name: 店舗名
         nearest: 最寄駅
         content: 説明文
+      comment:
+        content: コメント
 
 
   will_paginate:

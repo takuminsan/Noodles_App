@@ -1,0 +1,23 @@
+<% @comments.each do |comment| %>
+  <li id="comment-<%= comment.id %>">
+    <div class="comment_left">
+      <% if comment.user.image.to_s.empty? %>
+        <%= link_to image_tag("/default_user.png"), comment.user %>
+      <% else %>
+        <%= link_to image_tag(comment.user.image.url), comment.user %>
+      <% end %>
+    </div>
+    <div class="comment_right">
+      <span class="comment_user_name"><%= link_to comment.user.name, comment.user %></span>
+      <span class="comment_content"><%= comment.content %></span>
+      <span class="comment_timestamp"><%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>にコメント</span>
+      <% if current_user?(comment.user) %>
+        <span class="comment_destroy">
+          <%= link_to "削除", [@post, comment], method: :delete,
+                                             data: { confirm: "本当に削除しますか？" } %>
+          |　
+        </span>
+      <% end %>
+    </div>
+  </li>
+<% end %>

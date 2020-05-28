@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: good.
+  user: michael
+  post: one
+
+two:
+  content: nice.
+  user: archer
+  post: two
