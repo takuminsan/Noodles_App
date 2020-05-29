@@ -1,0 +1,21 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GCP[:API_KEY] %>&callback=initMap" async defer></script>
+<script>
+  var map
+  function initMap(){
+    map = new google.maps.Map(document.getElementById('map_index'), {
+    center: {lat: 37.67229496806523, lng: 137.88838989062504}, // 地図の中心を指定
+    zoom: 6 // 地図のズームを指定
+    });
+  }
+  function getLocation(){
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var latlng = new google.maps.LatLng(latitude, longitude);
+        map.setCenter(latlng);
+        map.setZoom(10);
+      }
+    );
+  }
+</script>

@@ -13,19 +13,9 @@
       <ol class="posts">
         <li id="post-<%= @post.id %>">
           <div class="post_header" style="border-top: none;">
-            <% if @post.user.image.to_s.empty? %>
-              <%= link_to image_tag("/default_user.png"), @post.user %>
-            <% else %>
-              <%= link_to image_tag(@post.user.image.url), @post.user %>
-            <% end %>
+            <%= render '/shared/user_image', { user: @post.user } %>
             <span><%= link_to @post.user.name, @post.user %> が食べたラーメン</span>
-            <% if current_user?(@post.user) %>
-              <div class="post_menu">
-                <%= link_to "編集", edit_post_path(@post) %>　
-                <%= link_to "削除", @post, method: :delete,
-                                                   data: { confirm: "本当に削除しますか？" } %>
-              </div>
-            <% end %>
+            <%= render '/posts/post_menu', { post: @post } %>
           </div>
           <div class="post_show">
             <div class="post_picture">
@@ -41,8 +31,7 @@
               </div>
             </div>
             <div class="post_map">
-              <div id="map">
-              </div>
+              <div id="map"></div>
             </div>
             <div class="post_comments">
               <h4>コメント（<%= @post.comments.count %>）</h4>
