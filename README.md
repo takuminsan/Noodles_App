@@ -1,24 +1,19 @@
-# README
+1. アプリケーションの概要
+  どういう用途のサービスなのかを一番上に簡潔に（1行で）まとめる
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2. アプリケーションの機能一覧
+  ・記事投稿機能
+  ・記事にコメントを付ける機能
+  ・認証機能
+  ・ページネーション機能
+  など、そのアプリケーションが実装している機能の一覧を簡潔に記述
+  
+3. アプリケーション内で使用している技術一覧
+  ・インフラには何を使っているのか
+  ・データベースには何を使っているのか
+  ・セッション管理はどのように行っているのか
+  ・画像アップロードにはどういったライブラリを使っているのか
+  ・デプロイはどのように行っているのか
+  
+※github上ではスクロールしない状態だとreadmeの一番上の方しか表示されないため、
+（下の方は見てもらいにくいという前提で）情報は一番上の方に詰め込む
