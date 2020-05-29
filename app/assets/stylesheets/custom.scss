@@ -1,6 +1,5 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "reset.css";
 
 /* mixins */
 
@@ -9,14 +8,12 @@
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
-
 @mixin user_image {
   object-fit: cover;
   background-color: #f5f5f5;
   border: 1px solid #f5f5f5;
   border-radius: 5px;
 }
-
 @mixin form_area {
   width: 500px;
   margin: auto;
@@ -35,7 +32,10 @@
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6, p, label, span {
+h1, h2, h3, h4, h5, h6, p, label, span, a {
+  color: #4e454a;
+}
+a:hover {
   color: #4e454a;
 }
 
@@ -50,7 +50,6 @@ html, body {
   background-attachment: fixed;
   position: relative;
 }
-
 .contents {
   width: 100%;
   min-height: 100vh;
@@ -66,19 +65,14 @@ header {
     padding-top: 9px;
     padding-left: 40px;
     font-size: 1.7em;
-    color: #4e454a;
     font-weight: bold;
     display: block;
     &:hover {
-      color: #4e454a;
       text-decoration: none;
     }
   }
   .navbar-right {
     margin-right: 30px;
-    a {
-      color: #4e454a;
-    }
   }
 }
 
@@ -129,12 +123,10 @@ header {
     margin: 10px 0;
     font-size: 23px;
     font-weight: bold;
-    color: #4e454a;
   }
   .stats {
     margin-bottom: 10px;
     a {
-      color: #4e454a;
       font-size: 15px;
     }
   }
@@ -179,7 +171,6 @@ header {
         display: inline-block;
         float: left;
         a {
-          color: #4e454a;
           text-decoration: none;
           padding: 18px 25px 19px 25px;
           border-bottom: 2px;
@@ -219,16 +210,10 @@ header {
         display: inline;
         font-size: 17px;
         margin-left: 20px;
-        a {
-          color: #4e454a;
-        }
       }
       .post_menu {
         float: right;
         margin: 14px 0;
-        a {
-          color: #4e454a;
-        }
       }
     }
     .post_container {
@@ -302,7 +287,6 @@ header {
     }
   }
 }
-
 .no-contents {
   text-align: center;
   padding: 70px 20px;
@@ -370,7 +354,6 @@ header {
     border-radius: 5px;
   }
 }
-
 .post_comments {
   padding-top: 20px;
   border-top: 1px solid #eaeaea;
@@ -402,18 +385,12 @@ header {
         .comment_user_name {
           display: block;
           font-weight: bold;
-          a {
-            color: #4e454a;
-          }
         }
         .comment_content {
           display: block;
         }
         .comment_destroy {
           float: right;
-          a {
-            color: #4e454a;
-          }
         }
         .comment_timestamp {
           float: right;
@@ -439,7 +416,6 @@ header {
     height: 70px;
   }
 }
-
 .caution {
   margin-bottom: 30px;
   font-weight: bold;
@@ -452,6 +428,7 @@ header {
   margin: 50px auto;
   background-color: #ffffff;
   border-radius: 5px;
+  padding: 0px;
   h3 {
     text-align: center;
     padding: 30px 0;
@@ -473,9 +450,6 @@ header {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      a {
-        color: #4e454a;
-      }
     }
     img {
       @include user_image;
@@ -525,7 +499,6 @@ footer {
   border-top: 1px solid #eaeaea;
   background-color: #ffffff;
 }
-
 .footer_center {
   color: #95949a;
   position: absolute;
@@ -543,22 +516,18 @@ footer {
     @include form_area;
   }
 }
-
 label {
   float: left;
 }
-
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   margin-bottom: 15px;
   resize: none;
   @include box_sizing;
 }
-
 input {
   height: auto !important;
 }
-
 #error_explanation {
   color: red;
   ul {
@@ -569,18 +538,15 @@ input {
     }
   }
 }
-
 .alert {
   text-align: center;
 }
-
 .field_with_errors {
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
   }
 }
-
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
@@ -589,20 +555,17 @@ input {
     font-weight: normal;
   }
 }
-
 #session_remember_me {
   width: auto;
   margin-left: 0;
 }
-
 .login_announcement {
   margin-top: 20px;
   p {
     margin: 0;
   }
   a {
-  color: #4e454a;
-  text-decoration: underline;
+    text-decoration: underline;
   }
 }
 
