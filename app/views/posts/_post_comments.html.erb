@@ -1,19 +1,36 @@
-<% @comments.each do |comment| %>
-  <li id="comment-<%= comment.id %>">
-    <div class="comment_left">
-      <%= render '/shared/user_image', { user: comment.user } %>
-    </div>
-    <div class="comment_right">
-      <span class="comment_user_name"><%= link_to comment.user.name, comment.user %></span>
-      <span class="comment_content"><%= comment.content %></span>
-      <span class="comment_timestamp"><%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>にコメント</span>
-      <% if current_user?(comment.user) %>
-        <span class="comment_destroy">
-          <%= link_to "削除", [@post, comment], method: :delete,
-                                             data: { confirm: "本当に削除しますか？" } %>
-          |　
-        </span>
+<div class="post_comments">
+  <h4>コメント（<%= @post.comments.count %>）</h4>
+  <% if @comments.any? %>
+    <ol class="post_comments_list">
+      <% @comments.each do |comment| %>
+        <li id="comment-<%= comment.id %>">
+          <div class="comment_left">
+            <%= render '/shared/user_image', { user: comment.user } %>
+          </div>
+          <div class="comment_right">
+            <span class="comment_user_name"><%= link_to comment.user.name, comment.user %></span>
+            <span class="comment_content"><%= comment.content %></span>
+            <span class="comment_timestamp"><%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>にコメント</span>
+            <% if current_user?(comment.user) %>
+              <span class="comment_destroy">
+                <%= link_to "削除", [@post, comment], method: :delete,
+                                                   data: { confirm: "本当に削除しますか？" } %>
+                |　
+              </span>
+            <% end %>
+          </div>
+        </li>
       <% end %>
-    </div>
-  </li>
-<% end %>
+    </ol>
+  <% else %>
+    <p>コメントはありません。</p>
+  <% end %>
+  <div class="post_comments_form">
+    <%= form_for [@post, @comment] do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.text_area :content, class: 'form-control' %>
+      <%= f.hidden_field :post_id, value: @post.id %>
+      <%= f.submit "コメントする", class: "btn btn-warning" %>
+    <% end %>
+  </div>
+</div>
