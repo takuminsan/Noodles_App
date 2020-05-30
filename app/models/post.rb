@@ -10,6 +10,8 @@ class Post < ApplicationRecord
   validates :nearest, presence: true, length: { maximum: 20 }
   validates :content, length: { maximum: 1000 }
   validate  :picture_size
+  after_validation :geocode
+
 
   # ポストをlikeする
   def like(user)
@@ -33,5 +35,13 @@ class Post < ApplicationRecord
       if picture.size > 5.megabytes
         errors.add(:picture, "画像は5MBより小さくしてください。")
       end
+    end
+    # バリデーションの後にgeocordingAPIを使って店名と最寄駅情報から緯度経度を取得、緯度経度カラムに保存する
+    def geocode
+      uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.shop_name+" "+self.nearest+"&key="+Rails.application.credentials.GCP[:API_KEY])
+      res = HTTP.get(uri).to_s
+      response = JSON.parse(res)
+      self.latitude = response["results"][0]["geometry"]["location"]["lat"]
+      self.longitude = response["results"][0]["geometry"]["location"]["lng"]
     end
 end

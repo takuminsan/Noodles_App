@@ -1,4 +1,3 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GCP[:API_KEY] %>&callback=initMap" async defer></script>
 <script>
   var map
   function initMap(){
@@ -18,4 +17,5 @@
       }
     );
   }
+  initMap();
 </script>

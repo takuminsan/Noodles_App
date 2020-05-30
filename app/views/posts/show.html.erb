@@ -33,24 +33,7 @@
             <div class="post_map">
               <div id="map"></div>
             </div>
-            <div class="post_comments">
-              <h4>コメント（<%= @post.comments.count %>）</h4>
-              <% if @comments.any? %>
-                <ol class="post_comments_list">
-                  <%= render 'posts/post_comments' %>
-                </ol>
-              <% else %>
-                <p>コメントはありません。</p>
-              <% end %>
-              <div class="post_comments_form">
-                <%= form_for [@post, @comment] do |f| %>
-                  <%= render 'shared/error_messages', object: f.object %>
-                  <%= f.text_area :content, class: 'form-control' %>
-                  <%= f.hidden_field :post_id, value: @post.id %>
-                  <%= f.submit "コメントする", class: "btn btn-warning" %>
-                <% end %>
-              </div>
-            </div>
+            <%= render 'posts/post_comments' %>
           </div>
         </li>
       </ol>

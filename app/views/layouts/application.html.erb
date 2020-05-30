@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Noodles</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.GCP[:API_KEY] %>" async defer></script>
     <%= render 'layouts/rails_default' %>
     <%= render 'layouts/shim' %>
   </head>
