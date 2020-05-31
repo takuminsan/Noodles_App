@@ -13,7 +13,7 @@ function initMap() {
     map: map
   });
   infoWindow = new google.maps.InfoWindow({
-    content: "<%= @post.shop_name %>"
+    content: "<a href='http://www.google.com/search?q=<%= @post.shop_name %> <%= @post.nearest %>' target='_blank' style='color: #00f;'><%= @post.shop_name %> を検索</a><br><br><a href='http://www.google.com/search?q=<%= @post.shop_name %> ラーメン&tbm=isch' target='_blank'>画像検索 by google</a>"
   });
   marker.addListener('click', function() {
     infoWindow.open(map, marker);
