@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   validates :nearest, presence: true, length: { maximum: 20 }
   validates :content, length: { maximum: 1000 }
   validate  :picture_size
-  after_validation :geocode
+  before_save :geocode
 
 
   # ポストをlikeする
@@ -41,7 +41,12 @@ class Post < ApplicationRecord
       uri = URI.escape("https://maps.googleapis.com/maps/api/geocode/json?address="+self.shop_name+" "+self.nearest+"&key="+Rails.application.credentials.GCP[:API_KEY])
       res = HTTP.get(uri).to_s
       response = JSON.parse(res)
-      self.latitude = response["results"][0]["geometry"]["location"]["lat"]
-      self.longitude = response["results"][0]["geometry"]["location"]["lng"]
+      if response["status"] == "OK"
+        self.latitude = response["results"][0]["geometry"]["location"]["lat"]
+        self.longitude = response["results"][0]["geometry"]["location"]["lng"]
+      else
+        self.latitude = 1
+        self.longitude = 1
+      end
     end
 end

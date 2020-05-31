@@ -29,7 +29,8 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update_attributes(post_params)
+    @post.update(post_params)
+    if @post.save
       flash[:success] = "投稿が編集されました。"
       redirect_to root_url
     else
@@ -40,7 +41,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     flash[:success] = "投稿が削除されました。"
-    redirect_to request.referrer || root_url
+    redirect_to root_url
   end
 
   private
