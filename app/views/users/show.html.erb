@@ -4,7 +4,9 @@
       <%= render 'shared/user_info' %>
       <%= render 'follow_form' if logged_in? %>
       <% if @user == current_user %>
-        <%= link_to "投稿する", new_post_path, class: "btn btn-warning btn-lg btn-block" %>
+        <%= link_to new_post_path, class: "btn btn-warning btn-lg btn-block" do %>
+          <i class="fas fa-edit"></i> 投稿する
+        <% end %>
       <% end %>
     </section>
   </aside>
@@ -12,8 +14,16 @@
     <section class="main_section">
       <div class="section_title">
         <ul>
-          <li><%= link_to "投稿 (#{@user.posts.count})", @user, class: "one current" %></li>
-          <li><%= link_to "食べたい！(#{@user.likes.count})", likes_user_path(@user), class: "two" %></li>
+          <li>
+            <%= link_to @user, class: "one current" do %>
+              <i class="far fa-clone"></i> 投稿 (<%= @user.posts.count %>)
+            <% end %>
+          </li>
+          <li>
+            <%= link_to likes_user_path(@user), class: "two" do %>
+              <i class="far fa-heart"></i> 食べたい！(<%= @user.likes.count %>)
+            <% end %>
+          </li>
         </ul>
       </div>
       <% if @user.posts.any? %>

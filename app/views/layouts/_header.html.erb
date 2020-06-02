@@ -4,25 +4,25 @@
   </div>
   <nav>
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "ホーム", root_path %></li>
+      <li><%= link_to root_path do %><i class="fas fa-home"></i> ホーム<% end %></li>
       <% if logged_in? %>
-        <li><%= link_to "地図から検索", maps_path %></li>
-        <li><%= link_to "利用者一覧", users_path %></li>
+        <li><%= link_to maps_path do %><i class="fas fa-map-marked-alt"></i> 地図から検索<% end %></li>
+        <li><%= link_to users_path do %><i class="fas fa-users"></i> 利用者一覧<% end %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            アカウント <b class="caret"></b>
+            <i class="fas fa-user-circle"></i> アカウント <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to "プロフィール", current_user %></li>
-            <li><%= link_to "設定", edit_user_path(current_user) %></li>
+            <li><%= link_to current_user do %><i class="far fa-user"></i> プロフィール<% end %></li>
+            <li><%= link_to edit_user_path(current_user) do %><i class="fas fa-cog"></i> 設定<% end %></li>
             <li class="divider"></li>
             <li>
-              <%= link_to "ログアウト", logout_path, method: :delete %>
+              <%= link_to logout_path, method: :delete do %><i class="fas fa-times"></i> ログアウト<% end %>
             </li>
           </ul>
         </li>
       <% else %>
-        <li><%= link_to "ログイン", login_path %></li>
+        <li><%= link_to login_path do %><i class="fas fa-sign-in-alt"></i> ログイン<% end %></li>
       <% end %>
     </ul>
   </nav>

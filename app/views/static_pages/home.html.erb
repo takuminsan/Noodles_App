@@ -3,7 +3,9 @@
   <aside class="col-md-4">
     <section class="user_info">
       <%= render 'shared/user_info' %>
-      <%= link_to "投稿する", new_post_path, class: "btn btn-warning btn-lg btn-block" %>
+      <%= link_to new_post_path, class: "btn btn-warning btn-lg btn-block" do %>
+        <i class="fas fa-edit"></i> 投稿する
+      <% end %>
     </section>
   </aside>
   <div class="col-md-8">
@@ -19,9 +21,13 @@
     <%= form_for(:session, url: login_path) do |f| %>
       <%= f.hidden_field :email, value: "test@test-user.com" %>
       <%= f.hidden_field :password, value: "password" %>
-      <%= f.submit "お試しログイン", class: "btn btn-warning btn-lg" %>
+      <%= f.button :type => "submit", class: "btn btn-warning btn-lg" do %>
+        <i class="fas fa-address-card"></i> お試しログイン
+      <% end %>
     <% end %>
     <h3>or</h3>
-    <%= link_to "ユーザー登録してログイン", signup_path, class: "btn btn-default btn-lg" %>
+    <%= link_to signup_path, class: "btn btn-default btn-lg" do %>
+      <i class="fas fa-user-plus"></i> ユーザー登録してログイン
+    <% end %>
   </div>
 <% end %>

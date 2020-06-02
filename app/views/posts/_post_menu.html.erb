@@ -1,7 +1,8 @@
 <% if current_user?(post.user) %>
   <div class="post_menu">
-    <%= link_to "編集", edit_post_path(post) %>　
-    <%= link_to "削除", post, method: :delete,
-                                    data: { confirm: "本当に削除しますか？" } %>
+    <%= link_to edit_post_path(post) do %><i class="fas fa-pencil-alt"></i><% end %>
+    ｜<%= link_to post, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
   </div>
 <% end %>

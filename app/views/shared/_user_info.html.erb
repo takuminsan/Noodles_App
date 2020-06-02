@@ -6,5 +6,5 @@
 <div class="stats">
   <%= render 'shared/stats' %>
 </div>
-<span>投稿数: <%= @user.posts.count %></span>
-<span>登録日: <%= @user.created_at.strftime('%Y/%m/%d') %></span>
+<span><i class="far fa-clone"></i> 投稿数: <%= @user.posts.count %></span>
+<span><i class="far fa-calendar-alt"></i> 登録日: <%= @user.created_at.strftime('%Y/%m/%d') %></span>
