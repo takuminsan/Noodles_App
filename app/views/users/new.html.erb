@@ -5,16 +5,16 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :名前 %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "16文字以内" %>
 
       <%= f.label :メールアドレス %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'form-control', placeholder: "user@example.com" %>
 
       <%= f.label :パスワード %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'form-control', placeholder: "6文字以上" %>
 
       <%= f.label :パスワード（確認） %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "パスワードをもう一度入力してください。" %>
 
       <%= f.submit "アカウント作成", class: "btn btn-warning btn-block" %>
     <% end %>

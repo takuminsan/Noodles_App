@@ -8,13 +8,13 @@
       <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>
 
       <%= f.label :店舗名 %>
-      <%= f.text_field :shop_name, class: 'form-control' %>
+      <%= f.text_field :shop_name, class: 'form-control', placeholder: "20文字以内" %>
 
       <%= f.label :最寄駅 %>
-      <%= f.text_field :nearest, class: 'form-control' %>
+      <%= f.text_field :nearest, class: 'form-control', placeholder: "20文字以内" %>
 
       <%= f.label :説明文 %>
-      <%= f.text_area :content, class: 'form-control', size: "20x10" %>
+      <%= f.text_area :content, class: 'form-control', size: "20x10", placeholder: "1000文字以内" %>
 
       <%= f.submit "投稿する", class: "btn btn-warning btn-block" %>
     <% end %>

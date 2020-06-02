@@ -12,9 +12,16 @@
     <div class="main_section">
       <div class="section_title">
         <ul>
-          <li><%= link_to "投稿 (#{@user.posts.count})", @user, class: "one" %></li>
-          <li><%= link_to "食べたい！(#{@user.likes.count})", likes_user_path(@user), class: "two current" %></li>
-        </ul>
+          <li>
+            <%= link_to @user, class: "one" do %>
+              <i class="far fa-clone"></i> 投稿 (<%= @user.posts.count %>)
+            <% end %>
+          </li>
+          <li>
+            <%= link_to likes_user_path(@user), class: "two current" do %>
+              <i class="far fa-heart"></i> 食べたい！(<%= @user.likes.count %>)
+            <% end %>
+          </li>
       </div>
       <% if @posts.any? %>
         <ul class="posts like">

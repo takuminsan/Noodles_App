@@ -8,10 +8,10 @@
       <%= hidden_field_tag :email, @user.email %>
 
       <%= f.label :パスワード %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'form-control', placeholder: "6文字以上" %>
 
       <%= f.label :パスワード（確認） %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "パスワードをもう一度入力してください。" %>
 
       <%= f.submit "更新", class: "btn btn-warning btn-block" %>
     <% end %>

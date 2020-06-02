@@ -34,7 +34,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_match shop_name, response.body
     assert_match nearest, response.body
     # 投稿を削除する
-    assert_select 'a', text: '削除'
+    assert_select 'div.post_menu'
     first_post = @user.posts.paginate(page: 1).first
     assert_difference 'Post.count', -1 do
       delete post_path(first_post)
@@ -43,8 +43,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
 
     # 違うユーザーのプロフィールにアクセス (削除リンクがないことを確認)
     get user_path(users(:archer))
-    assert_select 'a', text: '削除', count: 0
-    assert_select 'a', text: '編集', count: 0
+    assert_select 'div.post_menu', count: 0
     # 投稿がないユーザーのプロフィールにアクセス
     get user_path(users(:lana))
     assert_select 'h3', text: 'Lana Kaneの投稿はありません。'

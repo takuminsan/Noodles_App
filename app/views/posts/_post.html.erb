@@ -2,13 +2,7 @@
   <div class="post_header">
     <%= render '/shared/user_image', { user: post.user } %>
     <span><%= link_to post.user.name, post.user %> が食べたラーメン</span>
-    <% if current_user?(post.user) %>
-      <div class="post_menu">
-        <%= link_to "編集", edit_post_path(post) %>　
-        <%= link_to "削除", post, method: :delete,
-                                           data: { confirm: "本当に削除しますか？" } %>
-      </div>
-    <% end %>
+    <%= render '/posts/post_menu', { post: post } %>
   </div>
   <div class="post_container">
     <div class="col-md-6">
