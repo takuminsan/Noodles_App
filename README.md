@@ -12,6 +12,7 @@ https://noodles-app.com<br>
   - Nginx, Unicorn<br><br>
 - インフラ・開発環境等
   - AWS（VPC, EC2, RDS, S3, Route 53, ALB, ACM）
+  - Docker/docker-compose
   - minitest
   - Git, GitHub
 ## 機能一覧
