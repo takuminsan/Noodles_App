@@ -5,7 +5,7 @@ development:
   pool: 5
   username: root
   password: <%= Rails.application.credentials.db[:password] %>
-  host: localhost
+  host: db
 
 test:
   adapter: mysql2
@@ -14,7 +14,7 @@ test:
   pool: 5
   username: root
   password: <%= Rails.application.credentials.db[:password] %>
-  host: localhost
+  host: db
 
 production:
   adapter: mysql2
