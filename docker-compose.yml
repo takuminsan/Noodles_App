@@ -5,12 +5,11 @@ services:
     environment:
       MYSQL_DATABASE: Noodles_development
       MYSQL_ROOT_PASSWORD: 1234takumin
-      MYSQL_USER: ta93n
-      MYSQL_PASSWORD: 1234takumin
     ports:
       - "3306:3306"
     volumes:
       - ./mysql-confd:/etc/mysql/conf.d
+      - ./db/mysql_data:/var/lib/mysql # 永続化するときにマウントするdir
   web:
     build:
       context: .

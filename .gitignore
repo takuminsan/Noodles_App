@@ -35,3 +35,6 @@
 
 .ruby-version
 Procfile
+
+# ローカルのmysqlデータ
+/db/mysql_data/*
