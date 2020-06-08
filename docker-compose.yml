@@ -4,7 +4,7 @@ services:
     image: mysql:8.0.19
     environment:
       MYSQL_DATABASE: Noodles_development
-      MYSQL_ROOT_PASSWORD: 1234takumin
+      MYSQL_ROOT_PASSWORD: password
     ports:
       - "3306:3306"
     volumes:

@@ -4,7 +4,7 @@ development:
   database: Noodles_development
   pool: 5
   username: root
-  password: <%= Rails.application.credentials.db[:password] %>
+  password: password
   host: db
 
 test:
@@ -13,7 +13,7 @@ test:
   database: Noodles_test
   pool: 5
   username: root
-  password: <%= Rails.application.credentials.db[:password] %>
+  password: password
   host: db
 
 production:
