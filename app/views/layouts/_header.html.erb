@@ -21,9 +21,11 @@
             </li>
           </ul>
         </li>
+
       <% else %>
         <li><%= link_to login_path do %><i class="fas fa-sign-in-alt"></i> ログイン<% end %></li>
       <% end %>
     </ul>
+    <%= render '/layouts/menu_icon' %>
   </nav>
 </header>

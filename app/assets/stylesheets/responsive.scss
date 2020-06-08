@@ -1,8 +1,28 @@
 @media (max-width: 991px) {
+  .main_section .posts .post_container {
+    height: auto;
+    .post_information {
+      margin-top: 20px;
+    }
+  }
+}
+@media (max-width: 767px) {
   .container {
     width: 100%;
   }
   header {
-    height: 100px;
+    height: 50px;
+    .navbar-right {
+      display: none;
+    }
+    .menu-icon {
+      display: inline-block;
+      float: right;
+      margin: 4px 40px 0 0;
+    }
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
   }
 }
