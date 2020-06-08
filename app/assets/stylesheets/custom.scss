@@ -203,23 +203,23 @@ header {
       border-top: 1px solid #eaeaea;
       padding: 10px 20px;
       height: 70px;
-      position: relative;
+      display: flex;
       img {
         @include user_image;
         width: 50px;
         height: 50px;
+        flex: auto;
       }
       span {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        display: inline;
+        flex: auto;
         font-size: 17px;
-        margin-left: 20px;
+        margin: auto 20px;
       }
       .post_menu {
-        float: right;
-        margin: 14px 0;
+        flex: auto;
+        margin: auto 0;
+        max-width: 50px;
+        min-width: 50px;
       }
     }
     .post_container {
