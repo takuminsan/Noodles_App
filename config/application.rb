@@ -19,5 +19,15 @@ module SampleApp
     config.active_record.default_timezone = :local
     # 認証トークンをremoteフォームに埋め込む
     config.action_view.embed_authenticity_token_in_remote_forms = true
+
+    config.generators do |g|
+
+      # Railsジェネレータがfactory_bot用のファイルを生成するのを無効化
+      g.factory_bot false
+
+      # ファクトリファイルの置き場を変更
+      g.factory_bot dir: 'custom/dir/for/factories'
+    end
+
   end
 end
