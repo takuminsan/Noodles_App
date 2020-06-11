@@ -3,7 +3,7 @@ https://noodles-app.com<br>
 ラーメン屋さんの写真や情報を友だちと共有できるアプリケーションです。
 ## 使用技術
 - フロントエンド
-  - html, scss, Bootstrap, jQuery<br><br>
+  - html, scss, Bootstrap, jQuery, レスポンシブ化<br><br>
 - バックエンド
   - Ruby 2.6.5, Rails 5.2.4.3<br><br>
 - DB
