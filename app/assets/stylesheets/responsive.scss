@@ -22,7 +22,7 @@
     .menu-icon {
       display: inline-block;
       float: right;
-      margin: 4px 15px 0 0;
+      margin: 5px 15px 0 0;
     }
     .dropdown-menu {
       left: auto;
@@ -33,11 +33,15 @@
   /* top */
 
   .top_title {
-    top: 20%;
+    top: 25%;
     h3 {
       font-size: 18px;
+      margin: 0 0 10px 0;
     }
     button {
+      margin: 0 0 10px 0;
+    }
+    a {
       margin: 0;
     }
   }
@@ -52,7 +56,7 @@
   /* sidebar */
 
   .user_info {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px;
     .user_image img {
       width: 50px;
@@ -72,7 +76,7 @@
   /* main_section */
 
   .main_section {
-    margin-top: 10px;
+    margin: 10px 0;
     .section_title {
       height: 40px;
       h3 {
@@ -82,19 +86,19 @@
       ul {
         li a {
           font-size: 15px;
-          padding: 12px 10px 10px 10px;
+          padding: 11px 10px 10px 10px;
         }
         .current {
           padding-bottom: 10px;
         }
       }
     }
-    .post_header {
+    .posts li .post_header {
       height: 50px;
-      padding: 5px 20px;
+      padding: 10px 20px;
       img {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
       }
       span {
         margin: auto 10px;
@@ -102,6 +106,13 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+      }
+    }
+
+    .posts .post_container {
+      padding: 0 0 10px 0;
+      .post_information .shop_name {
+        font-size: 17px;
       }
     }
   }
@@ -200,7 +211,7 @@
   /* Users */
 
   .users {
-    margin: 20px 10px;
+    margin: 10px 10px;
     width: auto;
   }
   .users_index li .user_name {
@@ -210,16 +221,21 @@
   /* post_search_map */
 
   .post_search_map {
-    margin: 20px 10px;
+    margin: 10px 10px;
+    padding: 10px;
+    h3 {
+      margin: 10px 10px 20px 10px;
+    }
     .btn {
       margin: 10px 0 0 0;
+      float: left;
     }
     .current_position {
       float: left;
       margin-bottom: 10px;
     }
     #map_index {
-      height: 300px;
+      height: 400px;
       width: 100%;
       border-radius: 5px;
     }
@@ -230,5 +246,8 @@
   .form_page .form {
     width: auto;
     padding: 0 10px 10px 10px;
+    h3 {
+      padding: 20px 0 10px 0;
+    }
   }
 }

@@ -1,14 +1,12 @@
-<div class="container">
-  <div class="post_search_map">
-    <h3>地図から投稿を検索</h3>
-    <%= form_with url: map_request_path, method: :get do |f| %>
-      <span><%= f.radio_button :posts, "current_user", checked: true %>自分の投稿</span>
-      <span><%= f.radio_button :posts, "following" %>自分とフォロー中のユーザーの投稿</span>
-      <%= f.submit '投稿されたお店を表示', class: "btn btn-primary" %>
-      <button type="button" class="btn current_position" onclick="getLocation()">
-        地図を現在地周辺に切り替え</button>
-    <% end %>
-    <div id="map_index"></div>
-  </div>
+<div class="post_search_map">
+  <h3>地図から投稿を検索</h3>
+  <%= form_with url: map_request_path, method: :get do |f| %>
+    <span><%= f.radio_button :posts, "current_user", checked: true %>自分の投稿</span>
+    <span><%= f.radio_button :posts, "following" %>自分とフォロー中のユーザーの投稿</span>
+    <%= f.submit '投稿されたお店を表示', class: "btn btn-primary" %>
+    <button type="button" class="btn btn-success current_position" onclick="getLocation()">
+      地図を現在地周辺に切り替える</button>
+  <% end %>
+  <div id="map_index"></div>
 </div>
 <%= render 'maps/index_map' %>

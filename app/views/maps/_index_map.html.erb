@@ -3,7 +3,9 @@
   function initMap(){
     map = new google.maps.Map(document.getElementById('map_index'), {
     center: {lat: 37.67229496806523, lng: 137.88838989062504}, // 地図の中心を指定
-    zoom: 6 // 地図のズームを指定
+    zoom: 6, // 地図のズームを指定
+    mapTypeControl: false,
+    streetViewControl: false
     });
   }
   function getLocation(){
