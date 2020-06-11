@@ -3,13 +3,16 @@ https://noodles-app.com<br>
 ラーメン屋さんの写真や情報を友だちと共有できるアプリケーションです。
 ## 使用技術
 - フロントエンド
-  - html, scss, Bootstrap, jQuery, レスポンシブ化<br><br>
+  - html, scss, Bootstrap, jQuery
+  - レスポンシブデザイン<br><br>
 - バックエンド
-  - Ruby 2.6.5, Rails 5.2.4.3<br><br>
+  - Ruby 2.6.5
+  - Rails 5.2.4.3<br><br>
 - DB
   - MySQL 5.7.30<br><br>
 - サーバー
-  - Nginx, Unicorn<br><br>
+  - Nginx
+  - Unicorn<br><br>
 - インフラ・開発環境等
   - AWS（VPC, EC2, RDS, S3, Route 53, ALB, ACM）
   - Docker/docker-compose
