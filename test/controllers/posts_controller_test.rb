@@ -1,7 +1,6 @@
 require 'test_helper'
 
-class PostsControllerTest < ActionDispatch::IntegrationTest
-
+class PostsControllerTest < ActionDispatch::IntegrationTests
   def setup
     @post = posts(:one)
   end
@@ -21,16 +20,16 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test "should redirect create when not logged in" do
     assert_no_difference 'Post.count' do
       post posts_path, params: { post: { shop_name: "Noodles-01",
-                                           nearest: "sinjuku-station",
-                                           content: "美味しい！" } }
+                                         nearest: "sinjuku-station",
+                                         content: "美味しい！" } }
     end
     assert_redirected_to login_url
   end
 
   test "should redirect update when not logged in" do
     patch post_path(@post), params: { post: { shop_name: "Noodles-01",
-                                           nearest: "sinjuku-station",
-                                           content: "美味しい！" } }
+                                              nearest: "sinjuku-station",
+                                              content: "美味しい！" } }
     assert_not flash.empty?
     assert_redirected_to login_url
   end

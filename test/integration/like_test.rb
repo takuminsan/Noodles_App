@@ -1,7 +1,6 @@
 require 'test_helper'
 
-class Like_Test < ActionDispatch::IntegrationTest
-
+class LikeTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:michael)
     @post = posts(:one)
@@ -26,7 +25,7 @@ class Like_Test < ActionDispatch::IntegrationTest
   test "should like a post with Ajax" do
     assert_difference '@user.likes.count', 1 do
       post likes_path, xhr: true, params: { user_id: @user.id,
-                                 post_id: @post.id }
+                                            post_id: @post.id }
     end
   end
 

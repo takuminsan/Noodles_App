@@ -1,24 +1,30 @@
 Rails.application.routes.draw do
-#ホーム
+  # ホーム
   root 'static_pages#home'
-#ユーザー登録
+
+  # ユーザー登録
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
-#ログイン・ログアウト
+
+  # ログイン・ログアウト
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-#ユーザーページ
+
+  # ユーザーページ
   resources :users do
     member do
       get :following, :followers, :likes
     end
   end
-#アカウントの有効化
+
+  # アカウントの有効化
   resources :account_activations, only: [:edit]
-#パスワードのリセット
+
+  # パスワードのリセット
   resources :password_resets,     only: [:new, :create, :edit, :update]
-#投稿
+
+  # 投稿
   resources :posts,               only: [:new, :create, :edit, :show, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
   end
@@ -26,11 +32,14 @@ Rails.application.routes.draw do
   patch '/posts/:id/edit', to: 'posts#update'
   get '/posts/:id/comments', to: 'posts#show'
   post '/posts/:id/comments', to: 'comments#create'
-#フォロー
+
+  # フォロー
   resources :relationships,       only: [:create, :destroy]
-#食べたい！（いいね機能）
+
+  # 食べたい！（いいね機能）
   resources :likes, only: [:create, :destroy]
-#google-map
+
+  # google-map
   resources :maps, only: [:index]
   get '/map_request', to: 'maps#map', as: 'map_request'
 end
