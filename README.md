@@ -19,6 +19,7 @@ https://noodles-app.com<br>
   - minitest,RSpec
   - Git, GitHub
   - Google Maps Platform
+  - rubocop
 ## 機能一覧
 - ユーザー機能
   - 新規登録（メール送信によるユーザー認証）、ログイン、ログアウト機能
