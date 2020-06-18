@@ -10,5 +10,4 @@ class MapsControllerTest < ActionDispatch::IntegrationTest
     get maps_path
     assert_response :success
   end
-
 end

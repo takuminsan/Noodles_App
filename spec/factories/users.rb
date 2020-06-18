@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :michael, class: User do
     name { 'Michael Example' }
     email { 'michael@test.com' }
@@ -40,5 +39,4 @@ FactoryBot.define do
     activated { true }
     activated_at { Time.zone.now }
   end
-
 end

@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class PostsInterfaceTest < ActionDispatch::IntegrationTest
-
   def setup
     @user = users(:michael)
   end
@@ -14,8 +13,8 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     # 無効な送信
     assert_no_difference 'Post.count' do
       post posts_path, params: { post: { shop_name: "",
-                                           nearest: "",
-                                           content: "" } }
+                                         nearest: "",
+                                         content: "" } }
     end
     assert_select 'div#error_explanation'
     # 有効な送信
@@ -25,9 +24,9 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     picture = fixture_file_upload('test/fixtures/test_picture.png')
     assert_difference 'Post.count', 1 do
       post posts_path, params: { post: { shop_name: shop_name,
-                                           nearest: nearest,
-                                           content: content,
-                                           picture: picture } }
+                                         nearest: nearest,
+                                         content: content,
+                                         picture: picture } }
     end
     assert_redirected_to root_url
     follow_redirect!

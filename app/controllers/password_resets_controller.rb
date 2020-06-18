@@ -42,7 +42,7 @@ class PasswordResetsController < ApplicationController
       params.require(:user).permit(:password, :password_confirmation)
     end
 
-  # beforeフィルタ
+    # beforeフィルタ
 
     def get_user
       @user = User.find_by(email: params[:email])

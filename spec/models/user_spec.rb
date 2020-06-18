@@ -1,6 +1,5 @@
 require 'rails_helper'
 RSpec.describe "user_model" do
-
   before do
     @user = build(:michael)
   end
@@ -71,13 +70,12 @@ RSpec.describe "user_model" do
   it "ユーザーが削除されるとユーザーの投稿も削除されること" do
     @user.save
     @user.posts.create!(shop_name: "Noodles",
-                          nearest: "sinjuku-station",
-                          content: "ラーメン美味しい")
+                        nearest: "sinjuku-station",
+                        content: "ラーメン美味しい")
     myposts_count = @user.posts.count
     allposts_count = Post.all.count
     @user.destroy
-    allposts_count = allposts_count - myposts_count
-    expect(Post.all.count).to eq allposts_count
+    expect(Post.all.count).to eq allposts_count - myposts_count
   end
 
   describe "ユーザーのフォローとフォロー解除について" do
@@ -105,9 +103,9 @@ RSpec.describe "user_model" do
       @archer  = create(:archer)
       @lana    = create(:lana)
       @michael.follow(@lana)
-      @post    = {shop_name: "Noodles",
-                  nearest: "sinjuku-station",
-                  content: "ラーメン美味しい"}
+      @post = { shop_name: "Noodles",
+                nearest: "sinjuku-station",
+                content: "ラーメン美味しい" }
     end
     it "フォローしているユーザーの投稿はフィードに表示されること" do
       @lana.posts.create!(@post)

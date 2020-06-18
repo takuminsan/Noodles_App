@@ -1,0 +1,154 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'vendor/**/*'
+
+# private/protected は一段深くインデントする
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+# コメントは日本語でもok
+Style/AsciiComments:
+  Enabled: false
+
+Lint/SuppressedException:
+  Exclude:
+    - 'config/unicorn.conf.rb'
+
+Lint/UnusedBlockArgument:
+  Exclude:
+    - 'config/unicorn.conf.rb'
+
+Lint/UriEscapeUnescape:
+  Exclude:
+    - 'app/models/post.rb'
+
+Metrics/AbcSize:
+  Max: 28
+
+Metrics/BlockLength:
+  Max: 113
+
+Metrics/MethodLength:
+  Max: 16
+
+Naming/AccessorMethodName:
+  Exclude:
+    - 'app/controllers/password_resets_controller.rb'
+
+Naming/PredicateName:
+  Exclude:
+    - 'spec/**/*'
+    - 'test/test_helper.rb'
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/test_helper.rb'
+
+Style/ClassMethods:
+  Exclude:
+    - 'app/models/user.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Exclude:
+    - 'app/controllers/maps_controller.rb'
+    - 'app/controllers/password_resets_controller.rb'
+
+Style/ExpandPathArguments:
+  Exclude:
+    - 'bin/rails'
+    - 'bin/rake'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GlobalVars:
+  Exclude:
+    - 'config/unicorn.conf.rb'
+
+Style/GuardClause:
+  Exclude:
+    - 'app/controllers/application_controller.rb'
+    - 'app/controllers/likes_controller.rb'
+    - 'app/controllers/password_resets_controller.rb'
+    - 'app/controllers/sessions_controller.rb'
+    - 'app/controllers/static_pages_controller.rb'
+    - 'app/models/post.rb'
+    - 'app/models/user.rb'
+
+Style/HashSyntax:
+  Exclude:
+    - 'app/uploaders/image_uploader.rb'
+    - 'app/uploaders/picture_uploader.rb'
+    - 'db/migrate/20200530081738_add_latitude_to_posts.rb'
+
+Style/IdenticalConditionalBranches:
+  Exclude:
+    - 'app/controllers/account_activations_controller.rb'
+
+Style/IfUnlessModifier:
+  Exclude:
+    - 'app/controllers/sessions_controller.rb'
+    - 'app/controllers/static_pages_controller.rb'
+    - 'app/models/post.rb'
+    - 'app/models/user.rb'
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/setup'
+    - 'bin/update'
+
+Style/MultilineTernaryOperator:
+  Exclude:
+    - 'app/models/user.rb'
+
+Style/MutableConstant:
+  Exclude:
+    - 'app/models/user.rb'
+
+Style/ParenthesesAroundCondition:
+  Exclude:
+    - 'app/controllers/password_resets_controller.rb'
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - 'app/uploaders/image_uploader.rb'
+    - 'app/uploaders/picture_uploader.rb'
+
+Style/RedundantBegin:
+  Exclude:
+    - 'bin/yarn'
+
+Style/RedundantSelf:
+  Exclude:
+    - 'app/models/post.rb'
+    - 'app/models/user.rb'
+
+Style/SafeNavigation:
+  Exclude:
+    - 'app/controllers/password_resets_controller.rb'
+    - 'app/controllers/sessions_controller.rb'
+    - 'app/helpers/sessions_helper.rb'
+
+Style/StderrPuts:
+  Exclude:
+    - 'bin/yarn'
+
+# ダブルクォートを使ってもok
+Style/StringLiterals:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Layout/LineLength:
+  Max: 168

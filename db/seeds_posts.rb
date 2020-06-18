@@ -208,7 +208,6 @@ Post.create!(shop_name: "ゴールデンタイガー",
              picture: File.open('./public/seeds_picture/picture_ゴールデンタイガー.jpg'),
              user_id: 19)
 
-
 Post.create!(shop_name: "中華料理 江戸びし",
              nearest: "大波止駅",
              content: "人柄の良い店員さん",
@@ -281,72 +280,71 @@ Post.create!(shop_name: "YABAI RAMEN 圭一屋",
              picture: File.open('./public/seeds_picture/picture_圭一家.jpg'),
              user_id: 12)
 
-
 Post.create!(shop_name: "長男、もんたいちお",
-              nearest: "京成八幡駅",
-              content: "ツイッターしてる友達みんな行ってるイメージ",
-              picture: File.open('./public/seeds_picture/picture_もんたいちお.jpg'),
-              user_id: 13)
+             nearest: "京成八幡駅",
+             content: "ツイッターしてる友達みんな行ってるイメージ",
+             picture: File.open('./public/seeds_picture/picture_もんたいちお.jpg'),
+             user_id: 13)
 
 Post.create!(shop_name: "くり山",
-              nearest: "白楽駅",
-              content: "スープ割りの柚子の香り",
-              picture: File.open('./public/seeds_picture/picture_くり山.jpg'),
-              user_id: 14)
+             nearest: "白楽駅",
+             content: "スープ割りの柚子の香り",
+             picture: File.open('./public/seeds_picture/picture_くり山.jpg'),
+             user_id: 14)
 
 Post.create!(shop_name: "らぁめん小池",
-              nearest: "上北沢駅",
-              content: "チャーシューはレアなタイプ",
-              picture: File.open('./public/seeds_picture/picture_小池.jpg'),
-              user_id: 15)
+             nearest: "上北沢駅",
+             content: "チャーシューはレアなタイプ",
+             picture: File.open('./public/seeds_picture/picture_小池.jpg'),
+             user_id: 15)
 
 Post.create!(shop_name: "中華そば ふくもり",
-              nearest: "駒沢大学駅",
-              content: "煮干の出汁がガツンと効いてる",
-              picture: File.open('./public/seeds_picture/picture_ふくもり.jpg'),
-              user_id: 16)
+             nearest: "駒沢大学駅",
+             content: "煮干の出汁がガツンと効いてる",
+             picture: File.open('./public/seeds_picture/picture_ふくもり.jpg'),
+             user_id: 16)
 
 Post.create!(shop_name: "らーめん竹三",
-              nearest: "茂林寺前駅",
-              content: "あっさり系。お酒もあり",
-              picture: File.open('./public/seeds_picture/picture_竹三.jpg'),
-              user_id: 17)
+             nearest: "茂林寺前駅",
+             content: "あっさり系。お酒もあり",
+             picture: File.open('./public/seeds_picture/picture_竹三.jpg'),
+             user_id: 17)
 
 Post.create!(shop_name: "らーめん からしや",
-              nearest: "葛西駅",
-              content: "辛い系のラーメン",
-              picture: File.open('./public/seeds_picture/picture_からしや.jpg'),
-              user_id: 18)
+             nearest: "葛西駅",
+             content: "辛い系のラーメン",
+             picture: File.open('./public/seeds_picture/picture_からしや.jpg'),
+             user_id: 18)
 
 Post.create!(shop_name: "ラーメンの店 どでん",
-              nearest: "北浦和駅",
-              content: "車かバスで行く二郎系",
-              picture: File.open('./public/seeds_picture/picture_どでん.jpg'),
-              user_id: 19)
+             nearest: "北浦和駅",
+             content: "車かバスで行く二郎系",
+             picture: File.open('./public/seeds_picture/picture_どでん.jpg'),
+             user_id: 19)
 
 Post.create!(shop_name: "菜",
-              nearest: " 本八幡駅",
-              content: "調理も接客もラーメンも丁寧",
-              picture: File.open('./public/seeds_picture/picture_菜.jpg'),
-              user_id: 1)
+             nearest: " 本八幡駅",
+             content: "調理も接客もラーメンも丁寧",
+             picture: File.open('./public/seeds_picture/picture_菜.jpg'),
+             user_id: 1)
 
 Post.create!(shop_name: "煮干中華そば専門 煮干丸",
-              nearest: "大宮駅",
-              content: "煮干にこだわるラーメン",
-              picture: File.open('./public/seeds_picture/picture_煮干丸.jpg'),
-              user_id: 2)
+             nearest: "大宮駅",
+             content: "煮干にこだわるラーメン",
+             picture: File.open('./public/seeds_picture/picture_煮干丸.jpg'),
+             user_id: 2)
 
 Post.create!(shop_name: "家系ラーメン 武将家 外伝",
-              nearest: "秋葉原駅",
-              content: "最近オープンした",
-              picture: File.open('./public/seeds_picture/picture_武将家.jpg'),
-              user_id: 3)
+             nearest: "秋葉原駅",
+             content: "最近オープンした",
+             picture: File.open('./public/seeds_picture/picture_武将家.jpg'),
+             user_id: 3)
 
 Post.create!(shop_name: "くじら食堂 nonowa東小金井店",
-              nearest: "東小金井駅",
-              content: "ちぢれ麺",
-              picture: File.open('./public/seeds_picture/picture_くじら食堂.jpg'),
-              user_id: 4)
+             nearest: "東小金井駅",
+             content: "ちぢれ麺",
+             picture: File.open('./public/seeds_picture/picture_くじら食堂.jpg'),
+             user_id: 4)
 
 Post.create!(shop_name: "ラーメンエース 八王子店",
              nearest: "西八王子駅",

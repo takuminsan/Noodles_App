@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class UsersEditTest < ActionDispatch::IntegrationTest
-
   def setup
     @user = users(:michael)
   end
@@ -10,11 +9,10 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
-    patch user_path(@user), params: { user: { name:  "",
+    patch user_path(@user), params: { user: { name: "",
                                               email: "foo@invalid",
-                                              password:              "foo",
+                                              password: "foo",
                                               password_confirmation: "bar" } }
-
     assert_template 'users/edit'
   end
 
@@ -26,9 +24,9 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_nil session[:forwarding_url]
     name  = "Foo Bar"
     email = "foo@bar.com"
-    patch user_path(@user), params: { user: { name:  name,
+    patch user_path(@user), params: { user: { name: name,
                                               email: email,
-                                              password:              "",
+                                              password: "",
                                               password_confirmation: "" } }
     assert_not flash.empty?
     assert_redirected_to @user

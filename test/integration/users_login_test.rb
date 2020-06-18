@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
-
   def setup
     @user = users(:michael)
   end
@@ -18,7 +17,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with valid information followed by logout" do
     get login_path
-    post login_path, params: { session: { email:    @user.email,
+    post login_path, params: { session: { email: @user.email,
                                           password: 'password' } }
     assert is_logged_in?
     assert_redirected_to root_path
@@ -54,7 +53,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login as test-user" do
     get root_path
-    post login_path, params: { session: { email:    'test@test-user.com',
+    post login_path, params: { session: { email: 'test@test-user.com',
                                           password: 'password' } }
     assert is_logged_in?
     assert_redirected_to root_path

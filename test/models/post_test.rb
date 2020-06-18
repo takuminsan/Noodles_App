@@ -1,12 +1,11 @@
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
-
   def setup
     @user = users(:michael)
     @post = @user.posts.build(shop_name: "Noodles",
-                                nearest: "sinjuku-station",
-                                content: "ラーメン美味しい")
+                              nearest: "sinjuku-station",
+                              content: "ラーメン美味しい")
   end
 
   test "should be valid" do
