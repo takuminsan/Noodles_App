@@ -1,18 +1,57 @@
-version: 2.1
-
-orbs:
-    hello: circleci/hello-build@0.0.7 # circleci/buildpack-deps Docker イメージを使います
-
-workflows:
-    "Hello Workflow":
-        jobs:
-          - hello/hello-build
-
 version: 2
 jobs:
   build:
-    docker: # Executor タイプです。他に machine、macOS という実行タイプを指定できます
-      - image: circleci/node:4.8.2 # プライマリコンテナです。このなかでジョブコマンドが実行されます
+    docker:
+      - image: circleci/ruby:2.6.5-node-browsers
+        environment:
+          - BUNDLER_VERSION: 1.17.2
+          - RAILS_ENV: 'test'
+      - image: circleci/mysql:8.0.19
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_DATABASE: Noodles_test
+
+    working_directory: ~/sample_app # 実行ディレクトリを設定する
+
     steps:
-      - checkout # プロジェクトのディレクトリにあるコードをチェックアウトします
-      - run: echo "hello world" # 「echo」コマンドを実行します
+      - checkout # CI環境上の working_directory の値の場所にGitリポジトリをコピーする
+      - restore_cache: # キャッシュが save_cache されていればリストアする(あれば速くなる)
+          keys: # リストアするキャッシュを複数指定する
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run: # コマンドを実行する
+          name: install dependencies # 任意のrunの名前
+          command: | # コマンドを設定する
+            gem install bundler -v 1.17.2
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache: # パッケージなどのファイルをキャッシュする
+          paths: # キャッシュするファイルを指定する
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+      - run:
+          name: run tests
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+
+
+# ③ここでRspecJunitFormatterというgemをインストールしていないとエラーになります。gemfileに記述しましょう。
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+
+      # collect reports
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
