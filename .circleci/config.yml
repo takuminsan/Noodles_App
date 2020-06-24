@@ -32,23 +32,20 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       - run:
+          name: Yarnをinstall
+          command: yarn install --cache-folder ~/.cache/yarn
+
+      - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
       #- run: bundle exec rake db:create
+
       #- run: bundle exec rake db:schema:load
 
       #- run:
-      #    name: run tests
-      #    command: |
-      #      mkdir /tmp/test-results
-      #      TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-
-      #      bundle exec rspec --format progress \
-      #                      --format RspecJunitFormatter \
-      #                      --out /tmp/test-results/rspec.xml \
-      #                      --format progress \
-      #                      $TEST_FILES
+          #name: execute rspec
+          #command: bundle exec rspec
 
       - store_test_results:
           path: /tmp/test-results
