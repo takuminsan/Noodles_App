@@ -44,8 +44,8 @@ jobs:
       #- run: bundle exec rake db:schema:load
 
       #- run:
-          name: execute rspec
-          command: bundle exec rspec
+          #name: execute rspec
+          #command: bundle exec rspec
 
       - store_test_results:
           path: /tmp/test-results
