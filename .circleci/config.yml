@@ -39,11 +39,11 @@ jobs:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
-      - run: bundle exec rake db:create
+      #- run: bundle exec rake db:create
 
-      - run: bundle exec rake db:schema:load
+      #- run: bundle exec rake db:schema:load
 
-      - run:
+      #- run:
           name: execute rspec
           command: bundle exec rspec
 
