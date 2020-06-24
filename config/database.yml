@@ -14,7 +14,7 @@ test:
   pool: 5
   username: root
   password: password
-  host: db
+  host: <%= ENV.fetch("DB_HOST") { 'db' } %>
 
 production:
   adapter: mysql2
