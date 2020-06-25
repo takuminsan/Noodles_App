@@ -21,19 +21,12 @@ jobs:
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
           - v1-dependencies-
 
-      - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-      - run:
-          name: Yarnをinstall
-          command: yarn install --cache-folder ~/.cache/yarn
 
       - run: mv config/database.yml.ci config/database.yml
 
@@ -45,9 +38,7 @@ jobs:
 
       - run: bundle exec rake db:schema:load
 
-      - run:
-          name: execute rspec
-          command: bundle exec rspec
+      - run: bundle exec rspec
 
       - store_test_results:
           path: /tmp/test-results
@@ -55,6 +46,4 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
-      - run:
-          name: run rubocop
-          command: bundle exec rubocop
+      - run: bundle exec rubocop
