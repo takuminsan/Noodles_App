@@ -15,11 +15,12 @@ https://noodles-app.com<br>
   - Unicorn<br><br>
 - インフラ・開発環境等
   - AWS（VPC, EC2, RDS, S3, Route 53, ALB, ACM）
-  - Docker/docker-compose
-  - minitest,RSpec
+  - Docker/docker-compose(ローカル開発環境)
+  - CircleCI
+  - minitest, RSpec
+  - rubocop
   - Git, GitHub
   - Google Maps Platform
-  - rubocop
 ## 機能一覧
 - ユーザー機能
   - 新規登録（メール送信によるユーザー認証）、ログイン、ログアウト機能
@@ -48,7 +49,8 @@ https://noodles-app.com<br>
 食べたラーメンを記録し、一覧で見返したり、友だちと共有できれば<br>よりラーメンを楽しむことができるなと思い、制作しました。
 ## 今後の予定
 - テストをminitest→RSpecで書き直し（途中）
-- CircleCIに入門
+- Capistranoを使用した自動デプロイ
 - 各ページタイトルの設定
 - 投稿一覧の各postにコメント数とアイコンを表示
 - 新たな機能の検討・実装
+- フロント周りの技術を経験
