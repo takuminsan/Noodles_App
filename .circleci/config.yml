@@ -2,18 +2,14 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.5-node
+      - image: circleci/ruby:2.6.5
         environment:
-          RAILS_ENV: test
-          DB_HOST: db
-          DB_USERNAME: 'root'
-          DB_PASSWORD: 'password'
+          - RAILS_ENV: test
 
       - image: circleci/mysql:8.0.19
         environment:
-          MYSQL_DATABASE: 'Noodles_test'
-          MYSQL_USER: 'root'
-          MYSQL_ROOT_PASSWORD: 'password'
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_ROOT_HOST: '%'
 
     working_directory: ~/sample_app
 
@@ -38,6 +34,8 @@ jobs:
       - run:
           name: Yarnをinstall
           command: yarn install --cache-folder ~/.cache/yarn
+
+      - run: mv config/database.yml.ci config/database.yml
 
       - run:
           name: Wait for DB
