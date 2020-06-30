@@ -1,6 +1,10 @@
 <% if @feed_items.any? %>
   <div class="section_title">
-    <h3>みんなの投稿</h3>
+    <% if logged_in? %>
+      <h3>自分とフォロー中のユーザーの投稿</h3>
+    <% else %>
+      <h3>全てのユーザーの投稿</h3>
+    <% end %>
   </div>
   <ol class="posts">
     <%= render @feed_items %>

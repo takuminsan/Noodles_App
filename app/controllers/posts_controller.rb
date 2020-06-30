@@ -20,7 +20,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user
     @comments = @post.comments
-    @comment = current_user.comments.build if logged_in?
   end
 
   def edit
