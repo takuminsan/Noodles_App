@@ -26,7 +26,7 @@
     <p>コメントはありません。</p>
   <% end %>
   <div class="post_comments_form">
-    <%= form_for [@post, @comment] do |f| %>
+    <%= form_for [@post, Comment.new] do |f| %> <!-- ネストしたルーティングのため、引数が2つ必要　-->
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.text_area :content, class: 'form-control', placeholder: "200文字以内" %>
       <%= f.hidden_field :post_id, value: @post.id %>

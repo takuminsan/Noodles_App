@@ -5,6 +5,9 @@
       margin-top: 20px;
     }
   }
+  aside {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
@@ -27,22 +30,6 @@
     .dropdown-menu {
       left: auto;
       right: 0;
-    }
-  }
-
-  /* top */
-
-  .top_title {
-    top: 25%;
-    h3 {
-      font-size: 18px;
-      margin: 0 0 10px 0;
-    }
-    button {
-      margin: 0 0 10px 0;
-    }
-    a {
-      margin: 0;
     }
   }
 

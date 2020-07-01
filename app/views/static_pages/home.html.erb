@@ -1,33 +1,14 @@
-<% if logged_in? %>
-<div class="container">
-  <aside class="col-md-4">
+<div class="main">
+  <% if logged_in? %>
     <section class="user_info">
       <%= render 'shared/user_info' %>
-      <%= link_to new_post_path, class: "btn btn-warning btn-lg btn-block" do %>
-        <i class="fas fa-edit"></i> 投稿する
-      <% end %>
+      <%= render 'shared/post_btn' %>
     </section>
-  </aside>
-  <div class="col-md-8">
-    <section class="main_section">
-      <%= render 'shared/feed' %>
-    </section>
-  </div>
+  <% end %>
+  <section class="main_section">
+    <%= render 'shared/feed' %>
+  </section>
+  <section class="search_section">
+    <h3>工事中</h3>
+  </section>
 </div>
-<% else %>
-  <div class="col-md-12 top_title">
-    <h3>「Noodles」は、好きなラーメン屋さんの情報や写真を</h3>
-    <h3>友だちと共有できるアプリケーションです。</h3>
-    <%= form_for(:session, url: login_path) do |f| %>
-      <%= f.hidden_field :email, value: "test@test-user.com" %>
-      <%= f.hidden_field :password, value: "password" %>
-      <%= f.button :type => "submit", class: "btn btn-warning btn-lg" do %>
-        <i class="fas fa-address-card"></i> お試しログイン
-      <% end %>
-    <% end %>
-    <h3>or</h3>
-    <%= link_to signup_path, class: "btn btn-default btn-lg" do %>
-      <i class="fas fa-user-plus"></i> ユーザー登録してログイン
-    <% end %>
-  </div>
-<% end %>

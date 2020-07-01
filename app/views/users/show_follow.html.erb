@@ -1,29 +1,28 @@
-<div class="container">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= render 'shared/user_info' %>
-      <%= render 'follow_form' if logged_in? %>
-      <%= render 'shared/post_btn' %>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <div class="main_section">
-      <div class="section_title">
-        <h3><%= @title %></h3>
-      </div>
-      <% if @users.any? %>
-        <ul class="users_index">
-          <% @users.each do |user| %>
-            <%= render 'users/user', user: user %>
-          <% end %>
-        </ul>
-        <%= will_paginate %>
-      <% else %>
-        <div class="no-contents">
-          <h3>まだ誰もいないようです。</h3>
-          <%= image_tag "/noodle.png", :size => '100x100' %>
-        </div>
-      <% end %>
+<div class="main">
+  <section class="user_info">
+    <%= render 'shared/user_info' %>
+    <%= render 'follow_form' if logged_in? %>
+    <%= render 'shared/post_btn' %>
+  </section>
+  <div class="main_section">
+    <div class="section_title">
+      <h3><%= @title %></h3>
     </div>
+    <% if @users.any? %>
+      <ul class="users_index">
+        <% @users.each do |user| %>
+          <%= render 'users/user', user: user %>
+        <% end %>
+      </ul>
+      <%= will_paginate %>
+    <% else %>
+      <div class="no-contents">
+        <h3>まだ誰もいないようです。</h3>
+        <%= image_tag "/noodle.png", :size => '100x100' %>
+      </div>
+    <% end %>
   </div>
+  <section class="search_section">
+    <h3>工事中</h3>
+  </section>
 </div>

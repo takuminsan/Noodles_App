@@ -2,23 +2,26 @@
   <div class="form">
     <h3>ログイン</h3>
     <%= form_for(:session, url: login_path) do |f| %>
-
       <%= f.label :メールアドレス %>
       <%= f.email_field :email, class: 'form-control' %>
-
       <%= f.label :パスワード %>
       <%= f.password_field :password, class: 'form-control' %>
-
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
         <span>ログイン状態を保持</span>
       <% end %>
-
-      <%= f.submit "ログイン", class: "btn btn-warning btn-block" %>
+      <%= f.submit "ログイン", class: "btn btn-default btn-block" %>
       <div class="login_announcement">
         <p>※パスワードを忘れた場合は… <%= link_to "こちら", new_password_reset_path %></p>
         <p>※初めてご利用の方は… <%= link_to "登録する", signup_path %></p>
       </div>
+    <% end %>
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.hidden_field :email, value: "test@test-user.com" %>
+      <%= f.hidden_field :password, value: "password" %>
+      <%= f.button :type => "submit", class: "btn btn-warning btn-lg" do %>
+        <i class="fas fa-address-card"></i> テストユーザーでログインする
+      <% end %>
     <% end %>
   </div>
 </div>
