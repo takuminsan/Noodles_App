@@ -1,25 +1,21 @@
-<li id="post-<%= post.id %>">
+<li class="post">
   <div class="post_header">
     <%= render '/shared/user_image', { user: post.user } %>
     <span><%= link_to post.user.name, post.user %> が食べたラーメン</span>
     <%= render '/posts/post_menu', { post: post } %>
   </div>
   <div class="post_container">
-    <div class="col-md-6">
-      <div class="post_picture">
-        <%= image_tag post.picture.url if post.picture? %>
-      </div>
+    <div class="post_picture">
+      <%= image_tag post.picture.url if post.picture? %>
     </div>
-    <div class="col-md-6">
-      <div class="post_information">
-        <span class="shop_name">店名: <%= post.shop_name %></span>
-        <span class="nearest">最寄駅: <%= post.nearest %></span>
-        <span class="content">説明文: <%= simple_format(post.content) %></span>
-        <div class="post_information_bottom">
-          <span class="more"><%= link_to "もっと見る", post_path(post.id) %></span>
-          <span class="like"><%= render "likes/like", post: post %></span>
-          <span class="timestamp"><%= post.created_at.strftime('%Y/%m/%d %H:%M') %>に投稿</span>
-        </div>
+    <div class="post_information">
+      <span class="shop_name">店名: <%= post.shop_name %></span>
+      <span class="nearest">最寄駅: <%= post.nearest %></span>
+      <span class="content">説明文: <%= simple_format(post.content) %></span>
+      <div class="post_information_bottom">
+        <span class="more"><%= link_to "もっと見る", post_path(post.id) %></span>
+        <span class="like"><%= render "likes/like", post: post %></span>
+        <span class="timestamp"><%= post.created_at.strftime('%Y/%m/%d %H:%M') %>に投稿</span>
       </div>
     </div>
   </div>

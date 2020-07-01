@@ -1,7 +1,11 @@
-<div class="container">
+<div class="main">
+  <section class="user_info">
+    <%= render 'shared/user_info' %>
+    <%= render 'users/follow_form' if logged_in? %>
+    <%= render 'shared/post_btn' if @user == current_user %>
+  </section>
   <section class="main_section">
-    <ol class="posts">
-      <li id="post-<%= @post.id %>">
+
         <div class="post_header" style="border-top: none;">
           <%= render '/shared/user_image', { user: @post.user } %>
           <span><%= link_to @post.user.name, @post.user %> が食べたラーメン</span>
@@ -25,8 +29,7 @@
           </div>
           <%= render 'posts/post_comments' %>
         </div>
-      </li>
-    </ol>
+    
   </section>
 </div>
 <%= render 'posts/show_map' %>

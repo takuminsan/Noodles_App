@@ -1,19 +1,13 @@
-<div class="home">
+<div class="main">
   <% if logged_in? %>
     <section class="user_info">
       <%= render 'shared/user_info' %>
-      <%= link_to new_post_path, class: "btn btn-warning btn-lg btn-block" do %>
-        <i class="fas fa-edit"></i> 投稿する
-      <% end %>
-    </section>
-    <section class="main_section">
-      <%= render 'shared/feed' %>
-    </section>
-  <% else %>
-    <section class="main_section">
-      <%= render 'shared/feed' %>
+      <%= render 'shared/post_btn' %>
     </section>
   <% end %>
+  <section class="main_section">
+    <%= render 'shared/feed' %>
+  </section>
   <section class="search_section">
     <h3>工事中</h3>
   </section>

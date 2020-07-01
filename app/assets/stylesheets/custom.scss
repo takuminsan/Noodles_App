@@ -58,7 +58,7 @@ html, body {
   padding: 50px 0 100px 0;
 }
 
-.home {
+.main {
   display: flex;
   padding: 0 20px;
 }
@@ -186,102 +186,108 @@ header {
     }
   }
   .posts {
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: 0;
-    .post_header {
-      border-top: 1px solid #eaeaea;
-      padding: 10px 20px;
-      height: 70px;
-      display: flex;
+    .post {
+      flex: auto;
+      width: 50%;
+    }
+  }
+  .post_header {
+    border-top: 1px solid #eaeaea;
+    padding: 10px 20px;
+    height: 70px;
+    display: flex;
+    img {
+      @include user_image;
+      width: 50px;
+      height: 50px;
+      flex: auto;
+    }
+    span {
+      flex: auto;
+      font-size: 17px;
+      margin: auto 20px;
+    }
+    .post_menu {
+      flex: auto;
+      margin: auto 0;
+      max-width: 50px;
+      min-width: 50px;
+    }
+  }
+  .post_container {
+    padding: 0 20px 30px 20px;
+    .post_picture {
+      width: 100%;
+      height: 200px;
+      text-align: center;
+      background-color: #f5f5f5;
+      border: 1px solid #eaeaea;
+      border-radius: 4px;
       img {
-        @include user_image;
-        width: 50px;
-        height: 50px;
-        flex: auto;
-      }
-      span {
-        flex: auto;
-        font-size: 17px;
-        margin: auto 20px;
-      }
-      .post_menu {
-        flex: auto;
-        margin: auto 0;
-        max-width: 50px;
-        min-width: 50px;
+        object-fit: cover;
+        max-width: 100%;
+        max-height: 100%;
       }
     }
-    .post_container {
-      height: 230px;
-      padding: 0 5px 30px 5px;
-      .post_picture {
+    .post_information {
+      height: 200px;
+      margin-top: 20px;
+      position: relative;
+      .shop_name {
+        display: block;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .nearest {
+        display: block;
+        font-size: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .content {
         width: 100%;
-        height: 200px;
-        text-align: center;
-        background-color: #f5f5f5;
-        border: 1px solid #eaeaea;
-        border-radius: 4px;
-        img {
-          object-fit: cover;
-          max-width: 100%;
-          max-height: 100%;
+        height: 40px;
+        display: block;
+        font-size: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        p {
+          margin: 0;
+          width: 100%;
+          height: 20px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
       }
-      .post_information {
-        height: 200px;
-        position: relative;
-        .shop_name {
+      .post_information_bottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: right;
+        .more {
           display: block;
-          font-size: 20px;
-          font-weight: bold;
           margin-bottom: 20px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
+          a {
+            color: #808080;
+          }
         }
-        .nearest {
+        .like {
           display: block;
-          font-size: 15px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
         }
-        .content {
-          width: 100%;
-          height: 40px;
+        .timestamp {
           display: block;
-          font-size: 15px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          p {
-            margin: 0;
-            width: 100%;
-            height: 20px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-          }
-        }
-        .post_information_bottom {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          text-align: right;
-          .more {
-            display: block;
-            margin-bottom: 20px;
-            a {
-              color: #808080;
-            }
-          }
-          .like {
-            display: block;
-          }
-          .timestamp {
-            display: block;
-          }
         }
       }
     }
