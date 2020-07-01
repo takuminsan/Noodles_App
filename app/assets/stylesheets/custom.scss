@@ -142,6 +142,7 @@ header {
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+  overflow: hidden;
   .section_title {
     height: 60px;
     margin: 0;
@@ -189,15 +190,19 @@ header {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
+    border-top: 1px solid #eaeaea;
+    border-left: 1px solid #eaeaea;
     padding: 0;
     margin: 0;
     .post {
       flex: auto;
       width: 50%;
+      border-bottom: 1px solid #eaeaea;
+      border-right: 1px solid #eaeaea;
+      height: 100%;
     }
   }
   .post_header {
-    border-top: 1px solid #eaeaea;
     padding: 10px 20px;
     height: 70px;
     display: flex;
@@ -464,6 +469,7 @@ header {
   li {
     padding: 10px 20px;
     border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
     height: 70px;
     position: relative;
     .user_name {
@@ -478,6 +484,9 @@ header {
       width: 50px;
       height: 50px;
     }
+  }
+  li + li {
+    border-top: none;
   }
 }
 
@@ -601,7 +610,6 @@ input {
   width: 100%;
   margin: 0;
   padding: 10px;
-  border-top: 1px solid #eaeaea;
   border-radius: 0;
   ul {
     border-top: none;
