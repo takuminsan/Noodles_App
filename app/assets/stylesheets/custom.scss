@@ -52,14 +52,15 @@ html, body {
   background-attachment: fixed;
   position: relative;
 }
-.contents {
+main {
   width: 100%;
   min-height: 100vh;
   padding: 50px 0 100px 0;
 }
 
-.main {
+.contents {
   display: flex;
+  justify-content: center;
   padding: 0 20px;
 }
 
@@ -92,58 +93,65 @@ header {
 
 /* sidebar */
 
-.user_info {
-  flex: auto;
-  width: 20%;
-  height: fit-content;
-  background-color: #ffffff;
-  margin: 50px 10px;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
-  .user_image {
-    text-align: center;
-    img {
-      @include user_image;
-      width: 100px;
-      height: 100px;
+aside {
+  width: 25%;
+  .user_info {
+    height: fit-content;
+    background-color: #ffffff;
+    margin: 50px 10px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+    .user_image {
+      text-align: center;
+      img {
+        @include user_image;
+        width: 100px;
+        height: 100px;
+      }
+    }
+    .name {
+      display: block;
+      text-align: center;
+      margin: 10px 0;
+      font-size: 23px;
+      font-weight: bold;
+    }
+    .stats {
+      margin-bottom: 10px;
+      a {
+        font-size: 15px;
+      }
+    }
+    span {
+      display: block;
+    }
+    .btn {
+      margin-top: 10px;
+      font-size: 25px;
+      font-size: 20px;
+      box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
     }
   }
-  .name {
-    display: block;
-    text-align: center;
-    margin: 10px 0;
-    font-size: 23px;
-    font-weight: bold;
-  }
-  .stats {
-    margin-bottom: 10px;
-    a {
-      font-size: 15px;
-    }
-  }
-  span {
-    display: block;
-  }
-  .btn {
-    margin-top: 10px;
-    font-size: 25px;
-    font-size: 20px;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+  .search_section {
+    margin: 50px 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
   }
 }
 
 /* main_section */
 
 .main_section {
-  flex: auto;
-  width: 60%;
+  width: 75%;
   margin: 50px 10px;
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
   overflow: hidden;
   .section_title {
+    border-bottom: 1px solid #eaeaea;
     height: 60px;
     margin: 0;
     position: relative;
@@ -189,17 +197,17 @@ header {
   .posts {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     list-style: none;
-    border-top: 1px solid #eaeaea;
-    border-left: 1px solid #eaeaea;
     padding: 0;
     margin: 0;
+    border-bottom: 1px solid #eaeaea;
     .post {
-      flex: auto;
-      width: 50%;
-      border-bottom: 1px solid #eaeaea;
-      border-right: 1px solid #eaeaea;
+      width: 32%;
       height: 100%;
+      border-radius: 5px;
+      box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+      margin: 10px 5px 10px 5px;
     }
   }
   .post_header {
@@ -212,10 +220,13 @@ header {
       height: 50px;
       flex: auto;
     }
-    span {
+    .post_user {
       flex: auto;
       font-size: 17px;
       margin: auto 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .post_menu {
       flex: auto;
@@ -310,18 +321,11 @@ header {
   }
 }
 
-/* search_section */
-
-.search_section {
-  flex: auto;
-  width: 20%;
-  margin: 50px 10px;
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
-}
-
 /* post_show */
+
+.show {
+  width: 50%;
+}
 .post_show {
   padding: 0 20px 20px 20px;
   .post_picture {
@@ -390,21 +394,27 @@ header {
     li {
       background-color: #fffaf0;
       border-radius: 5px;
-      padding: 10px;
-      margin-top: 5px;
+      margin: 10px 0;
+      padding: 10px 10px 10px 0;
       display: flex;
       .comment_left {
+        width: 10%;
         min-width: 40px;
+        position: relative;
         img {
           width: 40px;
           height: 40px;
           border-radius: 5px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
         }
       }
       .comment_right {
-        flex: auto;
-        width: 92%;
-        padding-left: 10px;
+        width: 90%;
         .comment_user_name {
           display: block;
           font-weight: bold;
@@ -462,13 +472,16 @@ header {
     margin: 0;
   }
 }
+.follow {
+  width: 50%;
+}
 .users_index {
   margin: 0;
   padding: 0;
   list-style: none;
+  border-top: 1px solid #eaeaea;
   li {
     padding: 10px 20px;
-    border-top: 1px solid #eaeaea;
     border-bottom: 1px solid #eaeaea;
     height: 70px;
     position: relative;

@@ -6,7 +6,6 @@
     <ul class="nav navbar-nav navbar-right">
       <li><%= link_to root_path do %><i class="fas fa-home"></i> ホーム<% end %></li>
       <% if logged_in? %>
-        <li><%= link_to maps_path do %><i class="fas fa-map-marked-alt"></i> 地図から検索<% end %></li>
         <li><%= link_to users_path do %><i class="fas fa-users"></i> 利用者一覧<% end %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">

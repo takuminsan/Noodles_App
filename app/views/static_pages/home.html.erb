@@ -1,14 +1,16 @@
-<div class="main">
-  <% if logged_in? %>
-    <section class="user_info">
-      <%= render 'shared/user_info' %>
-      <%= render 'shared/post_btn' %>
-    </section>
-  <% end %>
+<div class="contents">
   <section class="main_section">
     <%= render 'shared/feed' %>
   </section>
-  <section class="search_section">
-    <h3>工事中です</h3>
-  </section>
+  <aside>
+    <% if logged_in? %>
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+        <%= render 'shared/post_btn' %>
+      </section>
+    <% end %>
+    <section class="search_section">
+      <%= render 'shared/search_section' %>
+    </section>
+  </aside>
 </div>
