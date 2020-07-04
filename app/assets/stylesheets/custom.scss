@@ -135,9 +135,20 @@ aside {
   }
   .search_section {
     margin: 50px 10px;
+    padding: 20px;
     background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+    .search_section_title {
+      font-size: 17px;
+      border-bottom: 1px solid #eaeaea;
+    }
+    img {
+      width: 100%;
+      display: block;
+      margin: 20px auto;
+      border-radius: 5px;
+    }
   }
 }
 
