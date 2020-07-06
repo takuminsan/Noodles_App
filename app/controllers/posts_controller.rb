@@ -28,8 +28,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    if @post.save
+    if @post.update(post_params)
       flash[:success] = "投稿が編集されました。"
       redirect_to root_url
     else
