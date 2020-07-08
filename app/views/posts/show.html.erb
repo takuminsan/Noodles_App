@@ -1,4 +1,5 @@
 <div class="contents">
+  <%= render 'shared/sidebar' %>
   <section class="main_section show">
     <div class="post_header" style="border-top: none;">
       <%= render '/shared/user_image', { user: @post.user } %>
@@ -28,12 +29,10 @@
   </section>
   <aside>
     <section class="user_info">
+      <label for="sidebar" class="close">×</label>
       <%= render 'shared/user_info' %>
       <%= render 'users/follow_form' if logged_in? %>
       <%= render 'shared/post_btn' if @user == current_user %>
-    </section>
-    <section class="search_section">
-      <%= render 'shared/search_section' %>
     </section>
   </aside>
 </div>

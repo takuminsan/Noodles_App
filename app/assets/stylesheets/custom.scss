@@ -93,12 +93,26 @@ header {
 
 /* sidebar */
 
+.slide,
+.close {
+  display: none;
+  margin: 0;
+}
+
+input[type="checkbox"] {
+  margin: 0;
+  position: absolute;
+  left: -50vw;
+}
+
 aside {
   width: 25%;
+  min-width: 250px;
+  margin-top: 50px;
   .user_info {
     height: fit-content;
     background-color: #ffffff;
-    margin: 50px 10px;
+    margin: 0px 10px 20px 10px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
@@ -122,19 +136,21 @@ aside {
       a {
         font-size: 15px;
       }
+      span {
+        display: inline;
+      }
     }
     span {
       display: block;
     }
     .btn {
       margin-top: 10px;
-      font-size: 25px;
       font-size: 20px;
       box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
     }
   }
   .search_section {
-    margin: 50px 10px;
+    margin: 0 10px;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 5px;
@@ -155,7 +171,7 @@ aside {
 /* main_section */
 
 .main_section {
-  width: 75%;
+  flex: 1;
   margin: 50px 10px;
   background-color: #ffffff;
   border-radius: 5px;
@@ -479,6 +495,7 @@ aside {
     text-align: center;
     padding: 30px 0;
     margin: 0;
+    border-bottom: 1px solid #eaeaea;
   }
 }
 .follow {
@@ -488,7 +505,6 @@ aside {
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid #eaeaea;
   li {
     padding: 10px 20px;
     border-bottom: 1px solid #eaeaea;
