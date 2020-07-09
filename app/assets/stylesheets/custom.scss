@@ -96,7 +96,6 @@ header {
 .slide,
 .close {
   display: none;
-  margin: 0;
 }
 
 input[type="checkbox"] {
@@ -110,7 +109,6 @@ aside {
   min-width: 250px;
   margin-top: 50px;
   .user_info {
-    height: fit-content;
     background-color: #ffffff;
     margin: 0px 10px 20px 10px;
     padding: 20px;
@@ -149,23 +147,6 @@ aside {
       box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
     }
   }
-  .search_section {
-    margin: 0 10px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
-    .search_section_title {
-      font-size: 17px;
-      border-bottom: 1px solid #eaeaea;
-    }
-    img {
-      width: 100%;
-      display: block;
-      margin: 20px auto;
-      border-radius: 5px;
-    }
-  }
 }
 
 /* main_section */
@@ -195,13 +176,9 @@ aside {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      float: left;
-      list-style: none;
-      margin: 0;
       padding: 0;
       li {
         display: inline-block;
-        float: left;
         a {
           text-decoration: none;
           padding: 18px 25px 19px 25px;
@@ -245,10 +222,8 @@ aside {
       @include user_image;
       width: 50px;
       height: 50px;
-      flex: auto;
     }
     .post_user {
-      flex: auto;
       font-size: 17px;
       margin: auto 20px;
       overflow: hidden;
@@ -278,9 +253,7 @@ aside {
       }
     }
     .post_information {
-      height: 200px;
       margin-top: 20px;
-      position: relative;
       .shop_name {
         display: block;
         font-size: 20px;
@@ -298,40 +271,34 @@ aside {
         white-space: nowrap;
       }
       .content {
-        width: 100%;
-        height: 40px;
-        display: block;
         font-size: 15px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         p {
           margin: 0;
-          width: 100%;
           height: 20px;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
         }
       }
-      .post_information_bottom {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
+      .more {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        display: block;
         text-align: right;
-        .more {
-          display: block;
-          margin-bottom: 20px;
-          a {
-            color: #808080;
-          }
+        a {
+          color: #808080;
         }
-        .like {
-          display: block;
-        }
-        .timestamp {
-          display: block;
-        }
+      }
+      .post_reaction {
+        display: flex;
+        justify-content: space-between;
+      }
+      .timestamp {
+        display: block;
+        text-align: right;
       }
     }
   }
@@ -385,15 +352,12 @@ aside {
         margin: 0;
       }
     }
-    .post_information_bottom {
+    .like {
+      display: block;
       margin-top: 20px;
-      height: 22px;
-      .like {
-        float: left;
-      }
-      .timestamp {
-        float: right;
-      }
+    }
+    .timestamp {
+      display: block;
     }
   }
 }
@@ -497,9 +461,6 @@ aside {
     margin: 0;
     border-bottom: 1px solid #eaeaea;
   }
-}
-.follow {
-  width: 50%;
 }
 .users_index {
   margin: 0;
