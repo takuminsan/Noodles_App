@@ -222,7 +222,7 @@
           }
           .comment_right {
             flex: auto;
-            width: 92%;
+            min-width: 10px;
             padding-left: 10px;
             .comment_user_name {
               display: block;
