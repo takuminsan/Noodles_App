@@ -16,10 +16,8 @@
         <span class="shop_name">店名: <%= @post.shop_name %></span>
         <span class="nearest">最寄駅: <%= @post.nearest %></span>
         <span class="content">説明文: <%= simple_format(@post.content) %></span>
-        <div class="post_information_bottom">
-          <span class="like"><%= render "likes/like", post: @post %></span>
-          <span class="timestamp"><%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>に投稿</span>
-        </div>
+        <span class="like"><%= render "likes/like", post: @post %></span>
+        <span class="timestamp"><%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>に投稿</span>
       </div>
       <div class="post_map">
         <div id="map"></div>
