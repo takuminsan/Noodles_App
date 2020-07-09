@@ -6,6 +6,10 @@
   <% else %>
     <%= image_tag(@user.image.url) %>
   <% end %>
-  <p><%= @user.name %></p>
+  <% if @user == current_user %>
+    <p><%= @user.name %>でログイン中</p>
+  <% else %>
+    <p><%= @user.name %>のページ</p>
+  <% end %>
 </label>
 <label for="sidebar" class="back"></label>

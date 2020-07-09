@@ -1,15 +1,17 @@
 <div class="contents">
-  <%= render 'shared/sidebar' %>
+  <% if logged_in? %>
+    <%= render 'shared/sidebar' %>
+  <% end %>
   <section class="main_section">
     <%= render 'shared/feed' %>
   </section>
-  <aside>
-    <% if logged_in? %>
+  <% if logged_in? %>
+    <aside>
       <section class="user_info">
         <label for="sidebar" class="close">×</label>
         <%= render 'shared/user_info' %>
         <%= render 'shared/post_btn' %>
       </section>
-    <% end %>
-  </aside>
+    </aside>
+  <% end %>
 </div>

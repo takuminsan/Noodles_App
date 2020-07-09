@@ -33,7 +33,7 @@
   /* sidebar */
 
   .slide {
-    display: block;
+    display: flex;
     position: absolute;
     height: 45px;
     border-radius: 30px;
@@ -46,8 +46,7 @@
       border-radius: 30px;
     }
     p {
-      display: inline;
-      margin: 7.5px 0;
+      margin: auto 10px;
     }
   }
   .close {
