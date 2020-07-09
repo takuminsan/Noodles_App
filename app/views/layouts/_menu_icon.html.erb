@@ -1,8 +1,8 @@
 <a href="#" class="menu-icon dropdown-toggle" data-toggle="dropdown"><i class="fas fa-bars fa-3x"></i></a>
 <ul class="dropdown-menu">
   <li><%= link_to root_path do %><i class="fas fa-home"></i> ホーム<% end %></li>
+  <li><%= link_to maps_path do %><i class="fas fa-map-marked-alt"></i> 地図から投稿検索<% end %></li>
   <% if logged_in? %>
-    <li><%= link_to maps_path do %><i class="fas fa-map-marked-alt"></i> 地図から検索<% end %></li>
     <li><%= link_to users_path do %><i class="fas fa-users"></i> 利用者一覧<% end %></li>
     <li class="divider"></li>
     <li><%= link_to current_user do %><i class="far fa-user"></i> プロフィール<% end %></li>
@@ -12,6 +12,8 @@
       <%= link_to logout_path, method: :delete do %><i class="fas fa-times"></i> ログアウト<% end %>
     </li>
   <% else %>
+    <li class="divider"></li>
     <li><%= link_to login_path do %><i class="fas fa-sign-in-alt"></i> ログイン<% end %></li>
+    <li><%= link_to signup_path do %><i class="fas fa-user-plus"></i> ユーザー登録<% end %></li>
   <% end %>
 </ul>
