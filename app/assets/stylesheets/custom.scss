@@ -352,12 +352,13 @@ aside {
         margin: 0;
       }
     }
-    .like {
-      display: block;
+    .post_information_bottom {
+      display: flex;
+      justify-content: space-between;
       margin-top: 20px;
     }
-    .timestamp {
-      display: block;
+    .fa-twitter-square {
+      color:#1da1f2;
     }
   }
 }
