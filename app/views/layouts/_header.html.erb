@@ -1,8 +1,17 @@
-<header class="navbar navbar-fixed-top">
+<header class="navbar-fixed-top">
   <div class="header-left">
     <%= link_to "Noodles", root_path, id: "logo" %>
+    <%= link_to image_tag("/noodle.png", :size => '30x30'), root_path %>
   </div>
-  <nav>
+  <div class="header-right">
+    <div class="post_search">
+      <%= form_with url: root_path do |f| %>
+        <%= f.text_field :search, class: 'form-control'  %>
+        <%= f.button :type => "submit" do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      <% end %>
+    </div>
     <ul class="nav navbar-nav navbar-right">
       <li><%= link_to root_path do %><i class="fas fa-home"></i> ホーム<% end %></li>
       <li><%= link_to maps_path do %><i class="fas fa-map-marked-alt"></i> 地図から投稿検索<% end %></li>
@@ -27,5 +36,5 @@
       <% end %>
     </ul>
     <%= render '/layouts/menu_icon' %>
-  </nav>
+  </div>
 </header>

@@ -14,6 +14,20 @@
 
 @media (max-width: 991px) {
 
+  /* header */
+
+header #logo {
+  padding-left: 15px;
+}
+
+header .header-right .post_search {
+  margin: auto 10px;
+}
+
+header .navbar-right {
+  margin-right: 15px;
+}
+
   /* main */
 
   .contents {
@@ -88,21 +102,23 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 839px) {
 
   /* header */
 
   header {
     #logo {
-      padding-left: 15px;
+      padding-left: 10px;
+    }
+    .header-right .post_search {
+      margin: auto 30px;
     }
     .navbar-right {
       display: none;
     }
     .menu-icon {
       display: inline-block;
-      float: right;
-      margin: 5px 15px 0 0;
+      margin: 5px 10px 0 0;
     }
     .dropdown-menu {
       left: auto;
@@ -238,6 +254,27 @@
     padding: 0 10px 10px 10px;
     h3 {
       padding: 20px 0 10px 0;
+    }
+  }
+}
+
+@media (max-width: 439px) {
+
+  /* header */
+
+  header {
+    #logo {
+      display: none;
+    }
+    img {
+      display: block;
+      margin: 9px 0 0 10px;
+    }
+    .header-right .post_search {
+      margin: auto 15px;
+      input {
+        width: 120px;
+      }
     }
   }
 }

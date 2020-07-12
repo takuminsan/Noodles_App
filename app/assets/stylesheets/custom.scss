@@ -68,6 +68,8 @@ main {
 
 header {
   background-color: #ffffff;
+  display: flex;
+  justify-content:space-between;
   #logo {
     float: left;
     padding-top: 9px;
@@ -77,6 +79,23 @@ header {
     display: block;
     &:hover {
       text-decoration: none;
+    }
+  }
+  img {
+    display: none;
+  }
+  .header-right {
+    display: flex;
+    .post_search {
+      margin: auto 30px;
+    }
+    input {
+      margin: 0;
+      display: inline;
+      width: auto;
+    }
+    button {
+      height: 34px;
     }
   }
   .navbar-right {
