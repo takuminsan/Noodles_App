@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # ユーザーページ
   resources :users do
     member do
-      get :following, :followers, :likes
+      get :following, :followers, :likes # /users/:id/following, followers, likesとなる
     end
   end
 
@@ -22,11 +22,12 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
 
   # パスワードのリセット
-  resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   # 投稿
-  resources :posts,               only: [:new, :create, :edit, :show, :update, :destroy] do
+  resources :posts, only: [:new, :create, :edit, :show, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
+    get :search, on: :collection # /posts/searchとなり、postsコントローラーのsearchアクションにルーティングされる
   end
   post '/posts/new', to: 'posts#create'
   patch '/posts/:id/edit', to: 'posts#update'

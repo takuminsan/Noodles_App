@@ -1,0 +1,31 @@
+<% provide(:title, '検索結果') %>
+<div class="contents">
+  <% if logged_in? %>
+    <%= render 'shared/sidebar' %>
+  <% end %>
+  <section class="main_section">
+    <div class="section_title">
+      <h3><%= @section_title %></h3>
+    </div>
+    <% if @posts.any? %>
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% else %>
+      <div class="no-contents">
+        <h3>該当する投稿はありません。</h3>
+        <%= image_tag "/noodle.png", :size => '100x100' %>
+      </div>
+    <% end %>
+  </section>
+  <% if logged_in? %>
+    <aside>
+      <section class="user_info">
+        <label for="sidebar" class="close">×</label>
+        <%= render 'shared/user_info' %>
+        <%= render 'shared/post_btn' %>
+      </section>
+    </aside>
+  <% end %>
+</div>

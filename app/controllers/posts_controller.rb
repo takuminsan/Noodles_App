@@ -42,6 +42,16 @@ class PostsController < ApplicationController
     redirect_to root_url
   end
 
+  def search
+    @section_title = "「#{params[:search]}」の検索結果"
+    @posts = if params[:search].present?
+               Post.where('shop_name LIKE ?', "%#{params[:search]}%").where('nearest LIKE ?', "%#{params[:search]}%")
+                   .paginate(page: params[:page], per_page: 12).recent
+             else
+               Post.none
+             end
+  end
+
   private
 
     def post_params
