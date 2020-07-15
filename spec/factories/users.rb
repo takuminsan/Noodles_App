@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :michael, class: User do
+  factory :michael, class: User do # :michaelという名前のUserクラスのデータを定義
     id { 1 }
     name { 'Michael Example' }
     email { 'michael@test.com' }
