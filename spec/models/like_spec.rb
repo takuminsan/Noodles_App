@@ -1,22 +1,21 @@
 require 'rails_helper'
-RSpec.describe "like_model" do
+
+RSpec.describe "like_model", type: :model do
   before do
-    # @user = build(:michael)
-    # @post = build(:post_01)
-    # @like = Like.new(user_id: @user.id,
-    #                  post_id: @post.id)
+    @like = FactoryBot.create(:like)
   end
 
   it "@likeが有効であること" do
-    # expect(@like).to be_valid
+    expect(@like).to be_valid
   end
 
-  it "" do
+  it "user_idが空白のlikeは無効であること" do
+    @like.user_id = nil
+    expect(@like).to be_invalid
   end
 
-  it "" do
-  end
-
-  it "" do
+  it "post_idが空白のlikeは無効であること" do
+    @like.post_id = nil
+    expect(@like).to be_invalid
   end
 end

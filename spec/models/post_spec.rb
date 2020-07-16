@@ -1,32 +1,30 @@
 require 'rails_helper'
-RSpec.describe "post_model" do
+RSpec.describe "post_model", type: :model do
   before do
-    @user = build(:michael)
-    @post = @user.posts.build(shop_name: "Noodles",
-                              nearest: "新宿駅",
-                              content: "ラーメン美味しい")
+    @user = FactoryBot.create(:user)
+    @post = FactoryBot.create(:post, user: @user) # Postオブジェクトにはuser_idが必須なので、@userを@postに関連付ける
   end
 
   it "@postが有効であること" do
     expect(@post).to be_valid
   end
 
-  it "投稿にuser_idが必ず存在していること" do
+  it "user_idが空白の投稿は無効であること" do
     @post.user_id = nil
     expect(@post).to be_invalid
   end
 
-  it "投稿にshop_nameが必ず存在していること" do
+  it "shop_nameが空白の投稿は無効であること" do
     @post.shop_name = nil
     expect(@post).to be_invalid
   end
 
-  it "投稿にnearestが必ず存在していること" do
+  it "nearestが空白の投稿は無効であること" do
     @post.nearest = nil
     expect(@post).to be_invalid
   end
 
-  it "投稿のcontentは1000字以下であること" do
+  it "contentが1000字を超える投稿は無効であること" do
     @post.content = "a" * 1001
     expect(@post).to be_invalid
   end

@@ -1,7 +1,8 @@
 require 'rails_helper'
-RSpec.describe "user_model" do
+
+RSpec.describe "user_model", type: :model do
   before do
-    @user = build(:michael)
+    @user = FactoryBot.create(:user)
   end
 
   it "ユーザーmichaelが有効であること" do
@@ -68,20 +69,16 @@ RSpec.describe "user_model" do
   end
 
   it "ユーザーが削除されるとユーザーの投稿も削除されること" do
-    @user.save
-    @user.posts.create!(shop_name: "Noodles",
-                        nearest: "sinjuku-station",
-                        content: "ラーメン美味しい")
-    myposts_count = @user.posts.count
-    allposts_count = Post.all.count
+    @post = FactoryBot.create(:post, user: @user)
+    expect(@user.posts.count).to eq 1
     @user.destroy
-    expect(Post.all.count).to eq allposts_count - myposts_count
+    expect(@user.posts.count).to eq 0
   end
 
   describe "ユーザーのフォローとフォロー解除について" do
     before do
-      @michael = create(:michael)
-      @archer  = create(:archer)
+      @michael = FactoryBot.create(:user, name: "michael", email: "michael@example.com")
+      @archer  = FactoryBot.create(:user, name: "archer", email: "archerl@example.com")
     end
     it "フォロー" do
       expect(@michael.following).not_to include(@archer)
@@ -99,28 +96,25 @@ RSpec.describe "user_model" do
 
   describe "投稿について" do
     before do
-      @michael = create(:michael)
-      @archer  = create(:archer)
-      @lana    = create(:lana)
+      @michael = FactoryBot.create(:user, name: "michael", email: "michael@example.com")
+      @archer  = FactoryBot.create(:user, name: "archer", email: "archerl@example.com")
+      @lana    = FactoryBot.create(:user, name: "lana", email: "lana@example.com")
       @michael.follow(@lana)
-      @post = { shop_name: "Noodles",
-                nearest: "sinjuku-station",
-                content: "ラーメン美味しい" }
     end
     it "フォローしているユーザーの投稿はフィードに表示されること" do
-      @lana.posts.create!(@post)
+      @post = FactoryBot.create(:post, user: @lana)
       @lana.posts.each do |post_following|
         expect(@michael.feed).to include(post_following)
       end
     end
     it "自分自身の投稿はフィードに表示されること" do
-      @michael.posts.create!(@post)
+      @post = FactoryBot.create(:post, user: @michael)
       @michael.posts.each do |post_self|
         expect(@michael.feed).to include(post_self)
       end
     end
     it "フォローしていないユーザーの投稿はフィードに表示されないこと" do
-      @archer.posts.create!(@post)
+      @post = FactoryBot.create(:post, user: @archer)
       @archer.posts.each do |post_unfollowed|
         expect(@michael.feed).not_to include(post_unfollowed)
       end
