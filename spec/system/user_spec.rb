@@ -24,20 +24,17 @@ describe 'ユーザー登録機能', type: :system do
         fill_in 'user_password_confirmation', with: 'password'
         click_button 'アカウント作成'
       }.to change{User.count}.by(1)
+      expect(page).to have_content 'あなたのメールアドレスにアカウント有効化のメールを送信しました。'
+      # 格納された送信済みメール（メールのオブジェクト）があることの確認
+      expect(ActionMailer::Base.deliveries.size).to eq(1)
+      # 有効化されていない状態のため、ログインできない
+      visit login_path
+      fill_in 'session_email', with: 'test_user@valid.com'
+      fill_in 'session_password', with: 'password'
+      click_button 'ログイン'
+      expect(page).to have_content 'アカウントが有効ではありません。'
+      # 有効化トークンが不正な場合
     end
-    #test "valid signup information with account activation" do
-    #  assert_difference 'User.count', 1 do
-    #    post users_path, params: { user: { name: "Example User",
-    #                                       email: "user@example.com",
-    #                                       password: "password",
-    #                                       password_confirmation: "password" } }
-    #  end
-    #  assert_equal 1, ActionMailer::Base.deliveries.size
-    #  user = assigns(:user)
-    #  assert_not user.activated?
-    #  # 有効化していない状態でログインしてみる
-    #  log_in_as(user)
-    #  assert_not is_logged_in?
     #  # 有効化トークンが不正な場合
     #  get edit_account_activation_path("invalid token", email: user.email)
     #  assert_not is_logged_in?
