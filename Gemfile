@@ -27,6 +27,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'
@@ -54,7 +55,6 @@ group :test do
   gem 'guard-minitest',           '2.4.4'
   gem 'minitest',                 '5.10.3'
   gem 'minitest-reporters',       '1.1.14'
-  gem 'rails-controller-testing', '1.0.2'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
