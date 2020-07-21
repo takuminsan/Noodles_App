@@ -33,7 +33,6 @@ describe 'ユーザー登録機能', type: :system do
       fill_in 'session_password', with: 'password'
       click_button 'ログイン'
       expect(page).to have_content 'アカウントが有効ではありません。'
-      # 有効化トークンが不正な場合
     end
     #  # 有効化トークンが不正な場合
     #  get edit_account_activation_path("invalid token", email: user.email)
