@@ -16,10 +16,6 @@ jobs:
     working_directory: ~/sample_app
 
     steps:
-      - run: # chromedriverをバックグラウンドで起動する
-          command: chromedriver
-          background: true
-
       - checkout # CI環境上の working_directory の値の場所にGitリポジトリをコピーする
 
       - restore_cache:
