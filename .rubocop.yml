@@ -13,6 +13,10 @@ Layout/IndentationConsistency:
 Style/AsciiComments:
   Enabled: false
 
+Style/BlockDelimiters:
+  Exclude:
+    - "spec/**/*"
+
 Lint/SuppressedException:
   Exclude:
     - 'config/unicorn.conf.rb'

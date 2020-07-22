@@ -3,7 +3,7 @@ require 'capybara/rspec' # RSpecでCapybaraを扱うために必要な機能を�
 RSpec.configure do |config|
   config.before(:each) do |example| # システムテストを実行するドライバ（ブラウザ相当の機能を利用するために必要なプログラム）の設定
     if example.metadata[:type] == :system
-      driven_by :selenium, using: :headless_chrome, screen_size: [1280, 800], options: { args: ["headless", "disable-gpu", "no-sandbox", "disable-dev-shm-usage"] }
+      driven_by :selenium, using: :headless_chrome, screen_size: [1280, 800], options: { args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage] }
     end
   end
 
