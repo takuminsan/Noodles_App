@@ -14,14 +14,15 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save   :downcase_email
+  before_save   :downcase_email # { self.email = email.downcase }
   before_create :create_activation_digest
   validates :name,  presence: true, length: { maximum: 16 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i # メールアドレスを検証するための正規表現
   validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-  has_secure_password
+                    format: { with: VALID_EMAIL_REGEX }, # メールアドレスのフォーマットを検証する
+                    uniqueness: { case_sensitive: false } # uniqueness: true かつ emailの大文字・小文字を区別しない設定
+                                                          # （アドレスが大文字・小文字で異なっていても一意とみなす必要があるため）
+  has_secure_password # セキュアなパスワードの実装
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validate  :picture_size
 
