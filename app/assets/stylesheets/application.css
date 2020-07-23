@@ -13,3 +13,5 @@
  *= require_tree .
  *= require_self
  */
+
+/* app/assets/stylesheetsディレクトリ (サブディレクトリを含む) 中のすべてのCSSファイルが、アプリケーションCSSに含まれるようにしている */

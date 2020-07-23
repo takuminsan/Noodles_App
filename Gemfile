@@ -5,7 +5,7 @@ ruby '2.6.5'
 
 gem 'bcrypt', '3.1.12'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass', '3.3.7' # BootstrapではLESS言語を使っているが、RailsのAsset PipelineはデフォルトではSass言語をサポート
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave' # 画像アップローダー
 gem 'coffee-rails', '~> 4.2'

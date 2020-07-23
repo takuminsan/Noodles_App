@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- HTML5を使うことの宣言 -->
 <html>
   <head>
     <title><%= yield(:title) %> | Noodles</title>
@@ -6,7 +6,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.12.0/js/all.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= render 'layouts/rails_default' %>
-    <%= render 'layouts/shim' %>
+    <%= render 'layouts/shim' %> <!-- IEのバージョンが9未満の場合にのみHTML5 shimを読み込む -->
   </head>
   <body>
     <%= render 'layouts/header' %>
