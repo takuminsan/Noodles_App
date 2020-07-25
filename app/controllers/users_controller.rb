@@ -70,7 +70,8 @@ class UsersController < ApplicationController
   end
 
   private
-
+    # Strong Parameters
+    # マスアサインメント (ユーザーが送信したデータをまるごとUser.newに渡す)の脆弱性を回避
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation, :image)
