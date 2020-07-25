@@ -31,8 +31,7 @@ Rails.application.routes.draw do
   end
   post '/posts/new', to: 'posts#create'
   patch '/posts/:id/edit', to: 'posts#update'
-  get '/posts/:id/comments', to: 'posts#show'
-  post '/posts/:id/comments', to: 'comments#create'
+  post '/posts/:id', to: 'comments#create'
 
   # フォロー
   resources :relationships,       only: [:create, :destroy]

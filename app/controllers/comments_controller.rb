@@ -8,7 +8,9 @@ class CommentsController < ApplicationController
       flash[:success] = "投稿にコメントしました！"
       redirect_back(fallback_location: root_path)
     else
-      @post = Post.find(params[:post_id])
+      flash.now[:danger] = "コメントに失敗しました。"
+      @post = Post.find(params[:id])
+      @user = @post.user
       @comments = @post.comments
       render 'posts/show'
     end
