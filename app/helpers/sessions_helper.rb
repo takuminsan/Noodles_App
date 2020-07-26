@@ -1,7 +1,7 @@
 module SessionsHelper
   # 渡されたユーザーでログインする
   def log_in(user)
-    session[:user_id] = user.id
+    session[:user_id] = user.id #ユーザーのブラウザ内の一時cookiesに暗号化済みのユーザーIDが自動で作成される
   end
 
   # ユーザーのセッションを永続的にする
@@ -19,7 +19,7 @@ module SessionsHelper
   # 記憶トークンcookieに対応するユーザーを返す
   def current_user
     if (user_id = session[:user_id])
-      @current_user ||= User.find_by(id: user_id)
+      @current_user ||= User.find_by(id: user_id) # ユーザーIDが存在しない状態でfindを使うと例外が発生してしまうので、find.by()を使う
     elsif (user_id = cookies.signed[:user_id])
       user = User.find_by(id: user_id)
       if user && user.authenticated?(:remember, cookies[:remember_token])

@@ -11,8 +11,11 @@
 // about supported directives.
 //
 //= require rails-ujs
+
+// Bootstrapに同梱されているJavaScriptライブラリとjQueryを読み込むようアセットパイプラインに指示している
 //= require jquery
 //= require bootstrap
+
 //= require activestorage
 //= require turbolinks
 //= require_tree .

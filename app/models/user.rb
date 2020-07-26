@@ -27,11 +27,11 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validate  :picture_size
 
-  # 渡された文字列のハッシュ値を返す
+  # 渡された文字列のハッシュ値を返す (secure_passwordのソースコードを参考としている)
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
+    BCrypt::Password.create(string, cost: cost) # stringはハッシュ化する文字列、costはコストパラメータ (ハッシュを算出するための計算コスト)
   end
 
   # ランダムなトークンを返す
