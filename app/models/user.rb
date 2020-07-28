@@ -14,16 +14,16 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save   :downcase_email # { self.email = email.downcase }
+  before_save   :downcase_email                                                 # { self.email = email.downcase }
   before_create :create_activation_digest
   validates :name,  presence: true, length: { maximum: 16 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i # メールアドレスを検証するための正規表現
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i        # メールアドレスを検証するための正規表現
   validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX }, # メールアドレスのフォーマットを検証する
-                    uniqueness: { case_sensitive: false } # uniqueness: true かつ emailの大文字・小文字を区別しない設定 (アドレスが大文字・小文字で異なっていても一意とみなす必要があるため)
-  has_secure_password # セキュアにハッシュ化したパスワードを、データベース内のpassword_digestという属性に保存できるようになる
-                      # 2つのペアの仮想的な属性 (passwordとpassword_confirmation) が使えるようになる。また、存在性と値が一致するかどうかのバリデーションも追加される
-                      # authenticateメソッドが使えるようになる (引数の文字列がパスワードと一致するとUserオブジェクトを、間違っているとfalseを返すメソッド)
+                    format: { with: VALID_EMAIL_REGEX },                        # メールアドレスのフォーマットを検証する
+                    uniqueness: { case_sensitive: false }                       # uniqueness: true かつ emailの大文字・小文字を区別しない設定 (アドレスが大文字・小文字で異なっていても一意とみなす必要があるため)
+  has_secure_password                                                           # セキュアにハッシュ化したパスワードを、データベース内のpassword_digestという属性に保存できるようになる
+                                                                                # 2つのペアの仮想的な属性 (passwordとpassword_confirmation) が使えるようになる。また、存在性と値が一致するかどうかのバリデーションも追加される
+                                                                                # authenticateメソッドが使えるようになる (引数の文字列がパスワードと一致するとUserオブジェクトを、間違っているとfalseを返すメソッド)
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validate  :picture_size
 
@@ -31,26 +31,26 @@ class User < ApplicationRecord
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost) # stringはハッシュ化する文字列、costはコストパラメータ (ハッシュを算出するための計算コスト)
+    BCrypt::Password.create(string, cost: cost)                             # stringはハッシュ化する文字列、costはコストパラメータ (ハッシュを算出するための計算コスト)
   end
 
   # ランダムなトークンを返す
   def User.new_token
-    SecureRandom.urlsafe_base64
+    SecureRandom.urlsafe_base64                                             # Ruby標準ライブラリのSecureRandomモジュールにあるurlsafe_base64メソッドで長くてランダムな文字列を生成
   end
 
   # 永続セッションのためにユーザーをデータベースに記憶する
   def remember
-    self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
+    self.remember_token = User.new_token                                    # ユーザーのremember_token仮想属性にランダムなトークンを代入
+    update_attribute(:remember_digest, User.digest(remember_token))         # 特定の属性 (remember_digest)のみ更新したいので、update_attributesではなく、update_attribute
   end
 
   # トークンがダイジェストと一致したらtrueを返す
   def authenticated?(attribute, token)
     digest = self.send("#{attribute}_digest")
-    return false if digest.nil?
-
-    BCrypt::Password.new(digest).is_password?(token)
+    return false if digest.nil?                                             # ex.記憶ダイジェストがnilの場合はfalseを返して処理を終了させる
+                                                                            # (ユーザーの記憶ダイジェストは存在しないがcookiesの記憶トークンは存在する、という状況の回避)
+    BCrypt::Password.new(digest).is_password?(token)                        # secure_passwordのソースコードを参考。渡されたトークンがユーザーの記憶ダイジェストと一致することを確認
   end
 
   # ユーザーのログイン情報を破棄する

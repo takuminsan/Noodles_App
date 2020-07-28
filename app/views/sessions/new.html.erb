@@ -2,7 +2,7 @@
 <div class="form_page">
   <div class="form">
     <h3>ログイン</h3>
-    <%= form_for(:session, url: login_path) do |f| %>
+    <%= form_for(:session, url: login_path) do |f| %> <!-- Sessionというモデルは無いため、リソースの名前とそれに対応するURLを具体的に指定する必要がある -->
       <%= f.label :メールアドレス %>
       <%= f.email_field :email, class: 'form-control' %>
       <%= f.label :パスワード %>

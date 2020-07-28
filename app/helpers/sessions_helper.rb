@@ -18,11 +18,11 @@ module SessionsHelper
 
   # 記憶トークンcookieに対応するユーザーを返す
   def current_user
-    if (user_id = session[:user_id])
+    if (user_id = session[:user_id]) # (ユーザーIDにユーザーIDのセッションを代入した結果) ユーザーIDのセッションが存在すれば
       @current_user ||= User.find_by(id: user_id) # ユーザーIDが存在しない状態でfindを使うと例外が発生してしまうので、find.by()を使う
     elsif (user_id = cookies.signed[:user_id])
       user = User.find_by(id: user_id)
-      if user && user.authenticated?(:remember, cookies[:remember_token])
+      if user && user.authenticated?(:remember, cookies[:remember_token]) # ユーザーの記憶ダイジェストとcookiesの記憶トークンが一致するかの確認
         log_in user
         @current_user = user
       end
