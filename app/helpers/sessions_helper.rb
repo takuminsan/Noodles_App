@@ -1,7 +1,7 @@
 module SessionsHelper
   # 渡されたユーザーでログインする
   def log_in(user)
-    session[:user_id] = user.id #ユーザーのブラウザ内の一時cookiesに暗号化済みのユーザーIDが自動で作成される
+    session[:user_id] = user.id # ユーザーのブラウザ内の一時cookiesに暗号化済みのユーザーIDが自動で作成される
   end
 
   # ユーザーのセッションを永続的にする

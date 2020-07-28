@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   post '/posts/:id', to: 'comments#create'
 
   # フォロー
-  resources :relationships,       only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   # 食べたい！（いいね機能）
   resources :likes, only: [:create, :destroy]
