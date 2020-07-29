@@ -27,13 +27,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-    @test_user = User.find_by(email: 'test@test-user.com')
+  def edit # before_action :correct_userで@userは定義済み
+    if @user.email == 'test@test-user.com'
+      @test_user = @user
+    end
   end
 
-  def update
-    @user = User.find(params[:id])
+  def update # before_action :correct_userで@userは定義済み
     if @user.update_attributes(user_params)
       flash[:success] = "アカウント情報が変更されました。"
       redirect_to @user

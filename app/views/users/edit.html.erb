@@ -2,25 +2,25 @@
 <div class="form_page">
   <div class="form">
     <h3>アカウント設定</h3>
-    <% if @user == @test_user %>
+    <% if @test_user %>
       <p class="caution">※「お試しログイン」の場合、アカウント情報の変更はできません。</p>
     <% end %>
-    <%= form_for(@user,{multipart: true}) do |f| %>
+    <%= form_for(@user) do |f| %> <!-- form_for(@user)とすると、@user.new_record? (Active Recordの論理値メソッド)がtrueのときにはPOSTを、falseのときにはPATCHを自動で使う -->
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :名前 %>
-      <%= f.text_field :name, readonly: @user == @test_user, class: 'form-control', placeholder: "16文字以内" %>
+      <%= f.text_field :name, readonly: @test_user, class: 'form-control', placeholder: "16文字以内" %>
 
       <%= f.label :メールアドレス %>
-      <%= f.email_field :email, readonly: @user == @test_user, class: 'form-control', placeholder: "user@example.com" %>
+      <%= f.email_field :email, readonly: @test_user, class: 'form-control', placeholder: "user@example.com" %>
 
       <%= f.label :パスワード %>
-      <%= f.password_field :password, readonly: @user == @test_user, class: 'form-control', placeholder: "6文字以上" %>
+      <%= f.password_field :password, readonly: @test_user, class: 'form-control', placeholder: "6文字以上" %>
 
       <%= f.label :パスワード（確認） %>
-      <%= f.password_field :password_confirmation, readonly: @user == @test_user, class: 'form-control', placeholder: "パスワードをもう一度入力してください。" %>
+      <%= f.password_field :password_confirmation, readonly: @test_user, class: 'form-control', placeholder: "パスワードをもう一度入力してください。" %>
 
-      <%=f.label :image,"ユーザー画像" %>
+      <%= f.label :image,"ユーザー画像" %>
       <div class="edit_image">
         <% if @user.image.to_s.empty? %>
           <%= image_tag "/default_user.png" %>
@@ -28,7 +28,7 @@
           <%= image_tag @user.image.url %>
         <% end %>
       </div>
-      <% if @user != @test_user %>
+      <% unless @test_user %>
         <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>
       <% end %>
       <%= f.submit "変更を保存", class: "btn btn-warning btn-block" %>

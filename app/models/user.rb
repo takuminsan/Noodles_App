@@ -25,7 +25,7 @@ class User < ApplicationRecord
   # 2つのペアの仮想的な属性 (passwordとpassword_confirmation) を使えるようにする。また、存在性と値が一致するかどうかのバリデーションも追加される
   # authenticateメソッドを使えるようにする (引数の文字列がパスワードと一致するとUserオブジェクトを、間違っているとfalseを返すメソッド)
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true # allow_nil: trueすることで、パスワードが空のままでも更新できるようになる (新規登録ではhas_secure_passwordが存在性を検証する)
   validate  :picture_size
 
   # 渡された文字列のハッシュ値を返す (secure_passwordのソースコードを参考としている)
