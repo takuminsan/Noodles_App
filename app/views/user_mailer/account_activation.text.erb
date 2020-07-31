@@ -3,4 +3,5 @@
 Noodlesへようこそ！
 以下のリンクをクリックして、アカウントを有効にしてください。
 
+<!-- email: @user.emailのようにハッシュを追加することでURLにクエリパラメータ (@user.email)を追加できる -->
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

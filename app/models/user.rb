@@ -48,7 +48,7 @@ class User < ApplicationRecord
 
   # トークンがダイジェストと一致したらtrueを返す
   def authenticated?(attribute, token)
-    digest = self.send("#{attribute}_digest")
+    digest = self.send("#{attribute}_digest") # 引数を正しく組み立て、sendメソッドを使ってex.activation_digest等の属性にアクセス
     return false if digest.nil? # ex.記憶ダイジェストがnilの場合はfalseを返して処理を終了させる (ユーザーの記憶ダイジェストは存在しないがcookiesの記憶トークンは存在する、という状況の回避)
 
     BCrypt::Password.new(digest).is_password?(token) # secure_passwordのソースコードを参考。渡されたトークンがユーザーの記憶ダイジェストと一致することを確認
@@ -67,7 +67,7 @@ class User < ApplicationRecord
 
   # 有効化用のメールを送信する
   def send_activation_email
-    UserMailer.account_activation(self).deliver_now
+    UserMailer.account_activation(self).deliver_now # UserMailerのaccount_activation(user)メソッド。deliver_nowは、今すぐに送信したい場合に使用
   end
 
   # パスワード再設定の属性を設定する
@@ -119,8 +119,8 @@ class User < ApplicationRecord
 
     # 有効化トークンとダイジェストを作成および代入する
     def create_activation_digest
-      self.activation_token  = User.new_token
-      self.activation_digest = User.digest(activation_token)
+      self.activation_token  = User.new_token # 仮想属性activation_tokenにランダムなトークンを代入
+      self.activation_digest = User.digest(activation_token) # activation_tokenをダイジェスト化し、ユーザーのactivation_digestカラムに保存
     end
 
     # アップロードされた画像のサイズをバリデーションする

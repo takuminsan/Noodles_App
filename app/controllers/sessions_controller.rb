@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       if user.activated?                                                        # ユーザーが有効化済みの場合
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)   # 「ログイン状態保持」にチェックがあれば、remember_digestにランダムなトークンを保存し、cookiesにuser_idとremember_tokenを保存
-        redirect_back_or root_path
+        redirect_back_or root_path                                              # アクセスしようとしたURLが (session[:forwarding_url]に)記憶されていればそこへリダイレクト (なければroot_pathへ)
       else
         message  = "アカウントが有効ではありません。 "
         message += "アカウント有効化のメールを確認してください。"

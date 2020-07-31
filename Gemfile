@@ -6,7 +6,7 @@ ruby '2.6.5'
 gem 'bcrypt', '3.1.12' # has_secure_passwordを使ってパスワードをハッシュ化するために必要
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-sass', '3.3.7' # BootstrapではLESS言語を使っているが、RailsのAsset PipelineはデフォルトではSass言語をサポート
-gem 'bootstrap-will_paginate', '1.0.0'
+gem 'bootstrap-will_paginate', '1.0.0' # will_paginateを構成するためのBootstrapのページネーションスタイル
 gem 'carrierwave' # 画像アップローダー
 gem 'coffee-rails', '~> 4.2'
 gem 'dotenv-rails'
@@ -21,7 +21,7 @@ gem 'rmagick' # 画像処理
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-gem 'will_paginate'
+gem 'will_paginate' # ページネーションメソッドを使えるようにする
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

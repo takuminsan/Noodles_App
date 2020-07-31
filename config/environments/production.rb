@@ -13,6 +13,8 @@ Rails.application.configure do
   # config.force_ssl = true ←でSSL通信をするかどうか設定できる
   config.log_level = :debug
   config.log_tags = [:request_id]
+
+  # メイラーの設定
   config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
@@ -26,6 +28,7 @@ Rails.application.configure do
     password: Rails.application.credentials.gmail[:PASSWORD],
     authentication: :login
   }
+  
   config.i18n.fallbacks = [I18n.default_locale]
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new
