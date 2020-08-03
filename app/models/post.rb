@@ -1,15 +1,15 @@
 class Post < ApplicationRecord
-  belongs_to :user
+  belongs_to :user # ユーザーと１対１の関係
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
   has_many :comments, dependent: :destroy
-  scope :recent, -> { order(created_at: :desc) }
-  mount_uploader :picture, PictureUploader
+  scope :recent, -> { order(created_at: :desc) } # データベースから要素を取得したときの順序を指定する。created_atカラムの順にしたい場合の設定
+  mount_uploader :picture, PictureUploader # CarrierWaveに画像と関連付けたPostモデルを伝える。引数は属性名のシンボルとアップローダーのクラス名
   validates :user_id, presence: true
   validates :shop_name, presence: true, length: { maximum: 20 }
   validates :nearest, presence: true, length: { maximum: 20 }
   validates :content, length: { maximum: 1000 }
-  validate  :picture_size
+  validate  :picture_size # validateは引数にシンボルを取り、そのシンボル名に対応したメソッドを呼び出す
   before_save :geocode
 
   # ポストをlikeする
@@ -29,7 +29,7 @@ class Post < ApplicationRecord
 
   private
 
-    # アップロードされた画像のサイズをバリデーションする
+    # アップロードされた画像のサイズをバリデーションする (ファイルサイズに対するバリデーションはRailsの既存のオプションには無い)
     def picture_size
       if picture.size > 5.megabytes
         errors.add(:picture, "画像は5MBより小さくしてください。")

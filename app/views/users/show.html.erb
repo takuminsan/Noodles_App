@@ -20,7 +20,7 @@
       <ol class="posts">
         <%= render @posts %>
       </ol>
-      <%= will_paginate @posts %>
+      <%= will_paginate @posts %> <!-- users/show はｕｓｅｒsコントローラのコンテキストである為、明示的に@posts変数をwill_paginateに渡す必要がある -->
     <% else %>
       <div class="no-contents">
         <h3><%= @user.name %>の投稿はありません。</h3>

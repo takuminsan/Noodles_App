@@ -43,7 +43,7 @@ end
 
 group :production do
   gem 'aws-sdk-s3'
-  gem 'fog-aws'
+  gem 'fog-aws' # 本番環境で画像をアップロードする
 end
 
 group :production, :staging do

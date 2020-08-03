@@ -38,9 +38,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
+    @post.destroy # before_actionで@post定義済み
     flash[:success] = "投稿が削除されました。"
-    redirect_to root_url
+    redirect_to request.referrer || root_url # request.referrerメソッドは一つ前のURLを返す
   end
 
   def search
@@ -60,7 +60,7 @@ class PostsController < ApplicationController
     end
 
     def correct_user
-      @post = current_user.posts.find_by(id: params[:id])
+      @post = current_user.posts.find_by(id: params[:id]) # 他のユーザーのポストを削除させないように、関連付けを使ってポストを見つけている
       redirect_to root_url if @post.nil?
     end
 end

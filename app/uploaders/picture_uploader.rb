@@ -2,9 +2,9 @@ class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   if Rails.env.production?
-    storage :fog
+    storage :fog # クラウドストレージサービスに画像を保存する
   else
-    storage :file
+    storage :file # ローカルのファイルシステムに画像を保存する
   end
 
   # 保存形式をJPGにする

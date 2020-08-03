@@ -8,7 +8,7 @@
   </div>
   <div class="post_container">
     <div class="post_picture">
-      <%= image_tag post.picture.url if post.picture? %>
+      <%= image_tag post.picture.url if post.picture? %> <!-- picture?は画像用の属性名に応じてCarrierWaveが自動的に生成したメソッド -->
     </div>
     <div class="post_information">
       <span class="shop_name">店名: <%= post.shop_name %></span>
@@ -19,7 +19,7 @@
         <span><i class="far fa-comments"></i> <%= post.comments.count %></span>
         <%= render "likes/like", post: post %></span>
       </div>
-      <span class="timestamp"><%= post.created_at.strftime('%Y/%m/%d %H:%M') %>に投稿</span>
+      <span class="timestamp"><%= post.created_at.strftime('%Y/%m/%d %H:%M') %>に投稿</span> <!-- strftime(format) ←時刻を format 文字列に従って文字列に変換した結果を返す -->
     </div>
   </div>
 </li>

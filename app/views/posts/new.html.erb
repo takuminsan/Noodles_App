@@ -3,10 +3,10 @@
   <div class="form">
     <h3>投稿する</h3>
     <%= form_for(@post, url: new_post_path) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+      <%= render 'shared/error_messages', object: f.object %> <!-- エラーメッセージパーシャルで使うobject変数を定義 (f.objectとすることによって、関連付けられたオブジェクトにアクセスすることができる) -->
 
       <%= f.label :投稿画像 %>
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %> <!-- フォーマットのバリデーションをビューに組み込む -->
 
       <%= f.label :店舗名 %>
       <%= f.text_field :shop_name, class: 'form-control', placeholder: "20文字以内" %>
