@@ -12,8 +12,8 @@ class UserMailerPreview < ActionMailer::Preview
   # Preview this email at
   # http://localhost:3000/rails/mailers/user_mailer/password_reset
   def password_reset
-    user = User.first
-    user.reset_token = User.new_token
-    UserMailer.password_reset(user)
+    user = User.first                       # user変数に開発用データベースの最初のユーザーを代入
+    user.reset_token = User.new_token       # userの仮想属性reset_tokenにランダムなトークンを保存
+    UserMailer.password_reset(user)         # UserMailerのpassword_resetメソッドを使ってメールを送信
   end
 end

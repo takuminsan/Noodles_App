@@ -24,7 +24,7 @@ class PasswordResetsController < ApplicationController
 
   def update
     if params[:user][:password].empty?
-      @user.errors.add(:password, :blank)
+      @user.errors.add(:password, :blank) # 入力されたパスワードが空であればエラーメッセージを追加する (passwordはバリデーションでallow: nilしてるので、ここで明示的にキャッチするコードを追加する必要がある)
       render 'edit'
     elsif @user.update_attributes(user_params)
       log_in @user
@@ -38,27 +38,30 @@ class PasswordResetsController < ApplicationController
 
   private
 
+    # Strong Parameters
+    # マスアサインメント (ユーザーが送信したデータをまるごとUser.newに渡す)の脆弱性を回避
     def user_params
       params.require(:user).permit(:password, :password_confirmation)
     end
 
     # beforeフィルタ
 
+    # password_resetフォームを描画するために、必要な@userを定義
     def get_user
       @user = User.find_by(email: params[:email])
     end
 
-    # 正しいユーザーかどうか確認する
+    # password_resetを行う正しいユーザーかどうか確認する
     def valid_user
       unless (@user && @user.activated? &&
-              @user.authenticated?(:reset, params[:id]))
+              @user.authenticated?(:reset, params[:id])) # reset_digestとreset_tokenを検証
         redirect_to root_url
       end
     end
 
     # トークンが期限切れかどうか確認する
     def check_expiration
-      if @user.password_reset_expired?
+      if @user.password_reset_expired? # reset_sent_at < 2.hours.agoがtrueの場合
         flash[:danger] = "パスワード再設定の期限が切れています。"
         redirect_to new_password_reset_url
       end

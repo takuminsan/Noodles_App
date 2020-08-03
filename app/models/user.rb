@@ -72,19 +72,19 @@ class User < ApplicationRecord
 
   # パスワード再設定の属性を設定する
   def create_reset_digest
-    self.reset_token = User.new_token
-    update_attribute(:reset_digest,  User.digest(reset_token))
+    self.reset_token = User.new_token                           # ユーザーのreset_token仮想属性にランダムなトークンを代入
+    update_attribute(:reset_digest,  User.digest(reset_token))  # 特定の属性 (reset_digest)のみ更新したいので、update_attributesではなく、update_attribute
     update_attribute(:reset_sent_at, Time.zone.now)
   end
 
   # パスワード再設定のメールを送信する
   def send_password_reset_email
-    UserMailer.password_reset(self).deliver_now
+    UserMailer.password_reset(self).deliver_now # UserMailerのpassword_reset(user)メソッド。deliver_nowは、今すぐに送信したい場合に使用
   end
 
   # パスワード再設定の期限が切れている場合はtrueを返す
   def password_reset_expired?
-    reset_sent_at < 2.hours.ago
+    reset_sent_at < 2.hours.ago # 「現在時刻より2時間前の時間」が「パスワード再設定メールを送信した時間」より大きい場合は2時間経過していることになり、trueを返す
   end
 
   # ユーザーのステータスフィードを返す

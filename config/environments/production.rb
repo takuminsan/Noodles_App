@@ -28,7 +28,6 @@ Rails.application.configure do
     password: Rails.application.credentials.gmail[:PASSWORD],
     authentication: :login
   }
-  
   config.i18n.fallbacks = [I18n.default_locale]
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new

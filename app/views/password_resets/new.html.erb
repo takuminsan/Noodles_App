@@ -4,7 +4,7 @@
     <h3>パスワードを忘れてしまった・・・</h3>
     <h5>登録済みのメールアドレスを入力してください。</h5>
     <h5>再設定用のリンクを送信します。</h5>
-    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+    <%= form_for(:password_reset, url: password_resets_path) do |f| %> <!-- Password_resetというモデルは無いため、リソースの名前とそれに対応するURLを具体的に指定する必要がある -->
       <%= f.label :メールアドレス %>
       <%= f.email_field :email, class: 'form-control' %>
 
