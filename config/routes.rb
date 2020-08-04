@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # ユーザーページ
   resources :users do
     member do
-      get :following, :followers, :likes # /users/:id/following, followers, likesとなる
+      get :following, :followers, :likes # memberメソッドを使うと /users/:id/following, followers, likesとなる
     end
   end
 

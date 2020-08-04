@@ -1,11 +1,12 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
-  has_many :active_relationships, class_name: "Relationship",
-                                  foreign_key: "follower_id",
+  has_many :active_relationships, class_name: "Relationship", # Relationshipモデルを見つけるために、クラス名を明示的に伝える必要がある
+                                  foreign_key: "follower_id", # userとactive_relationshipsを繋ぐ外部キーを明示的に伝える
                                   dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship",
                                    foreign_key: "followed_id",
                                    dependent: :destroy
+  # Userモデルにfollowingの関連付けを追加する (:sourceパラメーターを使って、「following配列の元はfollowed idの集合である」ということを明示的にRailsに伝える)
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :likes, dependent: :destroy
@@ -14,19 +15,22 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save   :downcase_email                                               # { self.email = email.downcase }
+
+  before_save   :downcase_email # { self.email = email.downcase }
   before_create :create_activation_digest
+
   validates :name,  presence: true, length: { maximum: 16 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i      # メールアドレスを検証するための正規表現
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i       # メールアドレスを検証するための正規表現
   validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },                      # メールアドレスのフォーマットを検証する
-                    uniqueness: { case_sensitive: false }                     # uniqueness: true かつ emailの大文字・小文字を区別しない設定 (アドレスが大文字・小文字で異なっていても一意とみなす必要があるため)
+                    format: { with: VALID_EMAIL_REGEX },                       # メールアドレスのフォーマットを検証する
+                    uniqueness: { case_sensitive: false }                      # uniqueness: true かつ emailの大文字・小文字を区別しない設定 (アドレスが大文字・小文字で異なっていても一意とみなす必要があるため)
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true # allow_nil: trueすることで、パスワードが空のままでも更新できるようになる (新規登録ではhas_secure_passwordが存在性を検証する)
+  validate  :picture_size
+
   # セキュアにハッシュ化したパスワードを、データベース内のpassword_digestという属性に保存できるようにする
   # 2つのペアの仮想的な属性 (passwordとpassword_confirmation) を使えるようにする。また、存在性と値が一致するかどうかのバリデーションも追加される
   # authenticateメソッドを使えるようにする (引数の文字列がパスワードと一致するとUserオブジェクトを、間違っているとfalseを返すメソッド)
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true # allow_nil: trueすることで、パスワードが空のままでも更新できるようになる (新規登録ではhas_secure_passwordが存在性を検証する)
-  validate  :picture_size
 
   # 渡された文字列のハッシュ値を返す (secure_passwordのソースコードを参考としている)
   def User.digest(string)
@@ -97,17 +101,17 @@ class User < ApplicationRecord
 
   # ユーザーをフォローする
   def follow(other_user)
-    following << other_user
+    self.following << other_user # selfは省略可能
   end
 
   # ユーザーをフォロー解除する
   def unfollow(other_user)
-    active_relationships.find_by(followed_id: other_user.id).destroy
+    self.active_relationships.find_by(followed_id: other_user.id).destroy # selfは省略可能
   end
 
   # 現在のユーザーがフォローしてたらtrueを返す
   def following?(other_user)
-    following.include?(other_user)
+    self.following.include?(other_user) # selfは省略可能
   end
 
   private

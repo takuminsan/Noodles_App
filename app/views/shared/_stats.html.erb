@@ -1,3 +1,4 @@
+ <!-- @userがnilでない場合 (つまりプロフィールページの場合) は何もせず、nilの場合 (つまりHomeページの場合) には@userにcurrent_userを代入 -->
 <% @user ||= current_user %>
 <a href="<%= following_user_path(@user) %>">
   <strong id="following" class="stat">
