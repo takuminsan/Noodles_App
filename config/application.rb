@@ -18,7 +18,7 @@ module SampleApp
     config.active_record.default_timezone = :local
 
     # 認証トークンをremoteフォームに埋め込む
-    config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.action_view.embed_authenticity_token_in_remote_forms = true # ブラウザ側でJavaScriptが無効になっていた場合 (Ajaxリクエストが送れない場合)でもうまく動くようにする
 
     config.generators do |g|
       g.factory_bot false                           # Railsジェネレータがfactory_bot用のファイルを生成するのを無効化

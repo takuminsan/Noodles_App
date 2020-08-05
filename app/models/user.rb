@@ -92,6 +92,8 @@ class User < ApplicationRecord
   end
 
   # ユーザーのステータスフィードを返す
+  # 「userがフォローしているユーザーすべてを選択する」というSQL(サブセレクト)を既存のSQLに内包させる形
+  # サブセレクトは集合のロジックを (Railsではなく) データベース内に保存するので、より効率的にデータを取得することができる
   def feed
     following_ids = "SELECT followed_id FROM relationships
                      WHERE follower_id = :user_id"

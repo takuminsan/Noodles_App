@@ -1,2 +1,3 @@
-$("#follow_form").html("<%= escape_javascript(render('users/follow')) %>");
+// JS-ERbファイルの内部では、DOM (JavaScriptでhtmlの要素を操作するための仕組み)を使ってページを操作
+$("#follow_form").html("<%= escape_javascript(render('users/follow')) %>"); // DOM操作用メソッドの.htmlを使って、引数の中で指定された要素の内側にあるHTMLを更新する
 $("#followers").html('<%= @user.followers.count %>');
