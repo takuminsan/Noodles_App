@@ -48,6 +48,8 @@ https://noodles-app.com<br>
 - minitest,RSpecによる自動テスト機能
   - 単体テスト機能
   - 統合テスト機能
+## ER図
+  ![200805_ER図_Noodles (1)](https://user-images.githubusercontent.com/57702892/89441555-4d434600-d788-11ea-9256-1efeb996b68c.jpg)
 ## 制作背景
 みんな大好きなラーメン。何気なく写真を撮ってはTwitterに投稿するだけでしたが、<br>
 食べたラーメンを記録し、一覧で見返したり、友だちと共有できれば<br>よりラーメンを楽しむことができるのではと考え、制作しました。
