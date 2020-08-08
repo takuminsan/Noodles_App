@@ -10,7 +10,7 @@ describe 'ユーザー設定', type: :system do
     fill_in 'session_email', with: @user.email
     fill_in 'session_password', with: 'password'
     click_button 'ログイン'
-    #失敗
+    # 失敗
     visit edit_user_path(@user)
     fill_in 'user_name', with: ''
     fill_in 'user_email', with: 'foo@invalid'
