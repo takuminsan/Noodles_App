@@ -9,10 +9,7 @@ describe '利用者一覧', type: :system do
   end
 
   it '管理者権限のあるユーザーはユーザーを削除できること' do
-    visit login_path
-    fill_in 'session_email', with: @admin.email
-    fill_in 'session_password', with: 'password'
-    click_button 'ログイン'
+    log_in_as(@admin)
     visit users_path
     expect {
       click_on '削除'
@@ -22,10 +19,7 @@ describe '利用者一覧', type: :system do
   end
 
   it '管理者権限のないユーザーにはユーザー削除リンクが表示されないこと' do
-    visit login_path
-    fill_in 'session_email', with: @non_admin.email
-    fill_in 'session_password', with: 'password'
-    click_button 'ログイン'
+    log_in_as(@non_admin)
     visit users_path
     expect(page).not_to have_content "削除"
   end

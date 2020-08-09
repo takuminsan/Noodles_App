@@ -6,10 +6,7 @@ describe 'ユーザープロフィール', type: :system do
   end
 
   it 'ユーザープロフィールが表示されること' do
-    visit login_path
-    fill_in 'session_email', with: @user.email
-    fill_in 'session_password', with: @user.password
-    click_button 'ログイン'
+    log_in_as(@user)
     visit user_path(@user)
     expect(page).to have_content "投稿 (#{@user.posts.count})"
     expect(page).to have_content "食べたい！(#{@user.likes.count})"

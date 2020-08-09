@@ -6,10 +6,7 @@ describe 'ユーザー設定', type: :system do
   end
 
   it 'ユーザー設定の失敗と成功' do
-    visit login_path
-    fill_in 'session_email', with: @user.email
-    fill_in 'session_password', with: 'password'
-    click_button 'ログイン'
+    log_in_as(@user)
     # 失敗
     visit edit_user_path(@user)
     fill_in 'user_name', with: ''

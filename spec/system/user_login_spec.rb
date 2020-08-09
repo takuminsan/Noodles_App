@@ -39,10 +39,7 @@ describe 'ログイン', type: :system do
     find('.dropdown-toggle').click
     click_on 'ログアウト'
     # クッキーを削除してログイン
-    visit login_path
-    fill_in 'session_email', with: @user.email
-    fill_in 'session_password', with: 'password'
-    click_button 'ログイン'
+    log_in_as(@user)
     expect([cookies['remember_token']]).to eq [nil]
   end
 end
