@@ -14,6 +14,7 @@ describe 'ユーザー登録機能', type: :system do
       expect(page).to have_content 'エラーがあります。'
     end
   end
+
   context 'フォーム入力情報が有効であるとき' do
     it 'ユーザー登録に成功する' do
       visit signup_path
@@ -33,6 +34,11 @@ describe 'ユーザー登録機能', type: :system do
       fill_in 'session_password', with: 'password'
       click_button 'ログイン'
       expect(page).to have_content 'アカウントが有効ではありません。'
+      # ＝＝＝＝＝＝＝＝＝ 有効化メールのURLからアカウントを有効化する (うまくテストできないので保留) ＝＝＝＝＝＝＝＝＝
+      # mail = ActionMailer::Base.deliveries.last
+      # url = extract_confirmation_url(mail) # メール本文からURLを抽出
+      # visit url
+      # expect(page).to have_content 'アカウントが有効化されました！'
     end
   end
 end
