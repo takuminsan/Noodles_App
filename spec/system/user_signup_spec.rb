@@ -33,6 +33,11 @@ describe 'ユーザー登録機能', type: :system do
       fill_in 'session_password', with: 'password'
       click_button 'ログイン'
       expect(page).to have_content 'アカウントが有効ではありません。'
+      # 送られたメールからアカウントを有効化する
+      mail = ActionMailer::Base.deliveries.last
+      url = extract_confirmation_url(mail) # メール本文からURLを抽出
+      visit url
+      expect(page).to have_content 'アカウントが有効化されました！'
     end
   end
 end
