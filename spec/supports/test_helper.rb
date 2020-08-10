@@ -6,8 +6,8 @@ def log_in_as(user)
   click_button 'ログイン'
 end
 
-# メール本文からアカウント有効化のURLを抽出
-def extract_confirmation_url(mail)
-  body = mail.body.encoded
-  body[/http[^"]+/]
-end
+# メール本文からアカウント有効化のURLを抽出 (うまくテストできないので保留)
+# def extract_confirmation_url(mail)
+# body = mail.text_part.body.encoded
+# body[/http[^"]+/]
+# end

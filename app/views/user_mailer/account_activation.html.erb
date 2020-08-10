@@ -6,6 +6,5 @@
   Noodlesへようこそ！
   以下のリンクをクリックして、アカウントを有効にしてください。
 </p>
-
-<%= link_to "アカウント有効化", edit_account_activation_url(@user.activation_token,
-                                                    email: @user.email) %> <!-- email: @user.emailのようにハッシュを追加することでURLにクエリパラメータ (@user.email)を追加できる -->
+<!-- email: @user.emailのようにハッシュを追加することでURLにクエリパラメータ (@user.email)を追加できる -->
+<%= link_to "アカウント有効化", edit_account_activation_url(@user.activation_token, email: @user.email) %>
