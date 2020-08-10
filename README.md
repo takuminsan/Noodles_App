@@ -17,7 +17,7 @@ https://noodles-app.com<br>
   - AWS（VPC, EC2, RDS, S3, Route 53, ALB, ACM）
   - Docker/docker-compose(ローカル開発環境)
   - CircleCI(自動ビルド、自動テスト)
-  - minitest, RSpec
+  - RSpec
   - rubocop
   - Git, GitHub
   - Google Maps Platform
@@ -45,16 +45,15 @@ https://noodles-app.com<br>
   - ヘッダーに「地図から投稿検索」設置<br><br>
 - レスポンシブ
   - スマートフォンでの閲覧時にハンバーガーメニューとなるサイドバーを実装<br><br>
-- minitest,RSpecによる自動テスト機能
+- RSpecによる自動テスト機能
   - 単体テスト機能
   - 統合テスト機能
 ## ER図
   ![200805_ER図_Noodles (1)](https://user-images.githubusercontent.com/57702892/89441555-4d434600-d788-11ea-9256-1efeb996b68c.jpg)
 ## 制作背景
 みんな大好きなラーメン。何気なく写真を撮ってはTwitterに投稿するだけでしたが、<br>
-食べたラーメンを記録し、一覧で見返したり、友だちと共有できれば<br>よりラーメンを楽しむことができるのではと考え、制作しました。
+食べたラーメンを記録し、一覧で見返したり、友だちと共有できれば<br>よりラーメンを楽しむことができるのではと考え、開発しました。
 ## 今後の予定
-- テストをminitest→RSpecで書き直し（途中）
 - Capistranoを使用した自動デプロイ
 - 新たな機能の検討・実装
 - フロント強化
