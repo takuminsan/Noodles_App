@@ -11,8 +11,8 @@ describe 'いいね機能', type: :system do
     # ボタンを押す
     click_on '「食べたい！」'
     wait_for_ajax # spec/supports/test_helper.rb
-    expect(@user.likes.count).to eq 1
-    expect(@post.likes.count).to eq 1
+    expect(@user.reload.likes.count).to eq 1
+    expect(@post.reload.likes.count).to eq 1
     expect(page).to have_content 'あなたと0人が「食べたい！」'
     # 「食べたい！」ページに食べたい！ボタンを押した投稿が表示されること
     visit likes_user_path(@user)
@@ -20,7 +20,7 @@ describe 'いいね機能', type: :system do
     # ボタンを押して食べたい！を解除
     click_on 'あなたと0人が「食べたい！」'
     wait_for_ajax # spec/supports/test_helper.rb
-    expect(@user.likes.count).to eq 0
-    expect(@post.likes.count).to eq 0
+    expect(@user.reload.likes.count).to eq 0
+    expect(@post.reload.likes.count).to eq 0
   end
 end
