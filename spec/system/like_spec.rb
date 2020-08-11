@@ -10,7 +10,7 @@ describe 'いいね機能', type: :system do
   it '食べたい！ボタンが正常に動作すること' do
     # ボタンを押す
     click_on '「食べたい！」'
-    wait_for_ajax # spec/supports/test_helper.rb
+    wait_for_ajax(5) # spec/supports/test_helper.rb
     expect(@user.likes.count).to eq 1
     expect(@post.likes.count).to eq 1
     expect(page).to have_content 'あなたと0人が「食べたい！」'
@@ -19,7 +19,7 @@ describe 'いいね機能', type: :system do
     expect(page).to have_content 'Noodles-01'
     # ボタンを押して食べたい！を解除
     click_on 'あなたと0人が「食べたい！」'
-    wait_for_ajax # spec/supports/test_helper.rb
+    wait_for_ajax(5) # spec/supports/test_helper.rb
     expect(@user.likes.count).to eq 0
     expect(@post.likes.count).to eq 0
   end
