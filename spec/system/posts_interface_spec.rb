@@ -26,7 +26,10 @@ describe '投稿', type: :system do
     # 投稿を編集する
     expect(page).to have_css '.post_menu'
     find(".fa-pencil-alt").click
-    expect(page).to have_content "ラーメンNoodle" and "新宿駅" and "美味しいね"
+    # テキストボックスに値が入っていることの確認
+    expect(page).to have_field '店舗名', with: 'ラーメンNoodle'
+    expect(page).to have_field '最寄駅', with: '新宿駅'
+    expect(page).to have_field '説明文', with: '美味しいね'
     fill_in 'post_shop_name', with: "中華そばnoodles"
     fill_in 'post_nearest', with: "八王子駅"
     fill_in 'post_content', with: "不味いね"
