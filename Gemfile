@@ -25,6 +25,10 @@ gem 'will_paginate' # ページネーションメソッドを使えるように�
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capistrano' # capistranoと、下記それに付随するもの
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
