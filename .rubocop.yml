@@ -9,21 +9,19 @@ AllCops:
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
 
-# コメントは日本語でもok
-Style/AsciiComments:
-  Enabled: false
-
-Style/BlockDelimiters:
-  Exclude:
-    - "spec/**/*"
+Layout/LineLength:
+  Max: 168
 
 Lint/SuppressedException:
   Exclude:
     - 'config/unicorn.conf.rb'
+    - 'config/unicorn/production.rb'
 
 Lint/UnusedBlockArgument:
   Exclude:
     - 'config/unicorn.conf.rb'
+    - 'config/deploy.rb'
+    - 'config/unicorn/production.rb'
 
 Lint/UriEscapeUnescape:
   Exclude:
@@ -47,9 +45,17 @@ Naming/PredicateName:
     - 'spec/**/*'
     - 'test/test_helper.rb'
 
+# コメントは日本語でもok
+Style/AsciiComments:
+  Enabled: false
+
 Style/BlockComments:
   Exclude:
     - 'spec/spec_helper.rb'
+
+Style/BlockDelimiters:
+  Exclude:
+    - "spec/**/*"
 
 Style/ClassAndModuleChildren:
   Exclude:
@@ -78,6 +84,7 @@ Style/FrozenStringLiteralComment:
 Style/GlobalVars:
   Exclude:
     - 'config/unicorn.conf.rb'
+    - 'config/unicorn/production.rb'
 
 Style/GuardClause:
   Exclude:
@@ -153,6 +160,3 @@ Style/StringLiterals:
 
 Style/SymbolArray:
   EnforcedStyle: brackets
-
-Layout/LineLength:
-  Max: 168
