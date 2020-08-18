@@ -28,7 +28,9 @@ Lint/UriEscapeUnescape:
     - 'app/models/post.rb'
 
 Metrics/AbcSize:
-  Max: 28
+  Max: 30
+  Exclude:
+    - 'app/models/post.rb'
 
 Metrics/BlockLength:
   Max: 113
