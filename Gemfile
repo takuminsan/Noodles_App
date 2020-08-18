@@ -24,12 +24,14 @@ gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate' # ページネーションメソッドを使えるようにする
 
 group :development, :test do
+  gem 'bcrypt_pbkdf' # capistranoで本番環境サーバーにSSH接続する際に必要
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capistrano' # capistranoと、下記それに付随するもの
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capybara'
+  gem 'ed25519' # capistranoで本番環境サーバーにSSH接続する際に必要
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
