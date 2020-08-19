@@ -7,18 +7,19 @@ https://noodles-app.com<br>
   - レスポンシブデザイン<br><br>
 - バックエンド
   - Ruby 2.6.5
-  - Rails 5.2.4.3<br><br>
+  - Rails 6.0.3.2<br><br>
 - DB
   - MySQL 5.7.30<br><br>
-- サーバー
+- webサーバー・アプリケーションサーバー
   - Nginx
   - Unicorn<br><br>
 - インフラ・開発環境等
   - AWS（VPC, EC2, RDS, S3, Route 53, ALB, ACM）
   - Docker/docker-compose(ローカル開発環境)
   - CircleCI(自動ビルド、自動テスト)
-  - RSpec
-  - rubocop
+  - Capistrano(自動デプロイ)
+  - RSpec(テストフレームワーク)
+  - rubocop(静的コード解析ツール)
   - Git, GitHub
   - Google Maps Platform
 ## 機能一覧
@@ -55,6 +56,5 @@ https://noodles-app.com<br>
 食べたラーメンを記録し、一覧で見返したり、友だちと共有できれば<br>よりラーメンを楽しむことができるのではと考え、開発しました。
 ## 今後の予定
 - 理解が浅い部分が多くあるため、理解を深める
-- Capistranoを使用した自動デプロイ
 - 新たな機能の検討・実装
 - フロント強化
