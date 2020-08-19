@@ -32,7 +32,7 @@ set :log_level, :debug
 namespace :deploy do # タスクnamespace
   desc 'Restart application' # タスク説明
   task :restart do # タスク定義
-    invoke 'unicorn:restart'
+    invoke 'unicorn:restart' # lib/capistrano/tasks/unicorn.rbのrestartタスクを実行
   end
 
   desc 'Create database'
