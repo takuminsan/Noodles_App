@@ -13,8 +13,8 @@ end
 # end
 
 # ajaxが完了するまで待つ
-def wait_for_ajax(wait_time = Capybara.default_max_wait_time)
-  Timeout.timeout(wait_time) do
+def wait_for_ajax(wait_time = 10)
+  Timeout.timeout(10) do
     loop until finished_all_ajax_requests?
   end
   yield if block_given?
