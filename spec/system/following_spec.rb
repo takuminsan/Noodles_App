@@ -11,11 +11,6 @@ describe 'フォロー', type: :system do
     # フォローするボタンを押す
     visit user_path(@other)
     click_button 'フォローする'
-    wait_for_ajax do # spec/supports/test_helper.rb
-      expect(@user.reload.following.count).to eq 1
-      expect(@other.reload.followers.count).to eq 1
-      expect(page).to have_button 'フォロー解除'
-    end
     # followingページにフォロー中のユーザーが表示されること
     visit following_user_path(@user)
     expect(page).to have_link 'other'
@@ -25,9 +20,9 @@ describe 'フォロー', type: :system do
     # フォロー解除ボタンを押す
     visit user_path(@other)
     click_button 'フォロー解除'
-    wait_for_ajax do # spec/supports/test_helper.rb
-      expect(@user.reload.following.count).to eq 0
-      expect(@other.reload.followers.count).to eq 0
-    end
+    visit following_user_path(@user)
+    expect(page).not_to have_link 'other'
+    visit followers_user_path(@other)
+    expect(page).not_to have_link 'テストユーザー'
   end
 end
