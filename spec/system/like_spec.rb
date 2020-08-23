@@ -9,7 +9,7 @@ describe 'いいね機能', type: :system do
 
   it '食べたい！ボタンが正常に動作すること' do
     # ボタンを押す
-    click_on '「食べたい！」'
+    click_on '0人が「食べたい！」'
     wait_for_ajax do # spec/supports/test_helper.rb
       expect(@user.reload.likes.count).to eq 1
       expect(@post.reload.likes.count).to eq 1
