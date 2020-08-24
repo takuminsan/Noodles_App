@@ -51,10 +51,6 @@ jobs:
 
       - run: bundle exec rubocop
 
-      - add_ssh_keys:
-          fingerprints:
-            - "ad:c0:d4:56:02:96:ae:6f:c6:7b:fa:61:88:02:21:b6"
-
       - deploy:
           name: Capistrano deploy
           command: bundle exec cap production deploy
