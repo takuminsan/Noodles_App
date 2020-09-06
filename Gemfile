@@ -9,30 +9,30 @@ gem 'bootstrap-sass', '3.3.7' # BootstrapではLESS言語を使っているが�
 gem 'bootstrap-will_paginate', '1.0.0' # will_paginateを構成するためのBootstrapのページネーションスタイル
 gem 'carrierwave' # 画像アップローダー
 gem 'coffee-rails', '~> 4.2'
-gem 'dotenv-rails'
-gem 'http'
-gem 'jbuilder', '~> 2.5'
-gem 'jquery-rails'
-gem 'mysql2'
-gem 'puma', '~> 3.11'
+gem 'dotenv-rails' # .envファイルに書いた設定を環境変数として簡単に読み込めるgem
+gem 'http' # rubyでhttp通信を可能にする
+gem 'jbuilder', '~> 2.5' # JSON形式のデータを作成
+gem 'jquery-rails' # jQueryを使えるようにする
+gem 'mysql2' # DBにMySQLを選択する
+gem 'puma', '~> 3.11' # APサーバ
 gem 'rails'
-gem 'rails-i18n'
+gem 'rails-i18n' # Railsの日本語化対応
 gem 'rmagick' # 画像処理
-gem 'sass-rails', '~> 5.0'
-gem 'turbolinks', '~> 5'
-gem 'uglifier', '>= 1.3.0'
+gem 'sass-rails', '~> 5.0' # Sass(効率的にCSSを書くことのできる言語)を使えるようにする
+gem 'turbolinks', '~> 5' # Ajaxによるページ遷移の高速化のためのライブラリ
+gem 'uglifier', '>= 1.3.0' # JS軽量化
 gem 'will_paginate' # ページネーションメソッドを使えるようにする
 
 group :development, :test do
   gem 'bcrypt_pbkdf' # capistranoで本番環境サーバーにSSH接続する際に必要
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] # デバッグ
   gem 'capistrano' # capistranoと、下記それに付随するもの
   gem 'capistrano-bundler' # デプロイ時にbundleを実行
   gem 'capistrano-rails' # デプロイ時にmigrationとassets:precompileを実行
   gem 'capistrano-rbenv' # rbenvのパスを設定する
-  gem 'capybara'
+  gem 'capybara' # ブラウザ操作をシミュレートする
   gem 'ed25519' # capistranoで本番環境サーバーにSSH接続する際に必要
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails' # Rspecで用いるテストデータの作成
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'

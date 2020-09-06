@@ -11,6 +11,7 @@ module SampleApp
 
     # デフォルトのlocaleを日本語(:ja)にする
     config.i18n.default_locale = :ja
+    # i18nの複数ロケールファイルが読み込まれるようpathを通す
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
 
     # railsの時刻データを日本時刻にする
