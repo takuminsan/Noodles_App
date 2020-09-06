@@ -33,33 +33,26 @@ group :development, :test do
   gem 'capybara' # ブラウザ操作をシミュレートする
   gem 'ed25519' # capistranoで本番環境サーバーにSSH接続する際に必要
   gem 'factory_bot_rails' # Rspecで用いるテストデータの作成
-  gem 'rspec_junit_formatter'
-  gem 'rspec-rails'
-  gem 'selenium-webdriver'
+  gem 'rspec_junit_formatter' # RSpecテスト結果をCircle CIで取り扱えるようにする
+  gem 'rspec-rails' # テストフレームワーク
+  gem 'selenium-webdriver' # Webブラウザをプログラムから自動的に操作する
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'rubocop', require: false
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2' # ファイルの変更を検知してそれをフックに何か処理ができる
+  gem 'rubocop', require: false # Rubyの静的コード解析ツール
+  gem 'spring' # Railsアプリケーションのプリローダー
+  gem 'spring-watcher-listen', '~> 2.0.0' # springのファイルシステムの変更検知方法をpollingからlistenに変更
+  gem 'web-console', '>= 3.3.0' # View内でコンソールを立ち上げて、変数やparameterなどの状態を見ることができる
 end
 
 group :production do
-  gem 'aws-sdk-s3'
+  gem 'aws-sdk-s3' # Amazon S3用の公式AWS Ruby gem
   gem 'fog-aws' # 本番環境で画像をアップロードする
 end
 
 group :production, :staging do
-  gem 'unicorn'
+  gem 'unicorn' # APサーバ
 end
 
-group :test do
-  gem 'guard',                    '2.13.0'
-  gem 'guard-minitest',           '2.4.4'
-  gem 'minitest',                 '5.10.3'
-  gem 'minitest-reporters',       '1.1.14'
-end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # TZInfoが参照するタイムゾーン情報を提供する
