@@ -33,7 +33,6 @@ group :development, :test do
   gem 'capybara' # ブラウザ操作をシミュレートする
   gem 'ed25519' # capistranoで本番環境サーバーにSSH接続する際に必要
   gem 'factory_bot_rails' # Rspecで用いるテストデータの作成
-  gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
