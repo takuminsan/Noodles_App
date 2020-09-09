@@ -51,6 +51,8 @@ https://noodles-app.com<br>
   - 統合テスト機能
 ## ER図
   ![200805_ER図_Noodles (1)](https://user-images.githubusercontent.com/57702892/89441555-4d434600-d788-11ea-9256-1efeb996b68c.jpg)
+## インフラ構成図
+  ![200909_インフラ構成図](https://user-images.githubusercontent.com/57702892/92624114-179ef900-f302-11ea-811f-7ba8d22cd373.jpg)
 ## 制作背景
 みんな大好きなラーメン。何気なく写真を撮ってはTwitterに投稿するだけでしたが、<br>
 食べたラーメンを記録し、一覧で見返したり、友だちと共有できれば<br>よりラーメンを楽しむことができるのではと考え、開発しました。
