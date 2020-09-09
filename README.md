@@ -7,7 +7,7 @@ https://noodles-app.com<br>
   - レスポンシブデザイン<br><br>
 - バックエンド
   - Ruby 2.6.5
-  - Rails 6.0.3.2<br><br>
+  - Rails 5.1.6<br><br>
 - DB
   - MySQL 5.7.30<br><br>
 - webサーバー・アプリケーションサーバー
