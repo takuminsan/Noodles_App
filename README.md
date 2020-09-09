@@ -16,7 +16,7 @@ https://noodles-app.com<br>
 - インフラ・開発環境等
   - AWS（VPC, EC2, RDS, S3, Route 53, ALB, ACM）
   - Docker/docker-compose(ローカル開発環境)
-  - CircleCI(自動ビルド、自動テスト)
+  - CircleCI(自動ビルド、自動テスト、自動デプロイ)
   - Capistrano(自動デプロイ)
   - RSpec(テストフレームワーク)
   - rubocop(静的コード解析ツール)
