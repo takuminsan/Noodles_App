@@ -15,7 +15,7 @@ gem 'jbuilder', '~> 2.5' # JSON形式のデータを作成
 gem 'jquery-rails' # jQueryを使えるようにする
 gem 'mysql2' # DBにMySQLを選択する
 gem 'puma', '~> 3.11' # APサーバ
-gem 'rails'
+gem 'rails', '5.2'
 gem 'rails-i18n' # Railsの日本語化対応
 gem 'rmagick' # 画像処理
 gem 'sass-rails', '~> 5.0' # Sass(効率的にCSSを書くことのできる言語)を使えるようにする
