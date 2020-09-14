@@ -7,9 +7,9 @@
     <%= image_tag(@user.image.url) %>
   <% end %>
   <% if @user == current_user %>
-    <p><%= @user.name %>でログイン中</p>
+    <p><%= @user.name %>でログイン中</p><i class="far fa-arrow-alt-circle-left"></i>
   <% else %>
-    <p><%= @user.name %>のページ</p>
+    <p><%= @user.name %>のページ</p><i class="far fa-arrow-alt-circle-left"></i>
   <% end %>
 </label>
 <label for="sidebar" class="back"></label>
