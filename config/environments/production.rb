@@ -37,4 +37,6 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
   config.active_record.dump_schema_after_migration = false
+  # production.log一定期間でファイルを自動削除するようにする
+  config.logger = Logger.new("log/production.log", 5, 10 * 1024 * 1024)
 end
