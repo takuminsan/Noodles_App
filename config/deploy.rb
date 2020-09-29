@@ -64,14 +64,7 @@ namespace :deploy do # タスクnamespace
     end
   end
 
-  task :reset_permission do
-    on release_roles :all do
-      execute :sudo, :chown, '-R', "nginx:nginx", deploy_to
-    end
-  end
-
   before :starting, :init_permission
-  after :finished, :reset_permission
   after :publishing, :restart
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
