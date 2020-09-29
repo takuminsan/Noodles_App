@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy # before_actionで@post定義済み
     flash[:success] = "投稿が削除されました。"
-    redirect_to request.referrer || root_url # request.referrerメソッドは一つ前のURLを返す
+    redirect_to root_url
   end
 
   def search
