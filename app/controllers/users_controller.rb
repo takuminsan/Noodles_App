@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   # @userは before_action :correct_user で定義済み
   def update
-    if @user.update_attributes(user_params)
+    if @user.email != 'test@test-user.com' && @user.update_attributes(user_params)
       flash[:success] = "アカウント情報が変更されました。"
       redirect_to @user
     else
