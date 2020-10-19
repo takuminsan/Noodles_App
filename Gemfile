@@ -3,24 +3,25 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
-gem 'bcrypt', '3.1.12' # has_secure_passwordを使ってパスワードをハッシュ化するために必要
-gem 'bootsnap', '>= 1.1.0', require: false # 起動時間を短縮させるgem
-gem 'bootstrap-sass', '3.3.7' # BootstrapではLESS言語を使っているが、RailsのAsset PipelineはデフォルトではSass言語をサポート
-gem 'bootstrap-will_paginate', '1.0.0' # will_paginateを構成するためのBootstrapのページネーションスタイル
+gem 'bcrypt' # has_secure_passwordを使ってパスワードをハッシュ化するために必要
+gem 'bootsnap', require: false # 起動時間を短縮させるgem
+gem 'bootstrap-sass' # BootstrapではLESS言語を使っているが、RailsのAsset PipelineはデフォルトではSass言語をサポート
+gem 'bootstrap-will_paginate' # will_paginateを構成するためのBootstrapのページネーションスタイル
 gem 'carrierwave' # 画像アップローダー
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails'
 gem 'dotenv-rails' # .envファイルに書いた設定を環境変数として簡単に読み込めるgem
 gem 'http' # rubyでhttp通信を可能にする
-gem 'jbuilder', '~> 2.5' # JSON形式のデータを作成
+gem 'jbuilder' # JSON形式のデータを作成
 gem 'jquery-rails' # jQueryを使えるようにする
 gem 'mysql2' # DBにMySQLを選択する
-gem 'puma', '~> 3.11' # APサーバ
-gem 'rails', '5.2'
+gem 'puma' # APサーバ
+gem 'rails', '6.0.3.1'
 gem 'rails-i18n' # Railsの日本語化対応
 gem 'rmagick' # 画像処理
-gem 'sass-rails', '~> 5.0' # Sass(効率的にCSSを書くことのできる言語)を使えるようにする
-gem 'turbolinks', '~> 5' # Ajaxによるページ遷移の高速化のためのライブラリ
-gem 'uglifier', '>= 1.3.0' # JS軽量化
+gem 'sass-rails' # Sass(効率的にCSSを書くことのできる言語)を使えるようにする
+gem 'turbolinks' # Ajaxによるページ遷移の高速化のためのライブラリ
+gem 'uglifier' # JS軽量化
+gem 'webpacker'
 gem 'will_paginate' # ページネーションメソッドを使えるようにする
 
 group :development, :test do
@@ -39,11 +40,11 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2' # ファイルの変更を検知してそれをフックに何か処理ができる
+  gem 'listen' # ファイルの変更を検知してそれをフックに何か処理ができる
   gem 'rubocop', require: false # Rubyの静的コード解析ツール
   gem 'spring' # Railsアプリケーションのプリローダー
-  gem 'spring-watcher-listen', '~> 2.0.0' # springのファイルシステムの変更検知方法をpollingからlistenに変更
-  gem 'web-console', '>= 3.3.0' # View内でコンソールを立ち上げて、変数やparameterなどの状態を見ることができる
+  gem 'spring-watcher-listen' # springのファイルシステムの変更検知方法をpollingからlistenに変更
+  gem 'web-console' # View内でコンソールを立ち上げて、変数やparameterなどの状態を見ることができる
 end
 
 group :production do

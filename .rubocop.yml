@@ -97,6 +97,7 @@ Style/GuardClause:
     - 'app/controllers/static_pages_controller.rb'
     - 'app/models/post.rb'
     - 'app/models/user.rb'
+    - 'db/migrate/20201019110941_add_foreign_key_constraint_to_active_storage_attachments_for_blob_id.active_storage.rb'
 
 Style/HashSyntax:
   Exclude:
@@ -114,6 +115,7 @@ Style/IfUnlessModifier:
     - 'app/controllers/static_pages_controller.rb'
     - 'app/models/post.rb'
     - 'app/models/user.rb'
+    - 'db/migrate/20201019110941_add_foreign_key_constraint_to_active_storage_attachments_for_blob_id.active_storage.rb'
 
 Style/MixinUsage:
   Exclude:
