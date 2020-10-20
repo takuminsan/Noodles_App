@@ -73,7 +73,7 @@ GEM
     aws-sdk-kms (1.39.0)
       aws-sdk-core (~> 3, >= 3.109.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.83.0)
+    aws-sdk-s3 (1.83.1)
       aws-sdk-core (~> 3, >= 3.109.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -372,7 +372,7 @@ DEPENDENCIES
   bcrypt
   bcrypt_pbkdf
   bootsnap
-  bootstrap-sass (~> 3.4.1)
+  bootstrap-sass
   bootstrap-will_paginate
   byebug
   capistrano

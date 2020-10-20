@@ -5,7 +5,7 @@ ruby '2.6.5'
 
 gem 'bcrypt' # has_secure_passwordを使ってパスワードをハッシュ化するために必要
 gem 'bootsnap', require: false # 起動時間を短縮させるgem
-gem 'bootstrap-sass', '~> 3.4.1' # BootstrapではLESS言語を使っているが、RailsのAsset PipelineはデフォルトではSass言語をサポート
+gem 'bootstrap-sass' # BootstrapではLESS言語を使っているが、RailsのAsset PipelineはデフォルトではSass言語をサポート
 gem 'bootstrap-will_paginate' # will_paginateを構成するためのBootstrapのページネーションスタイル
 gem 'carrierwave' # 画像アップローダー
 gem 'coffee-rails'
