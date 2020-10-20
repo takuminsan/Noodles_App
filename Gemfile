@@ -21,7 +21,6 @@ gem 'rmagick' # 画像処理
 gem 'sassc-rails' # Sass(効率的にCSSを書くことのできる言語)を使えるようにする
 gem 'turbolinks' # Ajaxによるページ遷移の高速化のためのライブラリ
 gem 'uglifier' # JS軽量化
-gem 'webpacker'
 gem 'will_paginate' # ページネーションメソッドを使えるようにする
 
 group :development, :test do
