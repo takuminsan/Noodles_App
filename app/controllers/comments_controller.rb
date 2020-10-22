@@ -5,24 +5,20 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     @post = Post.find(params[:id])
-    if @comment.save
-      respond_to do |format|
-        format.html { redirect_back(fallback_location: root_path) }
-        format.js
-      end
-    else
-      flash.now[:danger] = "コメントに失敗しました。"
-      @post = Post.find(params[:id])
-      @user = @post.user
-      @comments = @post.comments
-      render 'posts/show'
+    @comment.save
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.js
     end
   end
 
   def destroy
-    Comment.find(params[:id]).destroy
-    flash[:success] = "コメントが削除されました。"
-    redirect_back(fallback_location: root_path)
+    @post = Post.find(@comment.post_id)
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.js
+    end
   end
 
   private
