@@ -32,7 +32,8 @@ https://noodles-app.com<br>
   - 投稿内地図の表示はGoogleMapsAPIを使用
   - 投稿詳細ページをTwitterで共有可能<br><br>
 - コメント機能
-  - コメント表示、コメント投稿、コメント削除機能<br><br>
+  - コメント表示、コメント投稿、コメント削除機能
+  - Ajaxを使用<br><br>
 - ページネーション機能
   - will_paginate + bootstrap-will_paginateを使用<br><br>
 - いいね機能（アプリケーション内では「食べたい！」と表記）
