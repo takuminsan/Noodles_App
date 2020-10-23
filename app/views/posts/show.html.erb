@@ -30,7 +30,19 @@
       <div class="post_map">
         <div id="map"></div>
       </div>
-      <%= render 'posts/post_comments' %>
+      <div class="post_comments">
+        <h4 id="comment_count"><i class="far fa-comments"></i> コメント（<%= @post.comments.count %>）</h4>
+        <ol class="post_comments_list">
+          <%= render @comments %>
+        </ol>
+        <div class="post_comments_form">
+          <%= form_with model: @comment, url: post_path(@post.id) do |f| %> <!-- form_withはデフォルトだと非同期通信 -->
+            <%= f.text_area :content, class: 'form-control', placeholder: "200文字以内" %>
+            <%= f.hidden_field :post_id, value: @post.id %>
+            <%= f.submit "コメントする", class: "btn btn-warning" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </section>
   <aside>

@@ -12,10 +12,8 @@ describe 'コメント機能', type: :system do
     fill_in 'comment_content', with: ''
     click_button 'コメントする'
     expect(page).to have_content 'コメントに失敗しました。'
-    expect(page).to have_css '#error_explanation'
     fill_in 'comment_content', with: '美味しそうだね'
     click_button 'コメントする'
-    expect(page).to have_content '投稿にコメントしました！'
     expect(page).to have_content '美味しそうだね'
   end
 end
