@@ -5,10 +5,15 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     @post = Post.find(params[:id])
-    @comment.save
-    respond_to do |format|
-      format.html { redirect_back(fallback_location: root_path) }
-      format.js
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: root_path) }
+        format.js
+      end
+    else
+      # Ajaxでエラーメッセージを表示できるようになったら改善予定
+      flash[:danger] = "コメントに失敗しました。"
+      redirect_back(fallback_location: root_path)
     end
   end
 
