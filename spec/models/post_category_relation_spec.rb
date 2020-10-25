@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "post_category_relation_model", type: :model do
   before do
-    @post = FactoryBot.create(:post, user: @user)
-    @category = FactoryBot.create(:category)
-    @post_category_relation = Post_category_relation.create(post_id: @post.id,
-                                                            category_id: @category.id)
+    @post_category_relation = FactoryBot.create(:post_category_relation)
   end
 
   it "@post_category_relationが有効であること" do
