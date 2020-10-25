@@ -584,6 +584,13 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+.category_check_box {
+  height: 50px;
+  display: inline-block;
+  label {
+    margin-right: 10px;
+  }
+}
 #error_explanation {
   color: red;
   ul {
