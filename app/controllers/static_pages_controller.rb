@@ -11,5 +11,7 @@ class StaticPagesController < ApplicationController
                      else
                        Post.all.paginate(page: params[:page], per_page: 12).recent
                      end
+
+    @categories =    Category.all
   end
 end
