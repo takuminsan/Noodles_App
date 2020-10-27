@@ -3,8 +3,8 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
   has_many :comments, dependent: :destroy
-  has_many :post_category_relations, dependent: :destroy
-  has_many :categories, through: :post_category_relations
+  has_many :post_genre_relations, dependent: :destroy
+  has_many :genres, through: :post_genre_relations
   scope :recent, -> { order(created_at: :desc) } # データベースから要素を取得したときの順序を指定する。created_atカラムの順にしたい場合の設定
   mount_uploader :picture, PictureUploader # CarrierWaveに画像と関連付けたPostモデルを伝える。引数は属性名のシンボルとアップローダーのクラス名
   validates :user_id, presence: true

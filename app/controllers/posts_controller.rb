@@ -53,10 +53,10 @@ class PostsController < ApplicationController
              end
   end
 
-  def category
+  def genre
     @section_title = "「」の検索結果"
     @posts = Post.all.paginate(page: params[:page], per_page: 12).recent
-    @categories = Category.all
+    @genres = Genre.all
   end
 
   private

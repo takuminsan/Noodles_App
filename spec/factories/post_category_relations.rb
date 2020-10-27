@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :post_category_relation do
+  factory :post_genre_relation do
     association :post, factory: :post
-    association :category, factory: :category
+    association :genre, factory: :genre
   end
 end

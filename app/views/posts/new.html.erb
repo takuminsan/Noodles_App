@@ -17,19 +17,19 @@
       <%= f.label :説明文 %>
       <%= f.text_area :content, class: 'form-control', size: "20x10", placeholder: "1000文字以内" %>
 
-      <%= f.label :カテゴリ %>
-      <div class="category_check_box">
+      <%= f.label :ジャンル %>
+      <div class="genre_check_box">
         <!-- collection_check_boxesメソッド -->
         <!--
-          第一引数 :category_ids postオブジェクトのプロパティ名
-          第二引数 Category.all　categoryオブジェクトの配列を取得
+          第一引数 :genre_ids postオブジェクトのプロパティ名
+          第二引数 Genre.all　Genreオブジェクトの配列を取得
           第三引数 :id　チェックボックスのvalue属性の値
           第四引数 :name チェックボックスのラベル名
         -->
-        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-            <%= category.label do %>
-              <%= category.check_box %>
-              <%= category.text %>
+        <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
+            <%= genre.label do %>
+              <%= genre.check_box %>
+              <%= genre.text %>
             <% end %>
         <% end %>
       </div>

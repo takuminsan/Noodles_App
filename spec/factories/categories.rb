@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :category do
+  factory :genre do
     name { "つけ麺" }
   end
 end

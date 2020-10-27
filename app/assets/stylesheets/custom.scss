@@ -170,7 +170,7 @@ aside {
       box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
     }
   }
-  .category_list {
+  .genre_list {
     height: auto;
     background-color: #ffffff;
     margin: 0px 10px 20px 10px;
@@ -181,7 +181,7 @@ aside {
       font-size: 20px;
       margin: 0;
     }
-    .category_list_name {
+    .genre_list_name {
       margin: 20px 0;
       padding: 0;
       list-style: none;
@@ -611,7 +611,7 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
-.category_check_box {
+.genre_check_box {
   height: 50px;
   display: inline-block;
   label {
