@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:new, :create, :edit, :show, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
     get :search, on: :collection # /posts/searchとなり、postsコントローラーのsearchアクションにルーティングされる
+    get :category, on: :collection # /posts/caetegoryとなり、postsコントローラーのcategoryアクションにルーティングされる
   end
   post '/posts/new', to: 'posts#create'
   patch '/posts/:id/edit', to: 'posts#update'

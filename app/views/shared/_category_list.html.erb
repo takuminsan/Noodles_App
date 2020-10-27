@@ -1,10 +1,9 @@
 <section class="category_list">
   <h3>カテゴリ別投稿検索</h3>
-  <h3>(全てのユーザー)</h3>
   <ul class="category_list_name">
     <% @categories.each do |category| %>
       <li>
-        <%= link_to "#" do %>
+        <%= link_to category_posts_path do %>
           <%= category.name %> (<%= category.post_category_relations.count %>)
         <% end %>
       </li>
