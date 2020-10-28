@@ -13,10 +13,7 @@
       </ol>
       <%= will_paginate @posts %>
     <% else %>
-      <div class="no-contents">
-        <h3>該当する投稿はありません。</h3>
-        <%= image_tag "/noodle.png", :size => '100x100' %>
-      </div>
+      <%= render 'posts/no-contents' %>
     <% end %>
   </section>
   <% if logged_in? %>
