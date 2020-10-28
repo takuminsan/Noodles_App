@@ -1,4 +1,4 @@
-<% provide(:title, 'ジャンル別検索結果') %>
+<% provide(:title, @genre.name + ' - ジャンル別検索結果') %>
 <div class="contents">
   <% if logged_in? %>
     <%= render 'shared/sidebar' %>
@@ -13,20 +13,17 @@
       </ol>
       <%= will_paginate @posts %>
     <% else %>
-      <div class="no-contents">
-        <h3>該当する投稿はありません。</h3>
-        <%= image_tag "/noodle.png", :size => '100x100' %>
-      </div>
+      <%= render 'posts/no-contents' %>
     <% end %>
   </section>
-  <% if logged_in? %>
     <aside>
-      <section class="user_info">
-        <label for="sidebar" class="close">×</label>
-        <%= render 'shared/user_info' %>
-        <%= render 'shared/post_btn' %>
-      </section>
+      <% if logged_in? %>
+        <section class="user_info">
+          <label for="sidebar" class="close">×</label>
+          <%= render 'shared/user_info' %>
+          <%= render 'shared/post_btn' %>
+        </section>
+      <% end %>
       <%= render 'shared/genre_list' %>
     </aside>
-  <% end %>
 </div>
