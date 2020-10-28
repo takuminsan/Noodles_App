@@ -53,7 +53,7 @@ https://noodles-app.com<br>
   - 単体テスト機能
   - 統合テスト機能
 ## ER図
-  ![200805_ER図_Noodles (1)](https://user-images.githubusercontent.com/57702892/89441555-4d434600-d788-11ea-9256-1efeb996b68c.jpg)
+  ![201029_ER図_Noodles](https://user-images.githubusercontent.com/57702892/97474555-907c1200-198f-11eb-8101-9c421680e366.jpg)
 ## インフラ構成図
   ![200909_インフラ構成図](https://user-images.githubusercontent.com/57702892/92624114-179ef900-f302-11ea-811f-7ba8d22cd373.jpg)
 ## 制作背景
