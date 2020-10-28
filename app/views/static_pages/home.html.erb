@@ -6,14 +6,15 @@
   <section class="main_section">
     <%= render 'shared/feed' %>
   </section>
-  <% if logged_in? %>
-    <aside>
+  <aside>
+    <% if logged_in? %>
       <section class="user_info">
         <label for="sidebar" class="close">×</label>
         <%= render 'shared/user_info' %>
         <%= render 'shared/post_btn' %>
       </section>
-    </aside>
-    <%= render 'shared/post_btn_responsive' if logged_in? %>
-  <% end %>
+    <% end %>
+    <%= render 'shared/genre_list' %>
+  </aside>
+  <%= render 'shared/post_btn_responsive' if logged_in? %>
 </div>

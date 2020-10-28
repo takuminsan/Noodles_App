@@ -33,6 +33,7 @@ header .navbar-right {
   .contents {
     padding: 0;
     .post-btn-responsive {
+      display: block;
       position: fixed;
       right: 30px;
       bottom: 30px;
@@ -113,6 +114,9 @@ header .navbar-right {
       .post-btn {
         display: none;
       }
+    }
+    .genre_list {
+      display: none;
     }
   }
 
@@ -322,5 +326,11 @@ header .navbar-right {
         }
       }
     }
+  }
+
+  /* form */
+
+  .genre_check_box {
+    height: 80px;
   }
 }

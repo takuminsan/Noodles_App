@@ -1,0 +1,12 @@
+<section class="genre_list">
+  <h3>ジャンル別投稿検索</h3>
+  <ul class="genre_list_name">
+    <% @genres.each do |genre| %>
+      <li>
+        <%= link_to genre_posts_path(genre_id: genre.id) do %>
+          <%= genre.name %> (<%= genre.post_genre_relations.count %>)
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</section>
