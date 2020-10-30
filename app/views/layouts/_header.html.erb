@@ -1,20 +1,14 @@
 <header class="navbar-fixed-top">
   <div class="header-left">
-    <%= link_to "Noodles", root_path, id: "logo" %>
-    <%= link_to image_tag("/noodle.png", :size => '30x30'), root_path %>
+    <div id="logo-01">
+      <%= link_to "Noodles", root_path %>
+    </div>
+    <div id="logo-02">
+      <%= link_to image_tag("/noodle.png", :size => '27x27'), root_path %>
+    </div>
   </div>
   <div class="header-right">
-    <div class="post_search">
-      <%= form_with url: search_posts_path, method: :get, local: true do |f| %> <!-- POSTメソッドではなくGETメソッド AjaxがデフォルトでOnの為、local:trueを設定　-->
-        <%= f.text_field :search, class: 'form-control', placeholder: "キーワード検索"  %>
-        <%= f.button :type => "submit" do %>
-          <i class="fas fa-search"></i>
-        <% end %>
-      <% end %>
-    </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to root_path do %><i class="fas fa-home"></i> ホーム<% end %></li>
-      <li><%= link_to maps_path do %><i class="fas fa-map-marked-alt"></i> 地図から投稿検索<% end %></li>
       <% if logged_in? %>
         <li><%= link_to users_path do %><i class="fas fa-users"></i> 利用者一覧<% end %></li>
         <li class="dropdown">

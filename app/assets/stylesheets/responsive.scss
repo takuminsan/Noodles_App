@@ -16,8 +16,9 @@
 
   /* header */
 
-header #logo {
+header .header-left {
   padding-left: 15px;
+  width: 170px;
 }
 
 header .header-right .post_search {
@@ -151,6 +152,7 @@ header .navbar-right {
     .menu-icon {
       display: inline-block;
       margin: 5px 10px 0 0;
+      filter: invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(500%) contrast(101%);
     }
     .dropdown-menu {
       left: auto;
