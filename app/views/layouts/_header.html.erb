@@ -25,6 +25,7 @@
           </ul>
         </li>
       <% else %>
+        <li><%= link_to "/guest", method: :post do %><i class="fas fa-address-card"></i> テストユーザーでログイン<% end %></li>
         <li><%= link_to login_path do %><i class="fas fa-sign-in-alt"></i> ログイン<% end %></li>
         <li><%= link_to signup_path do %><i class="fas fa-user-plus"></i> ユーザー登録<% end %></li>
       <% end %>

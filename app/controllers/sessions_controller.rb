@@ -28,4 +28,11 @@ class SessionsController < ApplicationController
     log_out if logged_in? # ログイン中の場合にのみログアウトさせることで、複数タブでログアウトを実施した際のバグを回避
     redirect_to root_url
   end
+
+  def guest_log_in
+    user = User.find_by(email: "test@test-user.com")
+    log_in user
+    flash[:success] = "テストユーザーでログインしました。"
+    redirect_to root_url
+  end
 end

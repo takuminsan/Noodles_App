@@ -17,12 +17,5 @@
         <p>※初めてご利用の方は… <%= link_to "登録する", signup_path %></p>
       </div>
     <% end %>
-    <%= form_for(:session, url: login_path) do |f| %>
-      <%= f.hidden_field :email, value: "test@test-user.com" %>
-      <%= f.hidden_field :password, value: "password" %>
-      <%= f.button :type => "submit", class: "btn btn-warning btn-block" do %>
-        <i class="fas fa-address-card"></i> テストユーザーでログインする
-      <% end %>
-    <% end %>
   </div>
 </div>

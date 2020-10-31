@@ -108,6 +108,7 @@ header {
       background-color: #683f36;
     }
     a {
+      transition: 0.3s;
       color: #ffffff;
     }
   }
@@ -198,10 +199,12 @@ aside {
   .map_section {
     height: auto;
     background-color: #eaeaea;
+    transition: 0.3s;
     margin: 0px 10px 20px 10px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+    position: relative;
     h3 {
       font-size: 20px;
       margin: 0 0 10px 0;
@@ -209,6 +212,16 @@ aside {
     img {
       border-radius: 5px;
     }
+    a { /* sectionクラス全体にリンクをつける方法 */
+      position: absolute;
+      top: 0;
+      left: 0;
+      height:100%;
+      width: 100%;
+    }
+  }
+  .map_section:hover {
+    background-color: #dbdbdb;
   }
   .genre_list {
     height: auto;
@@ -226,11 +239,21 @@ aside {
       padding: 0;
       list-style: none;
       li {
+        border-bottom: 1px solid #c0c0c0;
         font-size: 18px;
-        margin: 5px 0;
-        a {
-
+        margin: 0;
+        line-height: 36px;
+        position: relative;
+        a { /* li全体にリンクをつける方法 */
+          position: absolute;
+          top: 0;
+          left: 0;
+          height:100%;
+          width: 100%;
         }
+      }
+      li:hover {
+        background-color: #dbdbdb;
       }
     }
   }
