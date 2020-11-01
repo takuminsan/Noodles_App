@@ -2,37 +2,7 @@
 <div class="contents">
   <%= render 'shared/sidebar' %>
   <section class="main_section">
-    <div class="section_title">
-      <ul>
-        <li>
-          <%= link_to @user, class: "one current" do %>
-            <i class="far fa-clone"></i> 投稿 (<%= @user.posts.count %>)
-          <% end %>
-        </li>
-        <li>
-          <%= link_to likes_user_path(@user), class: "two" do %>
-            <i class="far fa-heart"></i> 食べたい！(<%= @user.likes.count %>)
-          <% end %>
-        </li>
-      </ul>
-    </div>
-    <% if @user.posts.any? %>
-      <ol class="posts">
-        <%= render @posts %>
-      </ol>
-      <%= will_paginate @posts %> <!-- users/show はｕｓｅｒsコントローラのコンテキストである為、明示的に@posts変数をwill_paginateに渡す必要がある -->
-    <% else %>
-      <div class="no-contents">
-        <h3><%= @user.name %>の投稿はありません。</h3>
-        <% if @user == current_user %>
-          <h3>投稿してみましょう。</h3>
-          <%= link_to image_tag("/note.png", :size => '100x100', alt: "投稿する"),
-                                                                  new_post_path %>
-        <% else %>
-          <%= image_tag "/noodle.png", :size => '100x100' %>
-        <% end %>
-      </div>
-    <% end %>
+    <%= render @main_section_render %>
   </section>
   <aside>
     <section class="user_info">

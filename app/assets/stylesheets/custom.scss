@@ -404,6 +404,17 @@ aside {
           color: #808080;
         }
       }
+      .genre {
+        margin-bottom: 10px;
+        .genre_name {
+          width: fit-content;
+          display: inline;
+          border-radius: 5px;
+          border: 1px solid #cacaca;
+          background-color: #f6f6f6;
+          margin-right: 5px;
+        }
+      }
       .post_reaction {
         display: flex;
         justify-content: space-between;
@@ -465,10 +476,21 @@ aside {
         margin: 0;
       }
     }
+    .genre {
+      margin-top: 20px;
+      .genre_name {
+        width: fit-content;
+        display: inline;
+        border-radius: 5px;
+        border: 1px solid #cacaca;
+        background-color: #f6f6f6;
+        margin-right: 5px;
+      }
+    }
     .post_information_bottom {
       display: flex;
       justify-content: space-between;
-      margin-top: 20px;
+      margin-top: 10px;
     }
     .fa-twitter-square {
       color:#1da1f2;
