@@ -22,7 +22,6 @@ describe 'ログイン', type: :system do
     expect(page).to have_content @user.name
     expect(page).not_to have_selector 'a', text: 'ログイン'
     expect(page).to have_content '投稿する'
-    find('.dropdown-toggle').click
     click_on 'ログアウト'
     expect(page).to have_selector 'a', text: 'ログイン'
     expect(page).not_to have_content '投稿する'
@@ -36,7 +35,6 @@ describe 'ログイン', type: :system do
     check 'ログイン状態を保持'
     click_button 'ログイン'
     expect([cookies['remember_token']]).not_to be_empty
-    find('.dropdown-toggle').click
     click_on 'ログアウト'
     # クッキーを削除してログイン
     log_in_as(@user)
