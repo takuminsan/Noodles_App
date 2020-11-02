@@ -38,7 +38,7 @@
         </ol>
         <div class="post_comments_form">
           <%= form_with model: @comment, url: post_path(@post.id) do |f| %> <!-- form_withはデフォルトだと非同期通信 -->
-            <%= f.text_area :content, class: 'form-control', placeholder: "200文字以内", id: 'commentInput', onchange: 'inputComment()' %>
+            <%= f.text_area :content, class: 'form-control', placeholder: "200文字以内", id: 'commentInput', onKeyUp: 'inputComment()' %>
             <%= f.hidden_field :post_id, value: @post.id %>
             <%= f.submit "コメントする", class: "btn btn-warning", id: 'commentSubmit', disabled: true %>
           <% end %>
