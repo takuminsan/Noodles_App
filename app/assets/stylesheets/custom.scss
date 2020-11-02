@@ -55,6 +55,7 @@ main {
   width: 100%;
   min-height: 100vh;
   padding: 50px 0 100px 0;
+  position: relative;
 }
 
 .contents {
@@ -119,6 +120,73 @@ header {
 .navbar-fixed-top {
   border-width: 0;
   margin: 0;
+}
+
+/* hamburger_menu */
+
+#hamburger_menu {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: auto;
+  background-color: #000000;
+  z-index: 1;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+  opacity: 0.9;
+  .hamburger_menu {
+    margin: 10px;
+    padding: 0;
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #ffffff;
+    .hamburger_menu_01 li a {
+      color: #ffffff;
+    }
+    .hamburger_menu_02 {
+      border-top: 1px solid #ffffff;
+      border-bottom: 1px solid #ffffff;
+      li a {
+        color: #ffffff;
+      }
+    }
+    .hamburger_menu_03 {
+      border-bottom: 1px solid #ffffff;
+      padding-bottom: 4px;
+      p {
+        color: #ffffff;
+        margin: 0;
+      }
+      ul {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        li {
+          width: 33%;
+          a {
+            color: #ffffff;
+            padding: 3px 10px 3px 10px;
+            background-color: #7d7c7c;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+    .hamburger_menu_04 {
+      border-bottom: 1px solid #ffffff;
+      p {
+        color: #ffffff;
+        margin: 0;
+      }
+      .form-control {
+        width: 50%;
+        display: inline;
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
 
 /* sidebar */
@@ -208,6 +276,8 @@ aside {
     h3 {
       font-size: 20px;
       margin: 0 0 10px 0;
+      border-bottom: 3px solid #c0c0c0;
+      padding-bottom: 4px;
     }
     img {
       border-radius: 5px;
@@ -233,6 +303,8 @@ aside {
     h3 {
       font-size: 20px;
       margin: 0 0 10px 0;
+      border-bottom: 3px solid #c0c0c0;
+      padding-bottom: 4px;
     }
     .genre_list_name {
       margin: 0;
@@ -493,7 +565,10 @@ aside {
       margin-top: 10px;
     }
     .fa-twitter-square {
-      color:#1da1f2;
+      color: #1da1f2;
+    }
+    .fa-twitter-square:hover {
+      color: #1d72f2;
     }
   }
 }
