@@ -9,7 +9,7 @@ describe 'コメント機能', type: :system do
   it 'コメント機能が動作すること' do
     log_in_as(@user)
     visit post_path(@post.id)
-    fill_in 'comment_content', with: '美味しそうだね'
+    fill_in 'commentInput', with: '美味しそうだね'
     click_button 'コメントする'
     expect(page).to have_content '美味しそうだね'
   end
