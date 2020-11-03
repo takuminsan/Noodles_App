@@ -1,7 +1,7 @@
 <div class="genre">
-  <% post.genres.each do |g| %>
-    <div class="genre_name">
-      <%= g.name %>
-    </div>
-  <% end %>
+  <ul class="genre_name">
+    <% post.genres.each do |g| %>
+      <li><%= g.name %></li>
+    <% end %>
+  </ul>
 </div>

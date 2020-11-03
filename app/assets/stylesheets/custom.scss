@@ -276,7 +276,7 @@ aside {
     h3 {
       font-size: 20px;
       margin: 0 0 10px 0;
-      border-bottom: 3px solid #c0c0c0;
+      border-bottom: 2px solid #752100;
       padding-bottom: 4px;
     }
     img {
@@ -303,7 +303,7 @@ aside {
     h3 {
       font-size: 20px;
       margin: 0 0 10px 0;
-      border-bottom: 3px solid #c0c0c0;
+      border-bottom: 2px solid #752100;
       padding-bottom: 4px;
     }
     .genre_list_name {
@@ -469,7 +469,6 @@ aside {
       }
       .more {
         margin-top: 40px;
-        margin-bottom: 20px;
         display: block;
         text-align: right;
         a {
@@ -478,13 +477,21 @@ aside {
       }
       .genre {
         margin-bottom: 10px;
+        height: 60px;
+        position: relative;
         .genre_name {
-          width: fit-content;
-          display: inline;
-          border-radius: 5px;
-          border: 1px solid #cacaca;
-          background-color: #f6f6f6;
-          margin-right: 5px;
+          list-style: none;
+          padding: 0;
+          position: absolute;
+          bottom: 0;
+          li {
+            width: fit-content;
+            display: inline;
+            border-radius: 5px;
+            border: 1px solid #cacaca;
+            background-color: #f6f6f6;
+            margin-right: 5px;
+          }
         }
       }
       .post_reaction {
@@ -549,14 +556,22 @@ aside {
       }
     }
     .genre {
-      margin-top: 20px;
+      height: 60px;
+      position: relative;
       .genre_name {
-        width: fit-content;
-        display: inline;
-        border-radius: 5px;
-        border: 1px solid #cacaca;
-        background-color: #f6f6f6;
-        margin-right: 5px;
+        list-style: none;
+        padding: 0;
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+        li {
+          width: fit-content;
+          display: inline;
+          border-radius: 5px;
+          border: 1px solid #cacaca;
+          background-color: #f6f6f6;
+          margin-right: 5px;
+        }
       }
     }
     .post_information_bottom {
