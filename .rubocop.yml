@@ -59,6 +59,10 @@ Style/BlockDelimiters:
   Exclude:
     - "spec/**/*"
 
+Style/CaseLikeIf:
+  Exclude:
+    - 'app/controllers/maps_controller.rb'
+
 Style/ClassAndModuleChildren:
   Exclude:
     - 'test/test_helper.rb'
@@ -82,6 +86,10 @@ Style/ExpandPathArguments:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/GlobalStdStream:
+  Exclude:
+    - 'config/environments/production.rb'
 
 Style/GlobalVars:
   Exclude:
@@ -143,6 +151,19 @@ Style/RedundantBegin:
   Exclude:
     - 'bin/yarn'
 
+Style/RedundantFetchBlock:
+  Exclude:
+    - 'config/puma.rb'
+
+Style/RedundantFileExtensionInRequire:
+  Exclude:
+    - 'db/seeds.rb'
+    - 'spec/rails_helper.rb'
+
+Style/RedundantRegexpEscape:
+  Exclude:
+    - 'config/initializers/carrier_wave.rb'
+
 Style/RedundantSelf:
   Exclude:
     - 'app/models/post.rb'
@@ -157,6 +178,11 @@ Style/SafeNavigation:
 Style/StderrPuts:
   Exclude:
     - 'bin/yarn'
+
+Style/StringConcatenation:
+  Exclude:
+    -  'app/models/post.rb'
+    -  'spec/models/user_spec.rb'
 
 # ダブルクォートを使ってもok
 Style/StringLiterals:
