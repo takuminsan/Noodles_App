@@ -7,7 +7,7 @@ Rails.application.configure do
   config.public_file_server.enabled = true
   # 上記はpublicフォルダからの静的ファイルの提供を有効にする
   # config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? ←デフォルト設定
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(harmony: true)
   config.assets.compile = true
   config.active_storage.service = :amazon
   # config.force_ssl = true ←でSSL通信をするかどうか設定できる
