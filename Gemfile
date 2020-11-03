@@ -19,7 +19,6 @@ gem 'rails', '6.0.3.1'
 gem 'rails-i18n' # Railsの日本語化対応
 gem 'rmagick' # 画像処理
 gem 'sassc-rails' # Sass(効率的にCSSを書くことのできる言語)を使えるようにする
-gem 'turbolinks' # Ajaxによるページ遷移の高速化のためのライブラリ
 gem 'uglifier' # JS軽量化
 gem 'will_paginate' # ページネーションメソッドを使えるようにする
 

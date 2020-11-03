@@ -10,6 +10,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page], per_page: 12).recent
+    @main_section_render = "show_posts"
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
@@ -65,8 +70,11 @@ class UsersController < ApplicationController
   def likes
     @user = User.find(params[:id])
     @posts = @user.like_posts.paginate(page: params[:page], per_page: 12)
-    @title = "#{@user.name}の「食べたい！」"
-    render 'show_likes'
+    @main_section_render = "show_likes"
+    respond_to do |format|
+      format.html { render "show" }
+      format.js
+    end
   end
 
   private

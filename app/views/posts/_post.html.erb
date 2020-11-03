@@ -15,6 +15,7 @@
       <span class="nearest">最寄駅: <%= post.nearest %></span>
       <span class="content">説明文: <%= simple_format(post.content) %></span>
       <span class="more"><%= link_to "もっと見る", post_path(post.id) %></span>
+      <%= render 'posts/genre', post: post %>
       <div class="post_reaction">
         <span><i class="far fa-comments"></i> <%= post.comments.count %></span>
         <%= render "likes/like", post: post %></span>

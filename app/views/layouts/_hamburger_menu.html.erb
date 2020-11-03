@@ -1,0 +1,40 @@
+<div id="hamburger_menu">
+  <ul class="hamburger_menu">
+    <div class="hamburger_menu_01">
+      <% if logged_in? %>
+        <li><%= link_to users_path do %><i class="fas fa-users"></i> 利用者一覧<% end %></li>
+        <li><%= link_to current_user do %><i class="far fa-user"></i> プロフィール<% end %></li>
+        <li><%= link_to edit_user_path(current_user) do %><i class="fas fa-cog"></i> 設定<% end %></li>
+        <li><%= link_to logout_path, method: :delete do %><i class="fas fa-times"></i> ログアウト<% end %></li>
+      <% else %>
+        <li><%= link_to "/guest", method: :post do %><i class="fas fa-address-card"></i> テストユーザーでログイン<% end %></li>
+        <li><%= link_to login_path do %><i class="fas fa-sign-in-alt"></i> ログイン<% end %></li>
+        <li><%= link_to signup_path do %><i class="fas fa-user-plus"></i> ユーザー登録<% end %></li>
+      <% end %>
+    </div>
+    <div class="hamburger_menu_02">
+      <li><%= link_to maps_path do %><i class="fas fa-map-marked-alt"></i> 地図から投稿検索<% end %></li>
+    </div>
+    <div class="hamburger_menu_03">
+      <p><i class="fas fa-list"></i> ジャンル別投稿検索</p>
+      <ul class="hamburger_menu_genre_list">
+        <li><%= link_to "醤油", genre_posts_path(genre_id: 1) %></li>
+        <li><%= link_to "塩", genre_posts_path(genre_id: 2) %></li>
+        <li><%= link_to "味噌", genre_posts_path(genre_id: 3) %></li>
+        <li><%= link_to "豚骨", genre_posts_path(genre_id: 4) %></li>
+        <li><%= link_to "家系", genre_posts_path(genre_id: 5) %></li>
+        <li><%= link_to "二郎系", genre_posts_path(genre_id: 6) %></li>
+        <li><%= link_to "つけ麺", genre_posts_path(genre_id: 7) %></li>
+        <li><%= link_to "鶏白湯", genre_posts_path(genre_id: 8) %></li>
+        <li><%= link_to "油そば", genre_posts_path(genre_id: 9) %></li>
+        <li><%= link_to "辛い系", genre_posts_path(genre_id: 10) %></li>
+        <li><%= link_to "煮干し系", genre_posts_path(genre_id: 12) %></li>
+        <li><%= link_to "その他", genre_posts_path(genre_id: 13) %></li>
+      </ul>
+    </div>
+    <div class="hamburger_menu_04">
+      <p><i class="fas fa-keyboard"></i> キーワードで投稿検索</p>
+      <%= render 'shared/search_form_section' %>
+    </div>
+  </ul>
+</div>

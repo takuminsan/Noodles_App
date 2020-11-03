@@ -3,9 +3,8 @@
   <ul class="genre_list_name">
     <% @genres.each do |genre| %>
       <li>
-        <%= link_to genre_posts_path(genre_id: genre.id) do %>
-          <%= genre.name %> (<%= genre.post_genre_relations.count %>)
-        <% end %>
+        <%= link_to "", genre_posts_path(genre_id: genre.id) %>
+        <%= genre.name %> (<%= genre.post_genre_relations.count %>)
       </li>
     <% end %>
   </ul>

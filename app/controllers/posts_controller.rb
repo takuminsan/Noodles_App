@@ -56,7 +56,7 @@ class PostsController < ApplicationController
   def genre
     @genre = Genre.find(params[:genre_id])
     @genres = Genre.all
-    @section_title = "「#{@genre.name}」に関する投稿 (全てのユーザー)"
+    @section_title = "#{@genre.name}に関する投稿(全てのユーザー)"
     @posts = @genre.posts.paginate(page: params[:page], per_page: 12).recent
   end
 
