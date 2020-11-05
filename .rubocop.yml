@@ -58,6 +58,7 @@ Style/BlockComments:
 Style/BlockDelimiters:
   Exclude:
     - "spec/**/*"
+    - "app/controllers/application_controller.rb"
 
 Style/CaseLikeIf:
   Exclude:
