@@ -8,8 +8,13 @@ class ApplicationController < ActionController::Base
     def logged_in_user
       unless logged_in? # ログインしていなければ処理を実行
         store_location  # アクセスしようとしたURLを記憶 (GETリクエストのみ)
-        flash[:danger] = "ログインしてください。"
-        redirect_to login_url
+        respond_to do |format|
+          format.html {
+            flash[:danger] = "ログインしてください。"
+            redirect_to login_url
+          }
+          format.js { render 'shared/alert' }
+        end
       end
     end
 end
