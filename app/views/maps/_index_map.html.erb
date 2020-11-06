@@ -18,7 +18,9 @@
         animation: google.maps.Animation.DROP
       });
       infoWindow[i] = new google.maps.InfoWindow({
-        content: posts[i].shop_name + "<br>" + "<a href='/posts/" + posts[i].id + "' target='_blank' style='color: #00f;'>このお店に関する投稿を表示</a>"
+        content: posts[i].shop_name + "<br>"
+                 + "<a href='/posts/" + posts[i].id + "' target='_blank' style='color: #00f;'>このお店に関する投稿を表示</a>" + "<br>"
+                 + "<img src=" + posts[i].picture.url +" width=100 height=100>"
       });
       markerEvent(i);
     }
