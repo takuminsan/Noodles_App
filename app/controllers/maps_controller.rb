@@ -1,5 +1,6 @@
 class MapsController < ApplicationController
   def index
+    @posts = Post.all.to_json.html_safe
   end
 
   def map
