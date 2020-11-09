@@ -220,6 +220,17 @@ aside {
         width: 100px;
         height: 100px;
       }
+      .user_image_expansion {
+        display: inline-block;
+        position: relative;
+        svg {
+          position: absolute;
+          bottom: 5px;
+          right: 5px;
+          background-color: #eaeaea;
+          border-radius: 5px;
+        }
+      }
     }
     .name {
       display: block;
