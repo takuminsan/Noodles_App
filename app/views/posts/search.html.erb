@@ -20,6 +20,9 @@
     <aside>
       <section class="user_info">
         <label for="sidebar" class="close">×</label>
+        <div class="user_image">
+          <%= render '/shared/user_image', { user: @user } %>
+        </div>
         <%= render 'shared/user_info' %>
         <%= render 'shared/post_btn' %>
       </section>

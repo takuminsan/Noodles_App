@@ -49,6 +49,9 @@
   <aside>
     <section class="user_info">
       <label for="sidebar" class="close">×</label>
+      <div class="user_image">
+        <%= render '/shared/user_image', { user: @user } %>
+      </div>
       <%= render 'shared/user_info' %>
       <%= render 'users/follow_form' if logged_in? %>
       <%= render 'shared/post_btn' if @user == current_user %>

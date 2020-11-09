@@ -10,6 +10,9 @@
     <% if logged_in? %>
       <section class="user_info">
         <label for="sidebar" class="close">×</label>
+        <div class="user_image">
+          <%= render '/shared/user_image', { user: current_user } %>
+        </div>
         <%= render 'shared/user_info' %>
         <%= render 'shared/post_btn' %>
       </section>
