@@ -29,16 +29,16 @@ https://noodles-app.com<br>
   - 画像アップロードはCarrierWave
   - 画像拡大表示(LightBox)
   - 詳細表示内に地図、コメント機能(Ajax)、Twitterシェアボタン
-  - 店名・最寄駅情報から位置情報を取得　まとめ→https://qiita.com/nideratakumin/items/5574d9f38616a03f04c6<br>
+  - <span style="color: red; ">店名・最寄駅情報から位置情報を取得</span>　まとめ→https://qiita.com/nideratakumin/items/5574d9f38616a03f04c6<br>
 - お気に入り機能(Ajax)
   - お気に入り登録した投稿の一覧表示<br>
 - フォロー機能(Ajax)
   - フォロー、フォロワーの一覧表示<br>
 - 投稿検索機能
   - キーワード検索フォーム設置
-  - 地図上から投稿検索可能<br>
+  - <span style="color: red; ">地図上から投稿検索可能</span><br>
 - ラーメンのジャンル毎に投稿表示<br>
-- 全面的にレスポンシブ化(ハンバーガーメニュー)<br>
+- <span style="color: red; ">全面的にレスポンシブ化(ハンバーガーメニュー)</span><br><br>
 - RSpecによる自動テスト(単体・統合)<br>
 ## ER図
   ![201029_ER図_Noodles](https://user-images.githubusercontent.com/57702892/97474555-907c1200-198f-11eb-8101-9c421680e366.jpg)
