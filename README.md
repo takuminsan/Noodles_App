@@ -51,3 +51,4 @@ https://noodles-app.com<br>
 よりラーメンを楽しむことができるのではと考えました。
 ## 今後の予定
 issueに記載
+<span style="color: red; ">店名・最寄駅情報から位置情報を取得</span>
