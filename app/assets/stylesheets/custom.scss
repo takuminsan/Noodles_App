@@ -213,6 +213,14 @@ aside {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+    position: relative;
+    .user_edit {
+      position: absolute;
+      margin: 0;
+      top: 20px;
+      right: 20px;
+      z-index: 1;
+    }
     .user_image, #user_image {
       text-align: center;
       position: relative;
@@ -231,12 +239,6 @@ aside {
           background-color: #eaeaea;
           border-radius: 5px;
         }
-      }
-      .user_edit {
-        position: absolute;
-        margin: 0;
-        right: 0;
-        bottom: 0;
       }
     }
     .name {

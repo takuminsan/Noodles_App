@@ -103,6 +103,7 @@
     display: block;
     opacity: 0.8;
     position: absolute;
+    z-index: 1;
   }
   aside {
     position: fixed;
@@ -111,6 +112,10 @@
     .user_info {
       padding: 10px;
       position: relative;
+      .user_edit {
+        top: 10px;
+        right: 10px;
+      }
       .name {
         margin: 20px 0;
         font-size: 15px;

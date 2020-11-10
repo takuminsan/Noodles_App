@@ -7,6 +7,7 @@
   <aside>
     <section class="user_info">
       <label for="sidebar" class="close">×</label>
+      <%= render 'shared/user_edit' %>
       <%= render '/shared/user_image_show' %>
       <%= render 'shared/user_info' %>
       <%= render 'follow_form' if logged_in? %>
