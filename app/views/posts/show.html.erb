@@ -10,9 +10,7 @@
       <%= render '/posts/post_menu', { post: @post } %>
     </div>
     <div class="post_show">
-      <div class="post_picture">
-        <%= image_tag @post.picture.url if @post.picture? %>
-      </div>
+      <%= render 'post_picture', post: @post %>
       <div class="post_information">
         <span class="shop_name">店名: <%= @post.shop_name %></span>
         <span class="nearest">最寄駅: <%= @post.nearest %></span>

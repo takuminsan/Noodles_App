@@ -1,0 +1,10 @@
+<div class="post_picture">
+  <% if post.picture? %> <!-- picture?は画像用の属性名に応じてCarrierWaveが自動的に生成したメソッド -->
+    <%= link_to post.picture.url, "data-lightbox" => post.picture.url do %>
+      <div class="post_picture_expansion">
+        <%= image_tag post.picture.url %>
+        <i class="fas fa-search-plus"></i>
+      </div>
+    <% end %>
+  <% end %>
+</div>
