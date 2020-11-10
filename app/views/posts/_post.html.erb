@@ -1,15 +1,13 @@
 <li id="post-<%= post.id %>" class="post">
   <div class="post_header">
-    <%= render '/shared/user_image', { user: post.user } %>
+    <%= render 'shared/user_image', { user: post.user } %>
     <div class="post_user">
       <%= link_to post.user.name, post.user %> が食べたラーメン
     </div>
-    <%= render '/posts/post_menu', { post: post } %>
+    <%= render 'posts/post_menu', { post: post } %>
   </div>
   <div class="post_container">
-    <div class="post_picture">
-      <%= image_tag post.picture.url if post.picture? %> <!-- picture?は画像用の属性名に応じてCarrierWaveが自動的に生成したメソッド -->
-    </div>
+    <%= render 'posts/post_picture', { post: post } %>
     <div class="post_information">
       <span class="shop_name">店名: <%= post.shop_name %></span>
       <span class="nearest">最寄駅: <%= post.nearest %></span>

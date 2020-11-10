@@ -434,7 +434,7 @@ aside {
   }
   .post_container {
     padding: 0 20px 30px 20px;
-    .post_picture {
+    .post_picture, .post_picture_expansion {
       width: 100%;
       height: 200px;
       text-align: center;
@@ -442,6 +442,14 @@ aside {
       border: 1px solid #eaeaea;
       border-radius: 4px;
       line-height: 195px;
+      position: relative;
+      svg {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        background-color: #eaeaea;
+        border-radius: 5px;
+      }
       img {
         max-width: 100%;
         max-height: 100%;
@@ -534,7 +542,7 @@ aside {
 }
 .post_show {
   padding: 0 20px 20px 20px;
-  .post_picture {
+  .post_picture, .post_picture_expansion {
     width: 100%;
     height: 498px;
     text-align: center;
@@ -542,6 +550,14 @@ aside {
     border: 1px solid #eaeaea;
     border-radius: 4px;
     line-height: 494px;
+    position: relative;
+    svg {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      background-color: #eaeaea;
+      border-radius: 5px;
+    }
     img {
       max-width: 100%;
       max-height: 100%;
