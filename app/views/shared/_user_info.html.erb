@@ -1,7 +1,3 @@
-<% @user ||= current_user %>
-<div class="user_image">
-  <%= render '/shared/user_image', { user: @user } %>
-</div>
 <%= link_to @user.name, @user, class: "name" %>
 <div class="stats">
   <%= render 'shared/stats' %>

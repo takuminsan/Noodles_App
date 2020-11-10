@@ -213,12 +213,23 @@ aside {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
-    .user_image {
+    .user_image, #user_image {
       text-align: center;
       img {
         @include user_image;
         width: 100px;
         height: 100px;
+      }
+      .user_image_expansion {
+        display: inline-block;
+        position: relative;
+        svg {
+          position: absolute;
+          bottom: 5px;
+          right: 5px;
+          background-color: #eaeaea;
+          border-radius: 5px;
+        }
       }
     }
     .name {

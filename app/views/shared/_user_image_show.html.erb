@@ -1,0 +1,18 @@
+<!-- ユーザープロフィール画面でのユーザー画像 -->
+<div id="user_image">
+  <% if @user.image.to_s.empty? %>
+    <%= link_to "/default_user.png", "data-lightbox" => "/default_user.png" do %>
+      <div class="user_image_expansion">
+        <%= image_tag "/default_user.png" %>
+        <i class="fas fa-search-plus"></i>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to @user.image.url, "data-lightbox" => @user.image.url do %>
+      <div class="user_image_expansion">
+        <%= image_tag @user.image.url %>
+        <i class="fas fa-search-plus"></i>
+      </div>
+    <% end %>
+  <% end %>
+</div>
