@@ -614,6 +614,7 @@ aside {
     }
     .post_information_bottom {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       margin-top: 10px;
       .post_information_bottom_right a {
