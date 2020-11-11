@@ -12,9 +12,9 @@
     <div class="post_show">
       <%= render 'post_picture', post: @post %>
       <div class="post_information">
-        <span class="shop_name">店名: <%= @post.shop_name %></span>
+        <span class="shop_name"><%= @post.shop_name %></span>
         <span class="nearest">最寄駅: <%= @post.nearest %></span>
-        <span class="content">説明文: <%= simple_format(@post.content) %></span>
+        <span class="content"><%= simple_format(@post.content) %></span>
         <%= render 'genre', post: @post %>
         <div class="post_information_bottom">
           <div class="post_information_bottom_left">
