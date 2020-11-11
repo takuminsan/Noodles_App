@@ -28,8 +28,8 @@ https://noodles-app.com<br>
   - 一覧表示、詳細表示、投稿、編集、削除
   - 画像アップロードはCarrierWave
   - 画像拡大表示(LightBox)
-  - 詳細表示内に地図、コメント機能(Ajax)、Twitterシェアボタン
-  - **店名・最寄駅情報から位置情報を取得**　まとめ→https://qiita.com/nideratakumin/items/5574d9f38616a03f04c6<br>
+  - 詳細表示内に地図、コメント機能(Ajax)、twitter/facebook/lineシェアボタン
+  - **店名・最寄駅情報から位置情報を取得**<br>まとめ→https://qiita.com/nideratakumin/items/5574d9f38616a03f04c6<br>
 - お気に入り機能(Ajax)
   - お気に入り登録した投稿の一覧表示<br>
 - フォロー機能(Ajax)
