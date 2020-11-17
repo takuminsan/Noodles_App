@@ -42,6 +42,7 @@
 
   .contents {
     padding: 0;
+    flex-wrap: wrap;
     .post-btn-responsive {
       display: block;
       position: fixed;
@@ -71,31 +72,35 @@
 
   .main_section {
     width: 100%;
-    margin: 65px 10px 50px 10px;
+    margin: 10px 10px 50px 10px;
   }
 
   /* sidebar */
 
-  .slide {
-    display: flex;
-    position: absolute;
+  .user_info_slide {
+    display: block;
     height: 45px;
-    border-radius: 30px;
-    right: 0;
-    background-color: #f5deb3;
-    padding: 5px 20px;
-    margin: 10px 10px 10px 0;
-    box-shadow: 0px 0px 8px rgba(149, 149, 149, 0.5);
-    img {
-      height: 35px;
+    width: 100%;
+    margin: 10px 10px 0 10px;
+    .slide {
+      float: right;
+      display: flex;
       border-radius: 30px;
-    }
-    p {
-      margin: auto 10px;
-      font-size: 10px;
-    }
-    svg {
-      margin: auto 0;
+      background-color: #f5deb3;
+      padding: 5px 20px;
+      margin: 0;
+      box-shadow: 0px 0px 8px rgba(149, 149, 149, 0.5);
+      img {
+        height: 35px;
+        border-radius: 30px;
+      }
+      p {
+        margin: auto 10px;
+        font-size: 10px;
+      }
+      svg {
+        margin: auto 0;
+      }
     }
   }
   .close {
@@ -105,9 +110,9 @@
     z-index: 1;
   }
   aside {
+    transition: 0.2s;
     position: fixed;
     right: -250px;
-    transition: all 0.2s;
     .user_info {
       padding: 10px;
       position: relative;
@@ -145,8 +150,11 @@
 
   #sidebar:checked ~ aside {
     right: 0;
+    top: 60px;
     z-index: 5;
+    position: fixed;
   }
+
   #sidebar:checked ~ .back {
     position: absolute;
     width: 100%;

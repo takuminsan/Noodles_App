@@ -55,7 +55,6 @@ main {
   width: 100%;
   min-height: 100vh;
   padding: 50px 0 100px 0;
-  position: relative;
 }
 
 .contents {
@@ -193,7 +192,7 @@ header {
 
 /* sidebar */
 
-.slide,
+.user_info_slide,
 .close {
   display: none;
 }
@@ -207,7 +206,7 @@ header {
 aside {
   width: 25%;
   min-width: 250px;
-  margin-top: 50px;
+  margin-top: 30px;
   .user_info {
     background-color: #eaeaea;
     margin: 0px 10px 20px 10px;
@@ -365,7 +364,7 @@ aside {
 .main_section {
   flex: 1;
   height: fit-content;
-  margin: 50px 10px;
+  margin: 30px 10px;
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0px 0px 8px rgba(149, 149, 149, 0.25);
@@ -875,6 +874,8 @@ input {
 .alert {
   text-align: center;
   border-radius: 0;
+  margin: 0;
+  width: 100%;
 }
 .field_with_errors {  /* 無効な内容の送信によって元のページに戻されると、field_with_errorsを持ったdivタグでエラー箇所を自動的に囲む */
   @extend .has-error; /* Sassの@extend関数を使ってBootstrapのhas-errorというCSSクラスを適用 */

@@ -1,15 +1,17 @@
 <input id="sidebar" type="checkbox" />
-<label for="sidebar" class="slide">
-  <% @user ||= current_user %>
-  <% if @user.image.to_s.empty? %>
-    <%= image_tag("/default_user.png") %>
-  <% else %>
-    <%= image_tag(@user.image.url) %>
-  <% end %>
-  <% if @user == current_user %>
-    <p><%= @user.name %>でログイン中</p><i class="far fa-arrow-alt-circle-left"></i>
-  <% else %>
-    <p><%= @user.name %>のページ</p><i class="far fa-arrow-alt-circle-left"></i>
-  <% end %>
-</label>
+<div class="user_info_slide">
+  <label for="sidebar" class="slide">
+    <% @user ||= current_user %>
+    <% if @user.image.to_s.empty? %>
+      <%= image_tag("/default_user.png") %>
+    <% else %>
+      <%= image_tag(@user.image.url) %>
+    <% end %>
+    <% if @user == current_user %>
+      <p><%= @user.name %>でログイン中</p><i class="far fa-arrow-alt-circle-left"></i>
+    <% else %>
+      <p><%= @user.name %>のページ</p><i class="far fa-arrow-alt-circle-left"></i>
+    <% end %>
+  </label>
+</div>
 <label for="sidebar" class="back"></label>
