@@ -3,7 +3,9 @@
     <%= link_to post.picture.url, "data-lightbox" => post.picture.url do %>
       <div class="post_picture_expansion">
         <%= image_tag post.picture.url %>
-        <i class="fas fa-search-plus"></i>
+        <div class="post_picture_expansion_icon">
+          <i class="fas fa-search-plus"></i>
+        </div>
       </div>
     <% end %>
   <% end %>
