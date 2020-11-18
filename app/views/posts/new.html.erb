@@ -34,6 +34,24 @@
         <% end %>
       </div>
 
+      <%= f.label :お店・ラーメンに対する評価 %>
+      <div class="rate_star">
+        <div id="star">
+          <%= f.hidden_field :rate, id: :review_star %>
+        </div>
+      </div>
+      <script>
+        $('#star').raty({
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          scoreName: 'post[rate]',
+          hints: ["", "", "", "", ""],
+          half: true,
+        });
+      </script>
+
       <%= f.submit "投稿する", class: "btn btn-warning btn-block" %>
     <% end %>
   </div>

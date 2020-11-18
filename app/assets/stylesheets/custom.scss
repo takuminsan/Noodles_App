@@ -484,10 +484,21 @@ aside {
         display: block;
         font-size: 20px;
         font-weight: bold;
-        margin-bottom: 20px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+      }
+      .rate {
+        height: 50px;
+        display: flex;
+        .rate_score {
+          font-weight: bold;
+          margin-left: 10px;
+          font-size: 17px;
+        }
+        img {
+          width: 15px;
+        }
       }
       .nearest {
         display: block;
@@ -510,7 +521,7 @@ aside {
         }
       }
       .more {
-        margin-top: 40px;
+        margin-top: 20px;
         display: block;
         text-align: right;
         a {
@@ -600,7 +611,18 @@ aside {
       display: block;
       font-size: 20px;
       font-weight: bold;
-      margin-bottom: 20px;
+    }
+    .rate {
+      height: 50px;
+      display: flex;
+      .rate_score {
+        font-weight: bold;
+        margin-left: 10px;
+        font-size: 17px;
+      }
+      img {
+        width: 15px;
+      }
     }
     .nearest {
       display: block;
@@ -857,9 +879,16 @@ input {
 .genre_check_box {
   height: 50px;
   display: inline-block;
+  margin-bottom: 10px;
   label {
     margin-right: 10px;
   }
+}
+.rate_star {
+  height: 40px;
+  display: inline-block;
+  width: 100%;
+  text-align: left;
 }
 #error_explanation {
   color: red;
