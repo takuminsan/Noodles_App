@@ -34,7 +34,29 @@
         <% end %>
       </div>
 
+      <%= f.label :お店・ラーメンに対する評価 %>
+      <div class="rate_star">
+        <div id="star" data-score="<%= @post.rate %>">
+          <%= f.hidden_field :rate, id: :review_star %>
+        </div>
+      </div>
+
       <%= f.submit "編集する", class: "btn btn-warning btn-block" %>
     <% end %>
   </div>
 </div>
+
+<script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'post[rate]',
+    hints: ["", "", "", "", ""],
+    score: function() {
+      return $(this).attr('data-score'); // jqueryを用いて#starのdata-score(評価の値)を取得
+    },
+    half: true,
+  });
+</script>

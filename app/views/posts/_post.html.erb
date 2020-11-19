@@ -10,6 +10,12 @@
     <%= render 'posts/post_picture', { post: post } %>
     <div class="post_information">
       <span class="shop_name"><%= post.shop_name %></span>
+      <div class="rate">
+        <div id="star-<%= post.id %>" data-score="<%= post.rate %>"></div>
+        <div class="rate_score">
+          <p><%= post.rate %></p>
+        </div>
+      </div>
       <span class="nearest">最寄駅: <%= post.nearest %></span>
       <span class="content"><%= simple_format(post.content) %></span>
       <span class="more"><%= link_to "もっと見る", post_path(post.id) %></span>
@@ -22,3 +28,16 @@
     </div>
   </div>
 </li>
+<script>
+  $('#star-<%= post.id %>').raty({
+    readOnly: true,
+    starOff : '<%= asset_path('star-off.png') %>',
+    starOn  : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    hints   : ["", "", "", "", ""],
+    score   : function() {
+                return $(this).attr('data-score'); // jqueryを用いて#starのdata-score(評価の値)を取得
+              },
+    half    : true,
+  });
+</script>
