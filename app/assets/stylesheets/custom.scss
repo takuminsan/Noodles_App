@@ -374,6 +374,17 @@ aside {
     height: 60px;
     margin: 0;
     position: relative;
+    select {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      font-size: 15px;
+      height: 30px;
+      margin: 0 13px;
+      border-radius: 4px;
+      background-color: #ffffff;
+    }
     h3 {
       position: absolute;
       top: 50%;

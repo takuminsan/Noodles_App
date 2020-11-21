@@ -10,6 +10,8 @@
         <i class="far fa-heart"></i> 食べたい！(<%= @user.likes.count %>)
       <% end %>
     </li>
+  </ul>
+  <%= render 'shared/sort_pull-down_menu' %>
 </div>
 <% if @posts.any? %>
   <ul class="posts like">
