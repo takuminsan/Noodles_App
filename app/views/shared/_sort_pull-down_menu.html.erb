@@ -1,8 +1,10 @@
-<select name="sort_order">
-  <option value="">投稿が新しい順</option>
-  <option value="">投稿が古い順</option>
-  <option value="">[食べたい！]が多い順</option>
-  <option value="">[食べたい！]が少ない順</option>
-  <option value="">評価が高い順</option>
-  <option value="">評価が低い順</option>
-</select>
+<%= form_with url: request.url, method: :get do |f| %>
+  <%= f.select :sort, {
+    '投稿が新しい順': 'created_at desc',
+    '投稿が古い順': 'created_at asc',
+    '[食べたい！]が多い順': 'like desc',
+    '[食べたい！]が少ない順': 'like asc',
+    '評価が高い順': 'rate desc',
+    '評価が低い順': 'rate asc'
+  }, {include_blank: '並び替え'}, {onchange: 'this.form.submit()'} %>
+<% end %>

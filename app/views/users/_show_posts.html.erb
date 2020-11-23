@@ -18,7 +18,7 @@
     <%= render @posts %>
   </ol>
   <!-- users/show はusersコントローラのコンテキストである為、明示的に@posts変数をwill_paginateに渡す必要がある -->
-  <%= will_paginate @posts, remote: true %>
+  <%= will_paginate @posts %>
 <% else %>
   <div class="no-contents">
     <h3><%= @user.name %>の投稿はありません。</h3>
