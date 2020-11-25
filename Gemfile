@@ -17,7 +17,6 @@ gem 'mysql2' # DBにMySQLを選択する
 gem 'puma' # APサーバ
 gem 'rails', '6.0.3.1'
 gem 'rails-i18n' # Railsの日本語化対応
-gem 'ransack' # 検索機能, ソート機能
 gem 'rmagick' # 画像処理
 gem 'sassc-rails' # Sass(効率的にCSSを書くことのできる言語)を使えるようにする
 gem 'uglifier' # JS軽量化

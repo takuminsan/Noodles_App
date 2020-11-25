@@ -7,9 +7,17 @@ class StaticPagesController < ApplicationController
                      end
 
     @feed_items =    if logged_in?
-                       current_user.feed.paginate(page: params[:page], per_page: 12).recent
+                       if params[:sort]
+                         current_user.feed.paginate(page: params[:page], per_page: 12).order(params[:sort])
+                       else
+                         current_user.feed.paginate(page: params[:page], per_page: 12).recent
+                       end
                      else
-                       Post.all.paginate(page: params[:page], per_page: 12).recent
+                       if params[:sort]
+                         Post.all.paginate(page: params[:page], per_page: 12).order(params[:sort])
+                       else
+                         Post.all.paginate(page: params[:page], per_page: 12).recent
+                       end
                      end
 
     @genres = Genre.all
