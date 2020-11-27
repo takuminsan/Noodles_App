@@ -311,6 +311,13 @@
   }
 }
 
+@media (max-width: 500px) {
+  .section_title select {
+    width: 16px;
+    border: none;
+  }
+}
+
 @media (max-width: 439px) {
 
   /* header */
