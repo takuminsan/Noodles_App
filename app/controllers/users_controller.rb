@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
+  ALLOWED_ATTRIBUTES = ["created_at desc", "created_at asc", "rate desc", "rate asc"].freeze
 
   def index
     @users = User.paginate(page: params[:page], per_page: 10).order(created_at: "ASC") # will_paginateではpagenateメソッドを使った結果が必要
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @main_section_render = "show_posts"
     @posts = if params[:sort]
+               validate_order_by(params[:sort])
                @user.posts.paginate(page: params[:page], per_page: 12).order(params[:sort])
              else
                @user.posts.paginate(page: params[:page], per_page: 12).recent
@@ -83,6 +85,12 @@ class UsersController < ApplicationController
   end
 
   private
+
+    # params[:sort]で受け取った値に対してバリデーション
+    # 事前に定めた属性名以外はエラーとする
+    def validate_order_by(text)
+      raise ArgumentError, "Attribute not allowed: #{text}" unless text.in?(ALLOWED_ATTRIBUTES)
+    end
 
     # Strong Parameters
     # マスアサインメント (ユーザーが送信したデータをまるごとUser.newに渡す)の脆弱性を回避
