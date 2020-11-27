@@ -10,11 +10,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @main_section_render = "show_posts"
-    if params[:sort]
-      @posts = @user.posts.paginate(page: params[:page], per_page: 12).order(params[:sort])
-    else
-      @posts = @user.posts.paginate(page: params[:page], per_page: 12).recent
-    end
+    @posts = if params[:sort]
+               @user.posts.paginate(page: params[:page], per_page: 12).order(params[:sort])
+             else
+               @user.posts.paginate(page: params[:page], per_page: 12).recent
+             end
+    @selected_sort = params[:sort]
     respond_to do |format|
       format.html
       format.js
