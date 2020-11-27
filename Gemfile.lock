@@ -223,8 +223,6 @@ GEM
     parallel (1.20.1)
     parser (2.7.2.0)
       ast (~> 2.4.1)
-    polyamorous (2.3.2)
-      activerecord (>= 5.2.1)
     public_suffix (4.0.6)
     puma (5.0.4)
       nio4r (~> 2.0)
@@ -263,11 +261,6 @@ GEM
     rainbow (3.0.0)
     raindrops (0.19.1)
     rake (13.0.1)
-    ransack (2.3.2)
-      activerecord (>= 5.2.1)
-      activesupport (>= 5.2.1)
-      i18n
-      polyamorous (= 2.3.2)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -390,7 +383,6 @@ DEPENDENCIES
   puma
   rails (= 6.0.3.1)
   rails-i18n
-  ransack
   rmagick
   rspec-rails
   rspec_junit_formatter
