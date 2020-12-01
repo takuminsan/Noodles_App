@@ -1,9 +1,9 @@
 ## Noodlesとは
 https://noodles-app.com<br>
-ラーメン屋さんの写真や情報を友だちと共有できるアプリケーションです。
-<img width="1162" alt="スクリーンショット 2020-12-01 13 44 27" src="https://user-images.githubusercontent.com/57702892/100698318-7f358380-33db-11eb-9de1-8b9f190ff556.png">
-<img width="1162" alt="スクリーンショット 2020-12-01 13 42 48" src="https://user-images.githubusercontent.com/57702892/100698336-852b6480-33db-11eb-98b9-27e7549b715d.png">
-<img width="1162" alt="スクリーンショット 2020-12-01 13 42 22" src="https://user-images.githubusercontent.com/57702892/100698340-86f52800-33db-11eb-99c0-f2c6684da5e2.png">
+ラーメン屋さんの写真や情報を友だちと共有できるアプリケーションです。<br>
+<img width="500" alt="スクリーンショット 2020-12-01 13 42 22" src="https://user-images.githubusercontent.com/57702892/100698340-86f52800-33db-11eb-99c0-f2c6684da5e2.png">
+<img width="500" alt="スクリーンショット 2020-12-01 13 42 48" src="https://user-images.githubusercontent.com/57702892/100698336-852b6480-33db-11eb-98b9-27e7549b715d.png">
+<img width="500" alt="スクリーンショット 2020-12-01 13 44 27" src="https://user-images.githubusercontent.com/57702892/100698318-7f358380-33db-11eb-9de1-8b9f190ff556.png">
 ## 機能一覧
 - ユーザー機能
   - 新規登録（メール送信によるユーザー認証）、ログイン、ログアウト機能ほか<br>
